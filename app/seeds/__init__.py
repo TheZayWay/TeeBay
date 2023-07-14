@@ -11,6 +11,7 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     if environment == 'production':
+        
         undo_seed_listings()
         undo_seed_listing_users()
         undo_seed_teeshirts()

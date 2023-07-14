@@ -7,7 +7,9 @@ Create Date: 2023-07-14 11:06:09.340891
 """
 from alembic import op
 import sqlalchemy as sa
-
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
 revision = '307b7ffc37f2'
@@ -78,6 +80,14 @@ def upgrade():
     sa.PrimaryKeyConstraint('listings_id', 'users_id')
     )
     # ### end Alembic commands ###
+    if environment == "production":
+        op.execute(f"ALTER TABLE carts SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE teeshirts SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE brands SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE carts_teeshirts SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE listings SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE listings_users SET SCHEMA {SCHEMA};")
 
 
 def downgrade():
