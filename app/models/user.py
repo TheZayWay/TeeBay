@@ -23,7 +23,7 @@ class User(db.Model, UserMixin):
         back_populates="users"
         )
     carts = db.relationship("Cart", back_populates="users")
-    teeshirts = db.relationship("Teeshirt", back_populates="users", cascade="delete, merge, save-update")
+    teeshirts = db.relationship("Teeshirt", back_populates="users")
 
     @property
     def password(self):
