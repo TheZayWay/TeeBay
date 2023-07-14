@@ -2,11 +2,16 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from .brand import Brand
 from collections import OrderedDict
 
+
+    
 carts_teeshirts = db.Table(
     "carts_teeshirts",
     db.Column("carts_id", db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")), primary_key=True),
     db.Column("teeshirts_id", db.Integer, db.ForeignKey(add_prefix_for_prod("teeshirts.id")), primary_key=True)
 )
+if environment == "production":
+    carts_teeshirts.schema = SCHEMA
+
 
 class Teeshirt(db.Model):
     __tablename__ = 'teeshirts'
