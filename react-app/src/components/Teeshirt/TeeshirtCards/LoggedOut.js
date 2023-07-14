@@ -26,6 +26,7 @@ export default function LoggedOut() {
                             <Link to={`/teeshirts/${teeshirt.id}`}>
                                 <img src={teeshirt.image_url} alt='Teeshirt Preview' className='front-page-images'/>
                             </Link>
+                            <p>Price placeholder</p>
                             <div>
                                 <div>
                                     <div>

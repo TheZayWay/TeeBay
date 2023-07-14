@@ -32,13 +32,13 @@ export default function LoggedIn() {
         <hr></hr>
         <div className='card-container'>         
             {teesArr.map((teeshirt) => {
-                    return (
-                        <div className='card' key={teeshirt.id}>
-                            <Link to={`/teeshirts/${teeshirt.id}`}>
-                                <img src={teeshirt.image_url} alt='Teeshirt Preview' className='front-page-images'/>
-                                <button>Buy Tee</button>
-                            </Link>                           
-                        </div>
+                return (
+                    <div className='card' key={teeshirt.id}>
+                        <Link to={`/teeshirts/${teeshirt.id}`}>
+                            <img src={teeshirt.image_url} alt='Teeshirt Preview' className='front-page-images'/>
+                        </Link>
+                        <p>Price placeholder</p>                           
+                    </div>
                     )
                 }                 
             )}

@@ -3,11 +3,11 @@ from sqlalchemy.sql import text
 
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', first_name="Demo", last_name="Lition")
+        email='demo@aa.io', password='password', first_name="Demo", last_name="Lition")
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password', first_name="Marnie", last_name="Smith")
+        email='marnie@aa.io', password='password', first_name="Marnie", last_name="Smith")
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password', first_name="Bobbie", last_name="Handsome")
+        email='bobbie@aa.io', password='password', first_name="Bobbie", last_name="Handsome")
 
     db.session.add(demo)
     db.session.add(marnie)
@@ -16,9 +16,9 @@ def seed_users():
     print("Users have been seeded.")
 
 def seed_listing_users(): 
-    user1 = User(username='Demo', email='demo@aa.io', password='password', first_name="Demo", last_name="Lition")
-    user2 = User(username='marnie', email='marnie@aa.io', password='password', first_name="Marnie", last_name="Smith")
-    user3 = User(username='bobbie', email='bobbie@aa.io', password='password', first_name="Bobbie", last_name="Handsome")
+    user1 = User(email='demo@aa.io', password='password', first_name="Demo", last_name="Lition")
+    user2 = User(email='marnie@aa.io', password='password', first_name="Marnie", last_name="Smith")
+    user3 = User(email='bobbie@aa.io', password='password', first_name="Bobbie", last_name="Handsome")
 
     listing1 = Listing(teeshirts_id=3, users_id=1)
     listing2 = Listing(teeshirts_id=4, users_id=2)
