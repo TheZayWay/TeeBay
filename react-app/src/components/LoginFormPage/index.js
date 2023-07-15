@@ -68,9 +68,9 @@ function LoginFormPage() {
       </div>
       
       <div className="other-login-form-btns-container">
-        <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="login-form-btns">Sign in with Facebook</button>
-        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="login-form-btns">Sign in with Google</button> 
-        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey"}} className="login-form-btns">Sign in with Apple</button>         
+        <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="login-form-btns1">Sign in with Facebook</button>
+        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="login-form-btns1">Sign in with Google</button> 
+        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey"}} className="login-form-btns1">Sign in with Apple</button>         
       </div>
       <hr style={{marginTop: "50px"}}></hr>
       <footer className="login-form-footer-container">

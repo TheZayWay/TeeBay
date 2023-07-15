@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, TextAreaField, SubmitField
+from wtforms import StringField, SelectField, TextAreaField, SubmitField, IntegerField
 from wtforms.validators import DataRequired
 
 class SellingForm(FlaskForm):
@@ -14,4 +14,5 @@ class SellingForm(FlaskForm):
     description = TextAreaField('Description', validators=[DataRequired()])
     image_url = StringField('Image Url', validators=[DataRequired()])
     brand = StringField('Brand Name')
+    price = IntegerField('Price', validators=[DataRequired()])
     create_listing = SubmitField('Create a Listing')

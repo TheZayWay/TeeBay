@@ -23,8 +23,9 @@ class Teeshirt(db.Model):
     name = db.Column(db.String(50), nullable=False)
     type = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(150), nullable=False)
-    brand = db.Column(db.String(50), nullable=False)
+    brand = db.Column(db.String(50))
     image_url = db.Column(db.String, nullable=False)
+    price = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     # carts_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")))
     # listings_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")))
@@ -48,6 +49,7 @@ class Teeshirt(db.Model):
             'description': self.description,
             'image_url': self.image_url,
             'brand': self.brand,
+            'price': self.price,
             'user_id': self.user_id
             # 'users': [user.to_dict() for user in self.users]      
         }

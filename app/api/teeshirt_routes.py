@@ -43,6 +43,7 @@ def create_a_teeshirt(userId):
             description = data['description'],
             image_url = data['image_url'],
             brand = data['brand'],
+            price = data['price'],
             user_id = userId
         )
         db.session.add(teeshirt)
@@ -63,7 +64,8 @@ def edit_teeshirt(id):
             teeshirt_to_update.type = data['type']
             teeshirt_to_update.description = data['description']
             teeshirt_to_update.image_url = data['image_url']
-            teeshirt_to_update.brand = data['brand']
+            teeshirt_to_update.brand = data['brand'],
+            teeshirt_to_update.brand = data['price']
             db.session.commit()
             print("PRINTS", teeshirt_to_update.to_dict())
             return teeshirt_to_update.to_dict()

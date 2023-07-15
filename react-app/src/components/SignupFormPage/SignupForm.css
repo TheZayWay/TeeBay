@@ -1,0 +1,72 @@
+.whole-signup-page {
+    display: flex;
+    flex-direction: row;
+    /* height: 800px; */
+}
+
+/* .signup-form-container {
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+} */
+.signup-form-fullname {
+    display: flex;
+}
+
+.signup-form-inputs1 {
+    background-color: #F7F7F7;
+    width: 140px;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.signup-form-inputs1::placeholder {
+    color: #191919; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 450;
+}
+
+.signup-form-inputs2 {
+    background-color: #F7F7F7;
+    width: 140px;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.signup-form-inputs2::placeholder {
+    color: #191919; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 450;
+}
+
+.signup-form-btns {
+    width: 339px;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.signup-form-btns:hover {
+    cursor: pointer;
+}
+
+.signup-form-btns1 {
+    width: 339px;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.signup-form-btns1:hover {
+    cursor: not-allowed;
+}

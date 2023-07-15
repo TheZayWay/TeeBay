@@ -38,7 +38,7 @@ export default function LoggedOut() {
         <hr className='hr-home'></hr>
         <div className='searchbar-home-container'>
             <Link to="/">Home</Link>
-            <p>Shop by category</p>
+            <p>Find your tee type</p>
             <div className='searchbar-home'>
                 <div><i class="fas fa-search" style={{color: "grey", paddingLeft: "20px", paddingRight: "10px", fontSize: "15px"}}></i></div>
                 <input className='searchbar-mag-text' style={{paddingRight: "55%", border: "none", outline: "none", fontSize: "16px"}} placeholder="Search for any tee" />
@@ -51,6 +51,7 @@ export default function LoggedOut() {
                         <option>Long Sleeve</option>
                         <option>Button Short Sleeve</option>
                         <option>Button Long Sleeve</option>
+                        <option>Thermal</option>
                         <option>Undershirt</option>
                     </select>
                 </div>
@@ -68,7 +69,7 @@ export default function LoggedOut() {
                                     <img src={teeshirt.image_url} alt='Teeshirt Preview' className='front-page-images'/>
                                 </Link>
                             </div>
-                            <p>Price placeholder</p>
+                            <p>${teeshirt.price.toFixed(2)}</p>
                         </div>
                     )
                 }                 

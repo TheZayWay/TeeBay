@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: aac993e7b90e
+Revision ID: 60a28d71e484
 Revises: 
-Create Date: 2023-07-14 19:55:18.328155
+Create Date: 2023-07-15 12:03:27.416031
 
 """
 from alembic import op
@@ -12,7 +12,7 @@ environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
 # revision identifiers, used by Alembic.
-revision = 'aac993e7b90e'
+revision = '60a28d71e484'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -40,8 +40,9 @@ def upgrade():
     sa.Column('name', sa.String(length=50), nullable=False),
     sa.Column('type', sa.String(length=50), nullable=False),
     sa.Column('description', sa.String(length=150), nullable=False),
-    sa.Column('brand', sa.String(length=50), nullable=False),
+    sa.Column('brand', sa.String(length=50), nullable=True),
     sa.Column('image_url', sa.String(), nullable=False),
+    sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
@@ -75,13 +76,11 @@ def upgrade():
     )
     # ### end Alembic commands ###
     if environment == "production":
-        op.execute(f"ALTER TABLE carts SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE teeshirts SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE brands SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE carts_teeshirts SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE carts SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE listings SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE listings_users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE teeshirts SET SCHEMA {SCHEMA};")
 
 
 def downgrade():

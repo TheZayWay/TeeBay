@@ -33,76 +33,65 @@ function SignupFormPage() {
 
   return (
     <>
-      <h2>Already a member? <Link to="/login">Sign in</Link></h2>
-      <h1>Create an account</h1>
-      <div className="signup-form-container">
-        <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
-          <div></div>
-          <label>
-            <input 
-              type="text"
-              placeholder="First name"
-              value={first_name}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </label>
-          <label>
-            <input 
-              type="text"
-              placeholder="Last name"
-              value={last_name}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </label>
-          <label>
-            <input
-              placeholder="Email"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
-          {/* <label>
-            Username
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </label> */}
-          <label>
-            <input
-              placeholder="Password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
-          {/* <label>
-            Confirm Password
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </label> */}
-          <button type="submit">Create account</button> 
-          {/* isDisabled={isDisabled} */}
-        </form>
+      <Link to="/">Home</Link>
+      <h2 style={{fontSize: "16px", fontWeight: "300", fontFamily: '"Market Sans", Arial, sans-serif'}}>Already a member? <Link style={{color: "#0654ba"}} to="/login">Sign in</Link></h2>
+      <h1 style={{textAlign: "center", fontFamily: '"Market Sans", Arial, sans-serif'}}>Create an account</h1>
+      <div className="whole-signup-page">
+        <div className="signup-form-container">
+          <form style={{display: "flex", flexDirection: "column"}} onSubmit={handleSubmit}>
+            <ul>
+              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
+            <div className="signup-form-fullname">
+              <label>
+                <input 
+                  type="text"
+                  placeholder="First name"
+                  value={first_name}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  className="signup-form-inputs1"
+                />
+              </label>
+              <label>
+                <input 
+                  type="text"
+                  placeholder="Last name"
+                  value={last_name}
+                  onChange={(e) => setLastName(e.target.value)}
+                  className="signup-form-inputs1"
+                />
+              </label>
+            </div>
+            <label>
+              <input
+                placeholder="Email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="signup-form-inputs2"
+              />
+            </label>
+            <label>
+              <input
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="signup-form-inputs2"
+              />
+            </label>
+            <button style={{backgroundColor: "#3665F3", color: "white", border: "none"}} className="signup-form-btns" type="submit">Create account</button> 
+          </form>
         </div>
         or
-        <div className="signup-socials-container">
-          <button>Continue with Google</button>
-          <button>Continue with Facebook</button>
-          <button>Continue with Apple</button>
+        <div style={{display: "flex", flexDirection: "column"}} className="signup-socials-container">
+          <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="signup-form-btns1">Continue with Google</button>
+          <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="signup-form-btns1">Continue with Facebook</button>
+          <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey"}} className="signup-form-btns1">Continue with Apple</button>
         </div>
+      </div>
       <hr></hr>
       <footer>Copyright © 2023 TeeBay All Rights Reserved. 
         <span className="login-form-footer-span">Accessibility,</span>

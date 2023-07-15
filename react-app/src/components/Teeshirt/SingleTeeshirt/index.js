@@ -28,6 +28,7 @@ export default function TeeshirtDetails() {
         {user ? (
         <><button onClick={handleLogout}>Log Out</button>
         <p>logged in</p>
+        <Link to="/">Home</Link>
         <Link to="/selling">Sell</Link>
         <Link to="/listings">Your Account</Link>
         </>
@@ -41,7 +42,7 @@ export default function TeeshirtDetails() {
           <p>{Math.floor(Math.random() * 15) + 1} sold in the last hour</p>
         </div>
         <div className='single-tee-buying-container'>
-          <p>Price: $price placeholder/ea</p>
+          <p>Price: ${teeshirt?.price.toFixed(2)}</p>
           {user ? (
                 <div>
                   <button>Buy It Now</button>
