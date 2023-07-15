@@ -37,11 +37,11 @@ export default function LoggedIn() {
                 <span style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
             </div>            
             <div className='logged-in-header-split'>
-                <span style={{fontSize: "12px"}}><Link to="/selling">Sell</Link></span>
-                <span style={{fontSize: "12px"}}><Link to="/listings">My TeeBay</Link></span>
-                <span><i class="fas fa-bell"></i></span>
-                <span><i class="fas fa-shopping-cart"></i></span>
-                <button style={{border: "none", backgroundColor: "transparent"}} onClick={handleLogout}>Log Out</button>
+                <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
+                <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
+                <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
+                <span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>
+                <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout}>Log Out</button>
             </div>
         </div>
         <hr className='hr-home'></hr>
@@ -49,24 +49,36 @@ export default function LoggedIn() {
             <Link to="/">Home</Link>
             <p>Shop by category</p>
             <div className='searchbar-home'>
-                <div><i class="fas fa-search" style={{color: "grey"}}></i></div>
-                <span className='searchbar-mag-text' style={{paddingRight: "60%"}}>Search for any tee</span>
-                {/* <hr className='search-hr'></hr> */}
-                <div style={{borderLeft: "1px solid grey"}}>All Categories</div>
+                <div><i class="fas fa-search" style={{color: "grey", paddingLeft: "20px", paddingRight: "10px", fontSize: "15px"}}></i></div>
+                <input className='searchbar-mag-text' style={{paddingRight: "55%", border: "none", outline: "none", fontSize: "16px"}} placeholder="Search for any tee" />
+                <hr className='search-hr'></hr>
+                <div style={{fontSize: "12px"}}>
+                    All Types
+                    <select style={{width: "25px", border: "none", outline: "none"}}>
+                        <option></option>
+                        <option>Short Sleeve</option>
+                        <option>Long Sleeve</option>
+                        <option>Button Short Sleeve</option>
+                        <option>Button Long Sleeve</option>
+                        <option>Undershirt</option>
+                    </select>
+                </div>
             </div>
             <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
         <hr className='hr-home'></hr>
-        <p>logged in</p>
-        <div className='card-container'>         
+        <div>logged in</div>
+        <div className='card-container'>           
             {teesArr.map((teeshirt) => {
-                return (
-                    <div className='card' key={teeshirt.id}>
-                        <Link to={`/teeshirts/${teeshirt.id}`}>
-                            <img src={teeshirt.image_url} alt='Teeshirt Preview' className='front-page-images'/>
-                        </Link>
-                        <p>Price placeholder</p>                           
-                    </div>
+                    return (
+                        <div className='card' key={teeshirt.id}>
+                            <div className='front-page-images-container'>
+                                <Link to={`/teeshirts/${teeshirt.id}`}>
+                                    <img src={teeshirt.image_url} alt='Teeshirt Preview' className='front-page-images'/>
+                                </Link>
+                            </div>
+                            <p>Price placeholder</p>
+                        </div>
                     )
                 }                 
             )}

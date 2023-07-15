@@ -10,11 +10,11 @@
 }
 
 .logged-out-header-split {
-    margin-left: 780px;
+    margin-left: 700px;
 }
 
 .logged-in-header-split {
-    margin-left: 720px;
+    margin-left: 650px;
 }
 
 .logged-out-signin {
@@ -40,7 +40,7 @@
 
 .searchbar-home {
     border: 2px solid black;
-    width: 99%;
+    width: 60%;
     height: 36px;
     display: flex;
     align-items: center;
@@ -55,9 +55,12 @@
     font-weight: 200;
 }
 
-/* .search-hr {
-    
-} */
+.search-hr {
+    height: 100%;
+    margin-right: 10px;
+    border: none;
+    border-left: 1px solid grey;
+}
 
 .searchbar-button {
     background-color: #3665f3;
