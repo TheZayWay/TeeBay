@@ -1,7 +1,7 @@
 .logged-out-header {
     display: flex;
-    /* justify-content: space-evenly; */
-    /* width: 100%; */
+    margin-top: -12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .logged-out-header-presplit {
@@ -9,7 +9,7 @@
 }
 
 .logged-out-header-split {
-    margin-left: 800px;
+    margin-left: 780px;
 }
 
 .logged-out-signin {
@@ -30,6 +30,7 @@
     display: flex;
     align-items: center;
     gap: 30px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .searchbar-home {
@@ -38,6 +39,7 @@
     height: 36px;
     display: flex;
     align-items: center;
+    
     /* justify-content: space-evenly; */
 }
 

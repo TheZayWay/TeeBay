@@ -23,13 +23,14 @@ export default function LoggedOut() {
         <>
         <div className='logged-out-header'>
             <div className='logged-out-header-presplit'>
-                <span style={{paddingLeft: "20px"}} className='logged-out-signin-sentence'>Hi(<Link to='/login' className='logged-out-signin'>Sign in</Link>)</span>
-                <span style={{paddingLeft: "20px"}}>Daily deals</span>
-                <span style={{paddingLeft: "20px"}}>Help & Contact</span>
+                <span style={{paddingLeft: "0px", fontSize: "12px"}} className='logged-out-signin-sentence'>Hi (<Link to='/login' className='logged-out-signin'>Sign in</Link>)</span>
+                <span style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
+                <span style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
+                <span style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
             </div>            
             <div className='logged-out-header-split'>
-                <span><Link to="/selling">Sell</Link></span>
-                <span><Link to="/listings">My TeeBay</Link></span>
+                <span style={{fontSize: "12px"}}><Link to="/selling">Sell</Link></span>
+                <span style={{fontSize: "12px"}}><Link to="/listings">My TeeBay</Link></span>
                 <span><i class="fas fa-bell"></i></span>
                 <span><i class="fas fa-shopping-cart"></i></span>
             </div>
