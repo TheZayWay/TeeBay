@@ -4,9 +4,12 @@
     /* width: 100%; */
 }
 
+.logged-out-header-presplit {
+    margin-left: 20px;
+}
+
 .logged-out-header-split {
     margin-left: 800px;
-    
 }
 
 .logged-out-signin {

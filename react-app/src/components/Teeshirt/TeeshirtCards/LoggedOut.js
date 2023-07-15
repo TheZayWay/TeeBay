@@ -22,9 +22,11 @@ export default function LoggedOut() {
     return (
         <>
         <div className='logged-out-header'>
-            <span className='logged-out-signin-sentence'>Hi(<Link to='/login' className='logged-out-signin'>Sign in</Link>)</span>
-            <span>Daily deals</span>
-            <span>Help & Contact</span>
+            <div className='logged-out-header-presplit'>
+                <span style={{paddingLeft: "20px"}} className='logged-out-signin-sentence'>Hi(<Link to='/login' className='logged-out-signin'>Sign in</Link>)</span>
+                <span style={{paddingLeft: "20px"}}>Daily deals</span>
+                <span style={{paddingLeft: "20px"}}>Help & Contact</span>
+            </div>            
             <div className='logged-out-header-split'>
                 <span><Link to="/selling">Sell</Link></span>
                 <span><Link to="/listings">My TeeBay</Link></span>
@@ -38,9 +40,9 @@ export default function LoggedOut() {
             <p>Shop by category</p>
             <div className='searchbar-home'>
                 <div><i class="fas fa-search" style={{color: "grey"}}></i></div>
-                <span className='searchbar-mag-text'>Search for any tee</span>
+                <span className='searchbar-mag-text' style={{paddingRight: "60%"}}>Search for any tee</span>
                 {/* <hr className='search-hr'></hr> */}
-                <div style={{paddingLeft: "60%"}}>All Categories</div>
+                <div style={{borderLeft: "1px solid grey"}}>All Categories</div>
             </div>
             <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
