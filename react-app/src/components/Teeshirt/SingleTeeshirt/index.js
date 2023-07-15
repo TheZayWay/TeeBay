@@ -31,7 +31,7 @@ export default function TeeshirtDetails() {
         <Link to="/selling">Sell</Link>
         <Link to="/listings">Your Account</Link>
         </>
-        ) : <><p>Hi(<Link to='/login'>Sign in</Link>)</p><Link to='/login'>Sell</Link><Link to='/login'>Your account</Link><p>logged out</p></>}
+        ) : <><p className='logged-out-signin-sentence'>Hi(<Link to='/login' className='logged-out-signin'>Sign in</Link>)</p><Link to='/login'>Sell</Link><Link to='/login'>Your account</Link><p>logged out</p></>}
         <hr></hr>
         <h1>Individual Teeshirt</h1>
         <div className='single-tee-image-container'><img src={teeshirt?.image_url} /></div>

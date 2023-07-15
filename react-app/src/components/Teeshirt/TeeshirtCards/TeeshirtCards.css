@@ -1,4 +1,90 @@
+.logged-out-header {
+    display: flex;
+    /* justify-content: space-evenly; */
+    /* width: 100%; */
+}
+
+.logged-out-header-split {
+    margin-left: 800px;
+    
+}
+
+.logged-out-signin {
+    color: #0654ba;
+    text-decoration: underline;
+}
+
+.logged-out-signin:hover {
+    cursor: pointer;
+}
+
+.hr-home {
+    border: none;
+    border-top: 1px solid lightgray;
+}
+
+.searchbar-home-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.searchbar-home {
+    border: 2px solid black;
+    width: 99%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+}
+
+.searchbar-mag-text {
+    color: grey;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+}
+
+/* .search-hr {
+    
+} */
+
+.searchbar-button {
+    background-color: #3665f3;
+    color: white;
+    border: none;
+    width: 15%;
+    height: 40px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.front-page-images-container {
+    width: 200px;
+    height: 170px;
+    background-color: rgb(250, 250, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: calc(25% - 20px);
+}
+
 .front-page-images {
     width: 200px;
     height: 120px;
+
 }
+
+
+
+
+
+
+
+
+

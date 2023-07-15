@@ -4,7 +4,7 @@ import { loadAllTeesThunk } from '../../../store/teeshirt';
 import { Link } from 'react-router-dom';
 import CreateTeeshirtForm from '../../Forms/SellingForm';
 import { logout } from "../../../store/session";
-// import './TeeshirtCards.css'
+import './TeeshirtCards.css'
 
 
 export default function LoggedIn() {
