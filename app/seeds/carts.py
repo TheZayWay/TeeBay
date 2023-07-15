@@ -2,7 +2,7 @@ from app.models import db, Teeshirt, Cart, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_carts_teeshirts(): 
-    cart1 = Cart(users_id=1)
+    cart1 = Cart(users_id=1) #teeshirts_id=1/2/3
     cart2 = Cart(users_id=2)
     cart3 = Cart(users_id=3)
 

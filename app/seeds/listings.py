@@ -2,9 +2,9 @@ from app.models import db, Listing, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_listings():
-    listing1 = Listing(teeshirt_id=1)
-    listing2 = Listing(teeshirt_id=2)
-    listing3 = Listing(teeshirt_id=3)
+    listing1 = Listing(teeshirts_id=1) #users_id=1 /2/ 3
+    listing2 = Listing(teeshirts_id=2)
+    listing3 = Listing(teeshirts_id=3)
 
     db.session.add(listing1)
     db.session.add(listing2)
