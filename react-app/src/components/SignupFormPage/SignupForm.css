@@ -1,6 +1,10 @@
 .whole-signup-page {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    margin-top: -40px;
+    margin-bottom: 50px;
     /* height: 800px; */
 }
 
@@ -11,12 +15,13 @@
 } */
 .signup-form-fullname {
     display: flex;
+    margin-bottom: 25px;
 }
 
 .signup-form-inputs1 {
     background-color: #F7F7F7;
     width: 140px;
-    height: 30px;
+    height: 40px;
     border: 1px solid grey;
     border-radius: 10px;
     position: relative;
@@ -31,12 +36,13 @@
 
 .signup-form-inputs2 {
     background-color: #F7F7F7;
-    width: 140px;
-    height: 30px;
+    width: 305px;
+    height: 40px;
     border: 1px solid grey;
     border-radius: 10px;
     position: relative;
     box-sizing: border-box;
+    margin-bottom: 25px;
 }
 
 .signup-form-inputs2::placeholder {
@@ -45,8 +51,33 @@
     font-weight: 450;
 }
 
+.signup-policy-spans {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 12.5px;
+    font-family: "Market Sans", Arial, sans-serif;
+    color: gray
+}
+
+
+
+.vertical-hr1 {
+    width: 1px;
+    height: 200px; 
+    background-color: lightgrey;
+    border: none;
+
+}
+.vertical-hr2 {
+    width: 1px;
+    height: 200px; 
+    background-color: lightgrey;
+    border: none;
+}
+
 .signup-form-btns {
-    width: 339px;
+    width: 305px;
     height: 45px;
     border-radius: 20px;
     font-size: 1rem;
@@ -59,7 +90,7 @@
 }
 
 .signup-form-btns1 {
-    width: 339px;
+    width: 280px;
     height: 45px;
     border-radius: 20px;
     font-size: 1rem;
@@ -69,4 +100,12 @@
 
 .signup-form-btns1:hover {
     cursor: not-allowed;
+}
+
+.signup-form-footer-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 13px;
 }
