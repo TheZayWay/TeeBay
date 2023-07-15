@@ -8,7 +8,7 @@ class Cart(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     users_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    teeshirts_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("teeshirts.id")))
+    # teeshirts_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("teeshirts.id")))
 
     users = db.relationship("User", back_populates="carts")
 

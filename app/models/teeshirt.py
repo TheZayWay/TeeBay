@@ -26,7 +26,7 @@ class Teeshirt(db.Model):
     brand = db.Column(db.String(50), nullable=False)
     image_url = db.Column(db.String, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    carts_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")))
+    # carts_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")))
     # listings_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")))
     # brands_id = 
 
