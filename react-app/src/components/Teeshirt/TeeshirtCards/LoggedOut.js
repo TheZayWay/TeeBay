@@ -15,6 +15,10 @@ export default function LoggedOut() {
         dispatch(loadAllTeesThunk());
     }, [dispatch])
 
+    const handleButtonClick = () => {
+        alert('Feature coming soon...');
+      };
+
     return (
         <>
         <div className='logged-out-header'>
@@ -22,16 +26,15 @@ export default function LoggedOut() {
             <span>Daily deals</span>
             <span>Help & Contact</span>
             <div className='logged-out-header-split'>
-                <span>Sell</span>
-                <span>My TeeBay</span>
+                <span><Link to="/selling">Sell</Link></span>
+                <span><Link to="/listings">My TeeBay</Link></span>
                 <span><i class="fas fa-bell"></i></span>
                 <span><i class="fas fa-shopping-cart"></i></span>
             </div>
         </div>
         <hr className='hr-home'></hr>
-        <div>logged out</div>
         <div className='searchbar-home-container'>
-            Home
+            <Link to="/">Home</Link>
             <p>Shop by category</p>
             <div className='searchbar-home'>
                 <div><i class="fas fa-search" style={{color: "grey"}}></i></div>
@@ -39,10 +42,10 @@ export default function LoggedOut() {
                 {/* <hr className='search-hr'></hr> */}
                 <div style={{paddingLeft: "60%"}}>All Categories</div>
             </div>
-            <button className='searchbar-button'>Search</button>
+            <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
-        
         <hr className='hr-home'></hr>
+        <div>logged out</div>
         <div className='card-container'>           
             {teesArr.map((teeshirt) => {
                     return (
