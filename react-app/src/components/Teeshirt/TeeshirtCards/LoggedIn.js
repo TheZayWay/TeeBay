@@ -13,7 +13,7 @@ export default function LoggedIn() {
     const tees = teeshirts.tees.allTees;
     const user = teeshirts.session;
     const teesArr = Object.values(tees);
-
+    console.log("user", user)
     useEffect(() => {
         dispatch(loadAllTeesThunk());
     }, [dispatch])
@@ -30,15 +30,18 @@ export default function LoggedIn() {
     return (
         <>
         <div className='logged-out-header'>
-            <span className='logged-out-signin-sentence'>Hi(<Link to='/login' className='logged-out-signin'>Sign in</Link>)</span>
-            <span>Daily deals</span>
-            <span>Help & Contact</span>
-            <div className='logged-out-header-split'>
-                <span><Link to="/selling">Sell</Link></span>
-                <span><Link to="/listings">My TeeBay</Link></span>
+            <div className='logged-out-header-presplit'>
+                <span style={{paddingLeft: "0px", fontSize: "12px"}} className='logged-out-signin-sentence'>Hi <Link style={{fontWeight: "bold", color: "black", textDecoration: "none"}} to='/listings' className='logged-out-signin'>{user.user.first_name}</Link>!</span>
+                <span style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
+                <span style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
+                <span style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
+            </div>            
+            <div className='logged-in-header-split'>
+                <span style={{fontSize: "12px"}}><Link to="/selling">Sell</Link></span>
+                <span style={{fontSize: "12px"}}><Link to="/listings">My TeeBay</Link></span>
                 <span><i class="fas fa-bell"></i></span>
                 <span><i class="fas fa-shopping-cart"></i></span>
-                <button onClick={handleLogout}>Log Out</button>
+                <button style={{border: "none", backgroundColor: "transparent"}} onClick={handleLogout}>Log Out</button>
             </div>
         </div>
         <hr className='hr-home'></hr>
@@ -47,13 +50,12 @@ export default function LoggedIn() {
             <p>Shop by category</p>
             <div className='searchbar-home'>
                 <div><i class="fas fa-search" style={{color: "grey"}}></i></div>
-                <span className='searchbar-mag-text'>Search for any tee</span>
+                <span className='searchbar-mag-text' style={{paddingRight: "60%"}}>Search for any tee</span>
                 {/* <hr className='search-hr'></hr> */}
-                <div style={{paddingLeft: "60%"}}>All Categories</div>
+                <div style={{borderLeft: "1px solid grey"}}>All Categories</div>
             </div>
             <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
-        
         <hr className='hr-home'></hr>
         <p>logged in</p>
         <div className='card-container'>         

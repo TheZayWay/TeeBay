@@ -4,12 +4,17 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+
 .logged-out-header-presplit {
     margin-left: 20px;
 }
 
 .logged-out-header-split {
     margin-left: 780px;
+}
+
+.logged-in-header-split {
+    margin-left: 720px;
 }
 
 .logged-out-signin {
