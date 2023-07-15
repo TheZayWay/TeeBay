@@ -20,9 +20,9 @@ def seed_listing_users():
     user2 = User(email='marnie@aa.io', password='password', first_name="Marnie", last_name="Smith")
     user3 = User(email='bobbie@aa.io', password='password', first_name="Bobbie", last_name="Handsome")
 
-    listing1 = Listing(teeshirts_id=3, users_id=1)
-    listing2 = Listing(teeshirts_id=4, users_id=2)
-    listing3 = Listing(teeshirts_id=5, users_id=3)
+    listing1 = Listing(teeshirts_id=3)
+    listing2 = Listing(teeshirts_id=4)
+    listing3 = Listing(teeshirts_id=5)
     
 
     user1.listings.extend([listing1])

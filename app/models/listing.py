@@ -14,7 +14,7 @@ class Listing(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     teeshirts_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("teeshirts.id")))
-    users_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    # users_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     
     teeshirts = db.relationship("Teeshirt", back_populates="listings")
     users = db.relationship(
