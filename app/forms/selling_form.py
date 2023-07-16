@@ -14,5 +14,6 @@ class SellingForm(FlaskForm):
     description = TextAreaField('Description', validators=[DataRequired()])
     image_url = StringField('Image Url', validators=[DataRequired()])
     brand = StringField('Brand Name')
-    price = IntegerField('Price', validators=[DataRequired()])
+    price = IntegerField('Price') #validators=[DataRequired()]
+    color = StringField('Color')
     create_listing = SubmitField('Create a Listing')

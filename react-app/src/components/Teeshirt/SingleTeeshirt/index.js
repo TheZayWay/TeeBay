@@ -20,6 +20,7 @@ export default function TeeshirtDetails() {
     const teeshirtObj = useSelector((state) => state.tees.allTees);
     const user = useSelector((state) => state.session.user)
     const teeshirt = teeshirtObj[teeshirtId]
+    console.log("teeshirt", teeshirt)
     
     useEffect(() => {
         dispatch(loadTeeByIdThunk(teeshirtId));
@@ -34,6 +35,7 @@ export default function TeeshirtDetails() {
       alert('Feature coming soon...');
     };
     
+    // implement after the bug is fixed 
     // let handleBuying;
 
     // if (user.id === teeshirt.user_id) {
@@ -158,9 +160,9 @@ export default function TeeshirtDetails() {
               <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>              
             </div>
             <div className='single-tee-selection-container'>
-              <p>Condition: <span>New with tags</span></p>
-              <p>Color: <select><option>teeshirt color</option></select></p>
-              <p>Quantity: {Math.floor(Math.random() * 8) + 1} available / {Math.floor(Math.random() * 6) + 10} sold</p>
+              <p>Condition: <span style={{fontSize: "13px", fontWeight: "bold"}}>New with tags</span></p>
+              <p>Color: <select><option>{teeshirt?.color}</option></select></p>
+              <p>Quantity: <span>{Math.floor(Math.random() * 8) + 1} available /</span><span style={{color: "#dd1e31", fontWeight: "bold", fontFamily: "Open Sans",}}> {Math.floor(Math.random() * 6) + 10} sold</span></p>
               <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>
             </div>
             <div className='single-tee-buying-container'>
@@ -168,12 +170,13 @@ export default function TeeshirtDetails() {
               
               {user ? (
                     <div>
-                      <button style= //onClick={handleBuying}
-                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#0053A0", border: "none"}} 
-                        className='purchase-btns'>
-                        Buy It Now
-                        
-                      </button>
+                      <Link style={{textDecoration: "none"}} to="/cart">
+                        <button style= //onClick={handleBuying}
+                          {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#0053A0", border: "none"}} 
+                          className='purchase-btns'>
+                          Buy It Now             
+                        </button>
+                      </Link>
                       <button style=
                         {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#3498CA", border: "none"}} 
                         className='purchase-btns'>
@@ -218,10 +221,16 @@ export default function TeeshirtDetails() {
           </div>
           <div className='single-tee-end-container'>
             <div className='single-tee-shop-w-con-container'>
-              <p style={{paddingLeft: "10px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}>Shop with confidence</p>
-              <p>TeeBay Money Back Guarantee</p>
-              <p>Get the item you ordered or your money back.</p>
-              <p>Learn more</p>
+              <p style={{paddingLeft: "10px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#333"}}>Shop with confidence</p>
+              <p style={{paddingLeft: "10px", marginTop: "-5px",fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#333"}}>
+                <i style={{color: "blue"}}class="fas fa-shield-alt"></i>
+                <span style={{paddingLeft: "10px", fontSize: "15px"}}>TeeBay Money Back Guarantee</span>
+              </p>
+              <p style={{marginTop: "-10px", paddingLeft: "38px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#707070", fontSize: "14px"}}>
+                <p>Get the item you ordered</p>
+                <p style={{marginTop: "-15px"}}>or your money back.</p>
+              </p>
+              {/* <p style={{marginTop: "-10px", paddingLeft: "38px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#0654ba"}}>Learn more</p> */}
             </div>
             <div className='single-tee-seller-info-container'>
               <p>Seller information</p>

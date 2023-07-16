@@ -86,7 +86,6 @@ export const loadCreateTeeThunk = (userId, teeshirt) => async (dispatch) => {
 
     if (response.ok) {
         const newTeeshirt = await response.json();
-        console.log("ID", newTeeshirt)
         dispatch(loadCreateTee(newTeeshirt))
         return newTeeshirt
     }
@@ -101,9 +100,9 @@ export const loadEditTeeThunk = (teeshirtId, teeshirt) => async (dispatch) => {
     console.log("res", response)
     if (response.ok) {
         const updatedTeeshirt = await response.json();
+        console.log(updatedTeeshirt, "UPDATED")
         const newlyUpdatedTeeshirt = {...updatedTeeshirt}
         dispatch(loadEditTee(newlyUpdatedTeeshirt));
-        console.log(newlyUpdatedTeeshirt, "NEWNEW")
         return newlyUpdatedTeeshirt;
     }
 };
@@ -152,6 +151,7 @@ const teeshirtReducer = (state = initialState, action) => {
         case EDIT_TEE: {
             const newState = {...state}
             newState.allTees[action.tee.id] = action.tee;
+            console.log("NEW", newState)
             return newState;
         }
         case DELETE_TEE: {

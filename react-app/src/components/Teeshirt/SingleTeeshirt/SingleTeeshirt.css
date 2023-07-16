@@ -22,6 +22,10 @@
     width: 30%;
 }
 
+.single-tee-selection-container {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .single-tee-information-container {
     font-family: 'Helvetica neue',Helvetica,Verdana,Sans-serif;
     overflow: wrap;

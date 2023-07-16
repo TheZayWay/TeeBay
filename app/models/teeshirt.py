@@ -22,14 +22,15 @@ class Teeshirt(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     type = db.Column(db.String(50), nullable=False)
-    description = db.Column(db.String(150), nullable=False)
+    description = db.Column(db.String(150))
     brand = db.Column(db.String(50))
     image_url = db.Column(db.String, nullable=False)
-    price = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Integer)
+    color = db.Column(db.String(20))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     # carts_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")))
     # listings_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")))
-    # brands_id = 
+    
 
     carts = db.relationship(
         "Cart",
@@ -50,8 +51,9 @@ class Teeshirt(db.Model):
             'image_url': self.image_url,
             'brand': self.brand,
             'price': self.price,
+            'color': self.color,
             'user_id': self.user_id
-            # 'users': [user.to_dict() for user in self.users]      
+            # 'users':       
         }
     
     

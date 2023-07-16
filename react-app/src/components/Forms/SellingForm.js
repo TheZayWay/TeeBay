@@ -15,6 +15,7 @@ export default function CreateTeeshirtForm() {
   const [image_url, setImage_Url] = useState("");
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
+  const [color, setColor] = useState("");
   const [errors, setErrors] = useState([]);
 //   const [submitted, setSubmitted] = useState(false);
 
@@ -26,7 +27,8 @@ const handleSubmit = async (e) => {
         description: description,
         image_url: image_url,
         brand: brand,
-        price: price
+        price: price,
+        color: color
       }
       
       const newTeeshirt = await dispatch(loadCreateTeeThunk(userId,teeshirt));
@@ -113,6 +115,16 @@ const handleSubmit = async (e) => {
           className="selling-form-inputs"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="color"></label>
+        <input 
+          placeholder="Color"
+          type="text"
+          className="selling-form-inputs"
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
         />
       </div>
       <button type="submit">Post Listing</button>
