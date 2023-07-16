@@ -117,7 +117,6 @@ export const loadDeleteTeeThunk = (teeshirtId) => async (dispatch) => {
     }
 };
 
-
 const initialState = {
     allTees: {},
     userTees: {}

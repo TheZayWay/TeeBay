@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { loadCreateTeeThunk, loadTeeByIdThunk } from "../../store/teeshirt";
 import './SellingForm.css'
 
@@ -34,22 +34,35 @@ const handleSubmit = async (e) => {
   }
       
     return (
-        <form onSubmit={handleSubmit}>
+      <>
+      <Link style={{fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} className="selling-form-logo" to="/">
+        <span style={{color: "#0064D2"}}>T</span>
+        <span style={{color: "#FDB900"}}>e</span>
+        <span style={{color: "#00B140"}}>e</span>
+        <span style={{color: "#E53238"}}>B</span>
+        <span style={{color: "#0064D2"}}>a</span>
+        <span style={{color: "#FDB900"}}>y</span>
+      </Link>
+      <hr style={{border: "none", borderTop: "1px solid lightgray"}}></hr>
+      <h2 style={{fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif'}}>Start your listing</h2>
+      <form className="selling-form" onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name"></label>
         <input
+          placeholder="Name"
           type="text"
-          className=""
+          className="selling-form-inputs"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
       </div>
       <div>
-        <label htmlFor="Type">Type:</label>
+        <label htmlFor="Type"></label>
         <select
+          placeholder="Type"
           type=""
-          className=""
+          className="selling-form-inputs"
           value={type}
           onChange={(e) => setType(e.target.value)}
           required
@@ -63,43 +76,48 @@ const handleSubmit = async (e) => {
         </select>
       </div>
       <div>
-        <label htmlFor="description">Description:</label>
+        <label htmlFor="description"></label>
         <textarea
-          className=""
+          placeholder="Description"
+          className="selling-form-inputs"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
         ></textarea>
       </div>
       <div>
-        <label htmlFor="image_url">Image Url:</label>
-        <input 
+        <label htmlFor="image_url"></label>
+        <input
+          placeholder="Image Url" 
           type="text"
-          className=""
+          className="selling-form-inputs"
           value={image_url}
           onChange={(e) => setImage_Url(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="brand">Brand:</label>
+        <label htmlFor="brand"></label>
         <input 
+          placeholder="Brand"
           type="text"
-          className=""
+          className="selling-form-inputs"
           value={brand}
           onChange={(e) => setBrand(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="price">Price:</label>
+        <label htmlFor="price"></label>
         <input 
+          placeholder="Price"
           type="number"
-          className=""
+          className="selling-form-inputs"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
       </div>
       <button type="submit">Post Listing</button>
     </form>
+    </>
     )
 }
 

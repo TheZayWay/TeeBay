@@ -35,10 +35,17 @@ export default function LoggedOut() {
                 <span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>
             </div>
         </div>
-        <hr className='hr-home'></hr>
+        <hr style={{marginBottom: "20px"}} className='hr-home'></hr>
         <div className='searchbar-home-container'>
-            <Link to="/">Home</Link>
-            <p>Find your tee type</p>
+            <Link style={{fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} to="/">
+                <span style={{color: "#0064D2"}}>T</span>
+                <span style={{color: "#FDB900"}}>e</span>
+                <span style={{color: "#00B140"}}>e</span>
+                <span style={{color: "#E53238"}}>B</span>
+                <span style={{color: "#0064D2"}}>a</span>
+                <span style={{color: "#FDB900"}}>y</span>
+            </Link>
+            <p style={{fontSize: "15px"}}>Find your tee</p>
             <div className='searchbar-home'>
                 <div><i class="fas fa-search" style={{color: "grey", paddingLeft: "20px", paddingRight: "10px", fontSize: "15px"}}></i></div>
                 <input className='searchbar-mag-text' style={{paddingRight: "55%", border: "none", outline: "none", fontSize: "16px"}} placeholder="Search for any tee" />
@@ -58,8 +65,7 @@ export default function LoggedOut() {
             </div>
             <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
-        <hr className='hr-home'></hr>
-        <div>logged out</div>
+        <hr style={{marginTop: "20px", marginBottom: "50px"}} className='hr-home'></hr>
         <div className='card-container'>           
             {teesArr.map((teeshirt) => {
                     return (
@@ -69,7 +75,10 @@ export default function LoggedOut() {
                                     <img src={teeshirt.image_url} alt='Teeshirt Preview' className='front-page-images'/>
                                 </Link>
                             </div>
-                            <p>${teeshirt.price.toFixed(2)}</p>
+                            <Link className='homepage-price' to={`/teeshirts/${teeshirt.id}`}>
+                                <p>${teeshirt.price.toFixed(2)}</p>
+                            </Link>
+                            
                         </div>
                     )
                 }                 

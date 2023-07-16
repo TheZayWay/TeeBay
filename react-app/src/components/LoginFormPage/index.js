@@ -24,7 +24,14 @@ function LoginFormPage() {
   return (
     <>
       <p style={{position: "absolute", top:0, right: 0, color: "#0654ba", fontSize:"14px", fontWeight: 300, fontFamily: '"Market Sans", Arial, sans-serif'}}>Tell us what you think</p>
-      <Link to="/">Home</Link>
+      <Link style={{paddingLeft: "20px", fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} to="/">
+          <span style={{color: "#0064D2"}}>T</span>
+          <span style={{color: "#FDB900"}}>e</span>
+          <span style={{color: "#00B140"}}>e</span>
+          <span style={{color: "#E53238"}}>B</span>
+          <span style={{color: "#0064D2"}}>a</span>
+          <span style={{color: "#FDB900"}}>y</span>
+        </Link>
       <div className="login-form-container">
         <h1 className="login-header">Hello</h1>
         <span style={{fontSize: "14px", fontWeight: 550}}>Sign in to TeeBay or <span><Link style={{color: "#3665f3"}}to='/signup'>create an account</Link></span></span>
@@ -66,11 +73,19 @@ function LoginFormPage() {
           <hr style={{width: "150px", border: "none", borderTop: "1px solid lightgray"}}></hr>
       </div>
       </div>
-      
       <div className="other-login-form-btns-container">
-        <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="login-form-btns1">Sign in with Facebook</button>
-        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="login-form-btns1">Sign in with Google</button> 
-        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey"}} className="login-form-btns1">Sign in with Apple</button>         
+        <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="login-form-btns1">
+          <i className="fab fa-facebook-f"></i>
+          <span style={{marginLeft: "20px"}}>Sign in with Facebook</span>
+        </button>
+        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="login-form-btns1">
+          <i className="fab fa-google"></i>
+          <span style={{marginLeft: "20px", marginRight: "20px"}}>Sign in with Google</span>
+        </button> 
+        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey"}} className="login-form-btns1">
+          <i className="fab fa-apple"></i>
+          <span style={{marginLeft: "24px", marginRight: "26px"}}>Sign in with Apple</span>
+        </button>         
       </div>
       <hr style={{marginTop: "50px"}}></hr>
       <footer className="login-form-footer-container">

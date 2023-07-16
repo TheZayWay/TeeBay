@@ -1,0 +1,22 @@
+.update-form-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.update-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center; 
+}
+
+.update-form-inputs {
+    background-color: #F7F7F7;
+    width: 340px;
+    height: 40px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}

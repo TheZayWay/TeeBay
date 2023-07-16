@@ -24,8 +24,15 @@ function SignupFormPage() {
 
   return (
     <>
-      <Link to="/">Home</Link>
-      <h2 style={{display: "flex", justifyContent: "end",fontSize: "16px", fontWeight: "300", fontFamily: '"Market Sans", Arial, sans-serif'}}>Already a member? <Link style={{color: "#0654ba"}} to="/login">Sign in</Link></h2>
+      <Link style={{paddingLeft: "20px", fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} to="/">
+        <span style={{color: "#0064D2"}}>T</span>
+        <span style={{color: "#FDB900"}}>e</span>
+        <span style={{color: "#00B140"}}>e</span>
+        <span style={{color: "#E53238"}}>B</span>
+        <span style={{color: "#0064D2"}}>a</span>
+        <span style={{color: "#FDB900"}}>y</span>
+      </Link>
+      <h2 style={{marginTop: "-20px", display: "flex", justifyContent: "end",fontSize: "16px", fontWeight: "300", fontFamily: '"Market Sans", Arial, sans-serif'}}>Already a member? <Link style={{color: "#0654ba"}} to="/login">Sign in</Link></h2>
       <h1 style={{textAlign: "center", fontFamily: '"Market Sans", Arial, sans-serif', marginBottom: "10%"}}>Create an account</h1>
       <div className="whole-signup-page">
         <div className="signup-form-container">
@@ -91,9 +98,18 @@ function SignupFormPage() {
         <hr className="vertical-hr2"></hr>
         </div>
         <div style={{display: "flex", flexDirection: "column", marginTop: "94px"}} className="signup-socials-container">
-          <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="signup-form-btns1">Continue with Google</button>
-          <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="signup-form-btns1">Continue with Facebook</button>
-          <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey"}} className="signup-form-btns1">Continue with Apple</button>
+          <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="signup-form-btns1">
+            <i className="fab fa-facebook-f"></i>
+            <span style={{marginLeft: "20px"}}>Sign in with Facebook</span>
+          </button>
+          <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="signup-form-btns1">
+            <i className="fab fa-google"></i>
+            <span style={{marginLeft: "20px", marginRight: "20px"}}>Sign in with Google</span>
+          </button> 
+          <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey"}} className="signup-form-btns1">
+            <i className="fab fa-apple"></i>
+            <span style={{marginLeft: "24px", marginRight: "26px"}}>Sign in with Apple</span>
+          </button>       
         </div>
       </div>
       <hr style={{backgroundColor: "lightgray", border: "none", borderTop: "1px solid lightgray", marginTop: "-40px"}}></hr>
