@@ -2,14 +2,17 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { loadEditTeeThunk, loadTeeByIdThunk } from "../../store/teeshirt";
+import { logout } from "../../store/session";
 import './UpdateListing.css'
 import { useParams } from "react-router-dom";
+
 
 export default function UpdateListingForm() {
   const dispatch = useDispatch();
   const {teeshirtId} = useParams();
   const history = useHistory();
   const state = useSelector((state) => state.tees);
+  const user = state.user
   const teeshirt = state.allTees[teeshirtId];
   const [name, setName] = useState(teeshirt?.name);
   const [type, setType] = useState(teeshirt?.type);
@@ -21,6 +24,7 @@ export default function UpdateListingForm() {
   const [errors, setErrors] = useState([]);
   console.log(teeshirt)
 //   const [submitted, setSubmitted] = useState(false);
+
 
 const handleSubmit = async (e) => {
       e.preventDefault();

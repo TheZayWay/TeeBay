@@ -22,12 +22,12 @@ export default function DeleteTeeshirt ({props}) {
         <div className="delete-pop-up">
             <div className="delete-header-close-button">
                 {/* <span className="close-edit-button" onClick={() => closeModal()}><i className="fas fa-times"></i></span> */}
-                <div className="delete-spot-header">Delete Tee</div>
+                {/* <div className="delete-spot-header">Delete Tee</div> */}
             </div>
-            <p className="delete-spot-text-p-tag">Are you sure you want to remove this tee?</p>
+            {/* <p className="delete-spot-text-p-tag">Are you sure you want to remove this tee?</p> */}
             <form className="delete-form-container" onSubmit={handleClick}>
             <button className="spot-delete-button" type="submit">Delete</button>
-                <button className="spot-cancel-button" onClick={() => closeModal()}>Cancel</button>
+                {/* <button className="spot-cancel-button" onClick={() => closeModal()}>Cancel</button> */}
             </form>
         </div>
     </div>
