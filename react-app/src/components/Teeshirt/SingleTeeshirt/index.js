@@ -17,7 +17,7 @@ export default function TeeshirtDetails() {
     const dispatch = useDispatch();
     const params = useParams();
     const teeshirtId = Number(params.teeshirtId);
-    const teeshirtObj = useSelector((state) => state.tees.allTees);
+    const teeshirtObj = useSelector((state) => state.tees.userTees);
     const user = useSelector((state) => state.session.user)
     const teeshirt = teeshirtObj[teeshirtId]
     console.log("teeshirt", teeshirt)

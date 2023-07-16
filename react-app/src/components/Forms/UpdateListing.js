@@ -36,8 +36,7 @@ const handleSubmit = async (e) => {
       
       const newTeeshirt = await dispatch(loadEditTeeThunk(teeshirtId,teeshirt));
       console.log(newTeeshirt, "newnew")
-      // history.push(`/teeshirts/${newTeeshirt.id}`);
-      history.push(`/`);
+      history.push(`/teeshirts/${newTeeshirt.id}`);
   }
       
     return (
