@@ -19,99 +19,108 @@ function SignupFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (password === confirmPassword) {
-        const data = await dispatch(signUp(first_name, last_name, email, password)); //username
-        if (data) {
-          setErrors(data)
-        }
-    // } else {
-    //     setErrors(['Confirm Password field must be the same as the Password field']);
-    // }
+        const data = await dispatch(signUp(first_name, last_name, email, password)); //username      
   };
-
-  // const isDisabled = first_name.length < 1 || last_name.length < 1 || email.length < 6 || password.length < 6;
 
   return (
     <>
-      <h2>Already a member? <Link to="/login">Sign in</Link></h2>
-      <h1>Create an account</h1>
-      <div className="signup-form-container">
-        <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
-          <div></div>
-          <label>
-            <input 
-              type="text"
-              placeholder="First name"
-              value={first_name}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </label>
-          <label>
-            <input 
-              type="text"
-              placeholder="Last name"
-              value={last_name}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </label>
-          <label>
-            <input
-              placeholder="Email"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
-          {/* <label>
-            Username
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </label> */}
-          <label>
-            <input
-              placeholder="Password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
-          {/* <label>
-            Confirm Password
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </label> */}
-          <button type="submit">Create account</button> 
-          {/* isDisabled={isDisabled} */}
-        </form>
+      <Link style={{paddingLeft: "20px", fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} to="/">
+        <span style={{color: "#0064D2"}}>T</span>
+        <span style={{color: "#FDB900"}}>e</span>
+        <span style={{color: "#00B140"}}>e</span>
+        <span style={{color: "#E53238"}}>B</span>
+        <span style={{color: "#0064D2"}}>a</span>
+        <span style={{color: "#FDB900"}}>y</span>
+      </Link>
+      <h2 style={{marginTop: "-20px", display: "flex", justifyContent: "end",fontSize: "16px", fontWeight: "300", fontFamily: '"Market Sans", Arial, sans-serif'}}>Already a member? <Link style={{color: "#0654ba"}} to="/login">Sign in</Link></h2>
+      <h1 style={{textAlign: "center", fontFamily: '"Market Sans", Arial, sans-serif', marginBottom: "10%"}}>Create an account</h1>
+      <div className="whole-signup-page">
+        <div className="signup-form-container">
+          <form style={{display: "flex", flexDirection: "column"}} onSubmit={handleSubmit}>
+            <ul>
+              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
+            <div className="signup-form-fullname">
+              <label>
+                <input 
+                  type="text"
+                  placeholder="First name"
+                  value={first_name}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  className="signup-form-inputs1"
+                  style={{marginRight: "25px", paddingLeft: "15px"}}
+                />
+              </label>
+              <label>
+                <input 
+                  type="text"
+                  placeholder="Last name"
+                  value={last_name}
+                  onChange={(e) => setLastName(e.target.value)}
+                  className="signup-form-inputs1"
+                  style={{paddingLeft: "15px"}}
+                />
+              </label>
+            </div>
+            <label>
+              <input
+                placeholder="Email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="signup-form-inputs2"
+                style={{paddingLeft: "15px"}}
+              />
+            </label>
+            <label>
+              <input
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="signup-form-inputs2"
+                style={{paddingLeft: "15px"}}
+              />
+            </label>
+            <div className="signup-policy-spans">
+              <span>By Creating an account, you agree to our User</span>
+              <span>Agreement and acknowledge reading our User Privacy</span>
+              <span>Notice .</span>
+            </div>            
+            <button style={{backgroundColor: "#3665F3", color: "white", border: "none"}} className="signup-form-btns" type="submit">Create account</button> 
+          </form>
+        </div>     
+        <div style={{marginTop: "-45px"}} className="vertical-hr-container">
+        <hr className="vertical-hr1"></hr>  
+        <span style={{fontSize: "12px"}}>or</span>
+        <hr className="vertical-hr2"></hr>
         </div>
-        or
-        <div className="signup-socials-container">
-          <button>Continue with Google</button>
-          <button>Continue with Facebook</button>
-          <button>Continue with Apple</button>
+        <div style={{display: "flex", flexDirection: "column", marginTop: "94px"}} className="signup-socials-container">
+          <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="signup-form-btns1">
+            <i className="fab fa-facebook-f"></i>
+            <span style={{marginLeft: "20px"}}>Sign in with Facebook</span>
+          </button>
+          <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="signup-form-btns1">
+            <i className="fab fa-google"></i>
+            <span style={{marginLeft: "20px", marginRight: "20px"}}>Sign in with Google</span>
+          </button> 
+          <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey"}} className="signup-form-btns1">
+            <i className="fab fa-apple"></i>
+            <span style={{marginLeft: "24px", marginRight: "26px"}}>Sign in with Apple</span>
+          </button>       
         </div>
-      <hr></hr>
-      <footer>Copyright © 2023 TeeBay All Rights Reserved. 
-        <span className="login-form-footer-span">Accessibility,</span>
-        <span className="login-form-footer-span">User Agreement,</span>
-        <span className="login-form-footer-span">Privacy,</span>
-        <span className="login-form-footer-span">Payments</span>
-        <span className="login-form-footer-span">Terms of Use,</span>
-        <span className="login-form-footer-span">Cookies,</span>
-        <span className="login-form-footer-span">Your Privacy Choices</span>
+      </div>
+      <hr style={{backgroundColor: "lightgray", border: "none", borderTop: "1px solid lightgray", marginTop: "-40px"}}></hr>
+      <footer className="signup-form-footer-container">Copyright © 2023 TeeBay All Rights Reserved. 
+        <span className="signup-form-footer-span">Accessibility,</span>
+        <span className="signup-form-footer-span">User Agreement,</span>
+        <span className="signup-form-footer-span">Privacy,</span>
+        <span className="signup-form-footer-span">Payments</span>
+        <span className="signup-form-footer-span">Terms of Use,</span>
+        <span className="signup-form-footer-span">Cookies,</span>
+        <span className="signup-form-footer-span">Your Privacy Choices</span>
       </footer>
     </>
   );

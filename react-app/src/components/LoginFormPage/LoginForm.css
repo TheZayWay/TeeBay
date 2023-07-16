@@ -1,0 +1,88 @@
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    height: 100vh;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+
+.login-header {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #151e27;
+}
+
+.login-form-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form-inputs {
+    background-color: #F7F7F7;
+    width: 340px;
+    height: 40px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.login-form-inputs::placeholder {
+    color: #191919; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 450;
+}
+
+.login-form-btns {
+    width: 339px;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.login-form-btns:hover {
+    cursor: pointer;
+}
+
+.login-or-line {
+    display: flex;
+    align-items: center;
+    margin-top: -300px;
+    margin-right: -100px;
+    width: 340px;
+    margin-bottom: 20px;
+}
+
+.other-login-form-btns-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Market Sans", Arial, sans-serif;
+}
+
+.login-form-btns1 {
+    width: 339px;
+    height: 45px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.login-form-btns1:hover {
+    cursor: not-allowed;
+}
+
+.login-form-footer-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 13px;
+}

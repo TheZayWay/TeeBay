@@ -21,7 +21,6 @@ function App() {
 
   return (
     <>
-      <Link to="/">Home</Link>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
