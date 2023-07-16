@@ -41,7 +41,7 @@ export default function LoggedIn() {
                 <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
                 <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
                 <span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>
-                <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout}>Log Out</button>
+                <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
             </div>
         </div>
         <hr style={{marginBottom: "20px"}} className='hr-home'></hr>

@@ -4,6 +4,14 @@ import { loadTeeByIdThunk } from '../../../store/teeshirt';
 import { useDispatch, useSelector } from 'react-redux';
 import UpdateListingForm from '../../Forms/UpdateListing';
 import { logout } from "../../../store/session";
+import './SingleTeeshirt.css'
+
+// Goal is to implement this after fixing the bug on re render that makes teeshirt properties undefined
+{/* <span><Link style={{textDecoration: "none", color: "#002398"}}>Back to home page </Link></span>
+        <span> | </span> */}
+        {/* {console.log("BRAND", teeshirt.brand)} */}
+        {/* <span style={{color: "0654BA"}}>Listed in brand: {teeshirt.brand}</span> */}
+
 
 export default function TeeshirtDetails() {
     const dispatch = useDispatch();
@@ -25,6 +33,14 @@ export default function TeeshirtDetails() {
     const handleButtonClick = () => {
       alert('Feature coming soon...');
     };
+    
+    // let handleBuying;
+
+    // if (user.id === teeshirt.user_id) {
+    //    handleBuying = (e) => {
+    //     alert("You may not purchase your own shirt")
+    //   }
+    // }
 
   return (
     <>  
@@ -42,7 +58,7 @@ export default function TeeshirtDetails() {
             <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
             <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
             <span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>
-            <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout}>Log Out</button>
+            <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
           </div>
         </div>
         <hr style={{marginBottom: "20px"}} className='hr-home'></hr>
@@ -75,7 +91,7 @@ export default function TeeshirtDetails() {
           </div>
           <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
-        <hr style={{marginTop: "20px", marginBottom: "50px"}} className='hr-home'></hr>
+        <hr style={{marginTop: "20px", marginBottom: "50px", border: "1px solid white"}} className='hr-home'></hr>
         </>
         ) :
         <> 
@@ -123,49 +139,114 @@ export default function TeeshirtDetails() {
           </div>
           <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
-        <hr style={{marginTop: "20px", marginBottom: "50px"}} className='hr-home'></hr>
+        <hr style={{marginTop: "20px", marginBottom: "30px", border: "1px solid white"}} className='hr-home'></hr>
         </>
         }
+
         {/* BODY */}
 
-        <h1>Individual Teeshirt</h1>
-        <div className='single-tee-image-container'><img src={teeshirt?.image_url} /></div>
-        <div className='single-tee-information-container'>
-          <p>{teeshirt?.name}</p>
-          <p>FREE SHIPPING and FREE RETURNS, 100% AUTHENTIC</p>
-          <p>{Math.floor(Math.random() * 15) + 1} sold in the last hour</p>
-        </div>
-        <div className='single-tee-buying-container'>
-          <p>Price: ${teeshirt?.price.toFixed(2)}</p>
-          
-          {user ? (
-                <div>
-                  <button>Buy It Now</button>
-                  <button>Add to cart</button>
-                  <button>Add to watchlist</button>
-                </div>
-              ) : (
-                null
-          )}
+        <div className='single-tee'>
+          <div className='single-tee-image-container'>
+            <img className='single-tee-image' src={teeshirt?.image_url} />
+            <hr style={{marginTop: "30px", border: "1px dotted lightgrey", width: "100%"}}></hr>
+          </div>
+          <div className='single-tee-middle-container'>
+            <div className='single-tee-information-container'>
+              <p style={{fontSize: "20px", fontWeight: "bold"}}>{teeshirt?.name}</p>
+              <p style={{color: "grey", fontSize: "13px"}}>FREE SHIPPING and FREE RETURNS, 100% AUTHENTIC</p>
+              <p style={{color: "#dd1e31", fontFamily: "Open Sans", fontWeight: "bold"}}>🔥 {Math.floor(Math.random() * 8) + 1} sold in the last hour</p>
+              <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>              
+            </div>
+            <div className='single-tee-selection-container'>
+              <p>Condition: <span>New with tags</span></p>
+              <p>Color: <select><option>teeshirt color</option></select></p>
+              <p>Quantity: {Math.floor(Math.random() * 8) + 1} available / {Math.floor(Math.random() * 6) + 10} sold</p>
+              <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>
+            </div>
+            <div className='single-tee-buying-container'>
+              <p>Price: <span style={{fontSize: "22px", fontWeight: "bold"}}>US ${teeshirt?.price.toFixed(2)}/ea</span></p>
+              
+              {user ? (
+                    <div>
+                      <button style= //onClick={handleBuying}
+                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#0053A0", border: "none"}} 
+                        className='purchase-btns'>
+                        Buy It Now
+                        
+                      </button>
+                      <button style=
+                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#3498CA", border: "none"}} 
+                        className='purchase-btns'>
+                        Add to cart
+                      </button>
+                      <button style=
+                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "#3665F3", backgroundColor: "white", border: "1px solid #3665F3"}} 
+                        className='purchase-btns2'>
+                        Add to watchlist
+                      </button>
+                      
+                    </div>
+                  ) : (
+                    <>
+                      <Link style={{textDecoration: "none"}} to='/login'>
+                      <button style=
+                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#0053A0", border: "none"}} 
+                        className='purchase-btns1'>
+                        Buy It Now
+                      </button>
+                      </Link>
+                      <Link style={{textDecoration: "none"}} to='/login'>
+                        <button style=
+                          {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#3498CA", border: "none"}} 
+                          className='purchase-btns1'>
+                          Add to cart
+                        </button>
+                      </Link>
+                      <Link style={{textDecoration: "none"}} to='/login'>
+                        <button style=
+                          {{display:"flex", justifyContent: "center", alignItems: "center", color: "#3665F3", backgroundColor: "white", border: "1px solid #3665F3"}} 
+                          className='purchase-btns1'>
+                          Add to watchlist
+                        </button>
+                      </Link>
+                    </>
+                    
+              )}
 
 
+            </div>
+          </div>
+          <div className='single-tee-end-container'>
+            <div className='single-tee-shop-w-con-container'>
+              <p style={{paddingLeft: "10px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}>Shop with confidence</p>
+              <p>TeeBay Money Back Guarantee</p>
+              <p>Get the item you ordered or your money back.</p>
+              <p>Learn more</p>
+            </div>
+            <div className='single-tee-seller-info-container'>
+              <p>Seller information</p>
+              <p>Seller name placeholder</p>
+              <p>100% positive feedback</p>
+              <hr style={{border: "1px dotted lightgrey", width: "95%"}}></hr> 
+              <p className='single-tee-seller-info2'>Save seller</p>
+              <p className='single-tee-seller-info2'>Contact seller</p>
+              <p className='single-tee-seller-info2'>Visit store</p>
+              <p className='single-tee-seller-info2'>See other items</p>
+            </div>
+          </div>
         </div>
-        <div className='single-tee-shop-w-con-container'>
-          <p>Shop with confidence</p>
-          <p>TeeBay Money Back Guarantee</p>
-          <p>Get the item you ordered or your money back.</p>
-          <p>Learn more</p>
-        </div>
-        <div className='single-tee-seller-info-container'>
-          <p>Seller information</p>
-          <p>Seller name placeholder</p>
-          <p>99.9% positive feedback</p>
-          <hr></hr>
-          <p className='single-tee-seller-info2'>Save seller</p>
-          <p className='single-tee-seller-info2'>Contact seller</p>
-          <p className='single-tee-seller-info2'>Visit store</p>
-          <p className='single-tee-seller-info2'>See other items</p>
-        </div>
+        <hr style={{backgroundColor: "lightgray", border: "none", borderTop: "1px solid lightgray", marginTop: "30px", marginBottom: "30px"}}></hr>
+        <footer className="single-tee-footer-container">Copyright © 2023 TeeBay All Rights Reserved. 
+          <span className="single-tee-footer-span">Accessibility,</span>
+          <span className="single-tee-footer-span">User Agreement,</span>
+          <span className="single-tee-footer-span">Privacy,</span>
+          <span className="single-tee-footer-span">Payments</span>
+          <span className="single-tee-footer-span">Terms of Use,</span>
+          <span className="single-tee-footer-span">Cookies,</span>
+          <span className="single-tee-footer-span">Your Privacy Choices</span>
+        </footer>
+
+        
     </>
   )
 }

@@ -1,0 +1,108 @@
+.single-tee {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;   
+}
+
+.single-tee-image-container {
+    width: 40%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.single-tee-image {
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgrey;
+}
+
+.single-tee-middle-container {
+    overflow: wrap;
+    width: 30%;
+}
+
+.single-tee-information-container {
+    font-family: 'Helvetica neue',Helvetica,Verdana,Sans-serif;
+    overflow: wrap;
+}
+
+.purchase-btns {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 45px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.purchase-btns:hover {
+    cursor: pointer
+}
+
+.purchase-btns1 {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 45px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.purchase-btns1:hover {
+    cursor: pointer;
+}
+
+.purchase-btns2 {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    height: 45px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.purchase-btns2:hover {
+    cursor: not-allowed;
+}
+
+.single-tee-shop-w-con-container {
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 10px;
+}
+
+
+.single-tee-seller-info-container {
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.single-tee-footer-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.logout-btn123:hover {
+    cursor: pointer
+}
