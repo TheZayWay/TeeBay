@@ -1,5 +1,5 @@
 from flask.cli import AppGroup
-from .users import seed_users, undo_users, seed_listing_users, undo_seed_listing_users
+from .users import seed_users, undo_users
 # from .brands import seed_brands, undo_brands
 from .carts import seed_carts_teeshirts, undo_seed_carts_teeshirts, undo_seed_carts
 # from .teeshirt import undo_seed_teeshirts
