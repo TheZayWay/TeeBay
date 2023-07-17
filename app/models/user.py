@@ -16,11 +16,11 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(100), nullable=False)
 
-    listings = db.relationship(
-        "Listing",
-        secondary="listings_users", 
-        back_populates="users"
-        )
+    # listings = db.relationship(
+    #     "Listing",
+    #     secondary="listings_users", 
+    #     back_populates="users"
+    #     )
     carts = db.relationship("Cart", back_populates="users")
     teeshirts = db.relationship("Teeshirt", back_populates="users")
 

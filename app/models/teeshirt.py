@@ -37,8 +37,8 @@ class Teeshirt(db.Model):
         secondary="carts_teeshirts",
         back_populates="teeshirts"
     )
-    listings = db.relationship("Listing", back_populates="teeshirts")
-    brands = db.relationship("Brand", back_populates="teeshirts")
+    # listings = db.relationship("Listing", back_populates="teeshirts")
+    # brands = db.relationship("Brand", back_populates="teeshirts")
     users = db.relationship("User", back_populates="teeshirts")
 
     def to_dict(self):
