@@ -1,9 +1,9 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users, seed_listing_users, undo_seed_listing_users
-from .brands import seed_brands, undo_brands
+# from .brands import seed_brands, undo_brands
 from .carts import seed_carts_teeshirts, undo_seed_carts_teeshirts, undo_seed_carts
-from .teeshirt import undo_seed_teeshirts
-from .listings import undo_seed_listings
+# from .teeshirt import undo_seed_teeshirts
+# from .listings import undo_seed_listings
 from app.models.db import db, environment, SCHEMA
 
 seed_commands = AppGroup('seed')
