@@ -52,7 +52,11 @@ class Teeshirt(db.Model):
             'brand': self.brand,
             'price': self.price,
             'color': self.color,
-            'user_id': self.user_id
+            'user_id': self.user_id,
+            'User' : {
+                'id': self.users.id,
+                'first_name': self.users.first_name
+            }
             # 'users':       
         }
     

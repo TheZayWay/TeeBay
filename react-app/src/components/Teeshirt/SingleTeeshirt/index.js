@@ -20,7 +20,8 @@ export default function TeeshirtDetails() {
     const teeshirtObj = useSelector((state) => state.tees.userTees);
     const user = useSelector((state) => state.session.user)
     const teeshirt = teeshirtObj[teeshirtId]
-    console.log("teeshirt", teeshirt)
+    const seller = teeshirt?.User?.first_name;
+    
     
     useEffect(() => {
         dispatch(loadTeeByIdThunk(teeshirtId));
@@ -240,7 +241,7 @@ export default function TeeshirtDetails() {
             </div>
             <div className='single-tee-seller-info-container'>
               <p>Seller information</p>
-              <p>Seller name placeholder</p>
+              <p>{seller}</p>
               <p>100% positive feedback</p>
               <hr style={{border: "1px dotted lightgrey", width: "95%"}}></hr> 
               <p className='single-tee-seller-info2'>Save seller</p>
