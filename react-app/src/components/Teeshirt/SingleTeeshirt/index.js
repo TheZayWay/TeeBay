@@ -32,6 +32,7 @@ export default function TeeshirtDetails() {
       // Add your loading state or return null to render nothing
       return null;
     }
+    let handleBuying;
 
     if (user?.id == teeshirt?.user_id) {
        handleBuying = (e) => {
