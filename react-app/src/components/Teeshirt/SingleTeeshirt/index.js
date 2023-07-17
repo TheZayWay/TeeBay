@@ -6,20 +6,15 @@ import UpdateListingForm from '../../Forms/UpdateListing';
 import { logout } from "../../../store/session";
 import './SingleTeeshirt.css'
 
-// Goal is to implement this after fixing the bug on re render that makes teeshirt properties undefined
-
-
-
 export default function TeeshirtDetails() {
     const dispatch = useDispatch();
     const params = useParams();
     const teeshirtId = Number(params.teeshirtId);
     const teeshirtObj = useSelector((state) => state.tees.userTees);
-    const user = useSelector((state) => state.session.user)
-    const teeshirt = teeshirtObj[teeshirtId]
+    const user = useSelector((state) => state.session.user);
+    const teeshirt = teeshirtObj[teeshirtId];
     const seller = teeshirt?.User?.first_name;
-    
-    
+        
     useEffect(() => {
         dispatch(loadTeeByIdThunk(teeshirtId));
     }, [dispatch]);
@@ -38,16 +33,11 @@ export default function TeeshirtDetails() {
       return null;
     }
 
-    // implement after the bug is fixed 
-    let handleBuying;
-
     if (user?.id == teeshirt?.user_id) {
        handleBuying = (e) => {
         alert("You may not purchase your own shirt")
       }
     } 
-    console.log(teeshirt.user_id)
-    // console.log("ids", user.id , teeshirt.user_id)
 
   return (
     <>  
@@ -178,8 +168,7 @@ export default function TeeshirtDetails() {
             </div>
             <div className='single-tee-buying-container'>
               <p style={{fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}><span style={{fontSize: "16px", marginTop: "-10px"}}>Price:</span> <span style={{marginTop: "30px", fontSize: "20px", fontWeight: "bold"}}>US ${teeshirt?.price.toFixed(2)}/ea</span></p>
-              
-              
+                          
               {user ? (
                     <div>
                       <Link style={{textDecoration: "none"}} to="/cart">
@@ -223,11 +212,8 @@ export default function TeeshirtDetails() {
                           Add to watchlist
                         </button>
                       </Link>
-                    </>
-                    
+                    </>                    
               )}
-
-
             </div>
           </div>
           <div className='single-tee-end-container'>
@@ -270,9 +256,7 @@ export default function TeeshirtDetails() {
           <span className="single-tee-footer-span">Terms of Use,</span>
           <span className="single-tee-footer-span">Cookies,</span>
           <span className="single-tee-footer-span">Your Privacy Choices</span>
-        </footer>
-
-        
+        </footer>        
     </>
   )
 }
