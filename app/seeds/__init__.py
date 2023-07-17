@@ -12,28 +12,30 @@ seed_commands = AppGroup('seed')
 def seed():
     if environment == 'production':
         
-        undo_seed_listings()
-        undo_seed_listing_users()
-        undo_seed_teeshirts()
+        # undo_seed_listings()
+        # undo_seed_listing_users()
+        # undo_seed_teeshirts()
         undo_seed_carts_teeshirts()
-        undo_seed_carts()
+        # undo_seed_carts()      
+        # undo_brands()
         undo_users()
-        undo_brands()
     # seed_users()
     
-    # seed_carts()    
+    # seed_carts()  
+    seed_users()
+    # seed_brands()
     seed_carts_teeshirts()
-    seed_listing_users()
-    seed_brands()
+    # seed_listing_users()
+    
 
 @seed_commands.command('undo')
 def undo():
-    undo_seed_listings()
-    undo_seed_listing_users()
-    undo_seed_teeshirts()
+    # undo_seed_listings()
+    # undo_seed_listing_users()
+    # undo_seed_teeshirts()
     undo_seed_carts_teeshirts()
-    undo_seed_carts()
+    # undo_seed_carts()
+    # undo_brands()
     undo_users()
-    undo_brands()
     
   
