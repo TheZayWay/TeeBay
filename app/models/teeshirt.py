@@ -1,5 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from .brand import Brand
+# from .brand import Brand
 from collections import OrderedDict
 
 
