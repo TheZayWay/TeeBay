@@ -134,7 +134,7 @@ export default function TeeshirtDetails() {
             <div style={{fontSize: "12px"}}>
               All Types
               <select style={{width: "25px", border: "none", outline: "none"}}>
-                <option></option>
+                <option>- Select -</option>
                 <option>Short Sleeve</option>
                 <option>Long Sleeve</option>
                 <option>Button Short Sleeve</option>
@@ -149,10 +149,13 @@ export default function TeeshirtDetails() {
         <hr style={{marginTop: "20px", marginBottom: "30px", border: "1px solid white"}} className='hr-home'></hr>
         </>
         }
-        <span><Link style={{textDecoration: "none", color: "#002398"}}>Back to home page </Link></span>
-        <span> | </span> 
-        {console.log("BRAND", teeshirt.brand)}
-        <span style={{color: "0654BA"}}>Listed in brand: {teeshirt.brand}</span>
+        <div className='single-tee-post-header'>
+          <span><Link style={{textDecoration: "none", color: "#002398", fontSize: "12px"}} to="/">Back to home page </Link></span>
+          <span style={{fontSize: "12px"}}> | </span> 
+          <span style={{color: "0654BA", fontSize: "12px"}}>Listed in brand: {teeshirt.brand}</span>
+        </div>
+      
+        
         {/* BODY */}
 
         <div className='single-tee'>
@@ -164,17 +167,18 @@ export default function TeeshirtDetails() {
             <div className='single-tee-information-container'>
               <p style={{fontSize: "20px", fontWeight: "bold"}}>{teeshirt?.name}</p>
               <p style={{color: "grey", fontSize: "13px"}}>FREE SHIPPING and FREE RETURNS, 100% AUTHENTIC</p>
-              <p style={{color: "#dd1e31", fontFamily: "Open Sans", fontWeight: "bold"}}>🔥 {Math.floor(Math.random() * 8) + 1} sold in the last hour</p>
+              <p style={{color: "#dd1e31", fontFamily: "Open Sans", fontWeight: "bold"}}><i style={{color: "#dd1e31"}} class="fas fa-fire"></i> {Math.floor(Math.random() * 8) + 1} sold in the last hour</p>
               <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>              
             </div>
             <div className='single-tee-selection-container'>
               <p>Condition: <span style={{fontSize: "13px", fontWeight: "bold"}}>New with tags</span></p>
-              <p>Color: <select><option>{teeshirt?.color}</option></select></p>
+              <p>Color: <select style={{border: "1px solid #d3d3d3", borderRadius: "3px", color: "#333", width: "140px", fontWeight: "400", lineHeight: "1.15"}}><option>- Select -</option><option>{teeshirt?.color}</option></select></p>
               <p>Quantity: <span>{Math.floor(Math.random() * 8) + 1} available /</span><span style={{color: "#dd1e31", fontWeight: "bold", fontFamily: "Open Sans",}}> {Math.floor(Math.random() * 6) + 10} sold</span></p>
               <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>
             </div>
             <div className='single-tee-buying-container'>
-              <p>Price: <span style={{fontSize: "22px", fontWeight: "bold"}}>US ${teeshirt?.price.toFixed(2)}/ea</span></p>
+              <p style={{fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}><span style={{fontSize: "16px", marginTop: "-10px"}}>Price:</span> <span style={{marginTop: "30px", fontSize: "20px", fontWeight: "bold"}}>US ${teeshirt?.price.toFixed(2)}/ea</span></p>
+              
               
               {user ? (
                     <div>
@@ -240,14 +244,20 @@ export default function TeeshirtDetails() {
               {/* <p style={{marginTop: "-10px", paddingLeft: "38px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#0654ba"}}>Learn more</p> */}
             </div>
             <div className='single-tee-seller-info-container'>
-              <p>Seller information</p>
-              <p>{seller}</p>
-              <p>100% positive feedback</p>
-              <hr style={{border: "1px dotted lightgrey", width: "95%"}}></hr> 
-              <p className='single-tee-seller-info2'>Save seller</p>
-              <p className='single-tee-seller-info2'>Contact seller</p>
-              <p className='single-tee-seller-info2'>Visit store</p>
-              <p className='single-tee-seller-info2'>See other items</p>
+              <p style={{paddingLeft: "5px", fontWeight: "bold",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}>Seller information</p>
+              <p style={{paddingLeft: "5px", marginTop: "-15px",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", fontSize: "15px", color: "#0654ba", textDecoration: "underline"}}>{seller}</p>
+              <p style={{paddingLeft: "5px", marginTop: "-10px", fontSize: "13px"}}>100% positive feedback</p>
+              <hr style={{border: "1px dotted lightgrey", width: "95%"}}></hr>
+              <p className='single-tee-seller-info2'>
+                <span class="fa-stack" style={{color: "#3665f3"}}>
+                  <i class="far fa-heart fa-stack-1x"></i>
+                  <i class="fas fa-heart fa-stack-1x" style={{color: "transparent"}}></i>
+                </span> 
+                <span style={{color: "#3665f3", textDecoration: "underline"}}>Save seller</span>
+              </p>
+              <p style={{marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info2'>Contact seller</p>
+              <p style={{marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info2'>Visit store</p>
+              <p style={{marginBottom: "20px", marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info2'>See other items</p>
             </div>
           </div>
         </div>

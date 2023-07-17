@@ -21,6 +21,11 @@ export default function LoggedOut() {
 
     return (
         <>
+        {/* <div className='brand-list'>
+            {teesArr.map((teeshirt) => {
+                return(<h3>{teeshirt?.brand}</h3>)
+            })}
+        </div> */}
         <div className='logged-out-header'>
             <div className='logged-out-header-presplit'>
                 <span style={{paddingLeft: "0px", fontSize: "12px"}} className='logged-out-signin-sentence'>Hi (<Link to='/login' className='logged-out-signin'>Sign in</Link>)</span>
