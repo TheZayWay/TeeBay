@@ -11,6 +11,8 @@ teeshirt_routes = Blueprint('teeshirt', __name__)
 @teeshirt_routes.route('/', methods=['GET'])
 def get_all_teeshirts():
     teeshirts = Teeshirt.query.all()
+    users = User.query.all()
+    print("USER", users)
     for teeshirt in teeshirts:
         return {'teeshirts' : [teeshirt.to_dict() for teeshirt in teeshirts]}
         # return new_teeshirt.to_dict()
@@ -44,6 +46,7 @@ def create_a_teeshirt(userId):
             image_url = data['image_url'],
             brand = data['brand'],
             price = data['price'],
+            color = data['color'],
             user_id = userId
         )
         db.session.add(teeshirt)
@@ -64,14 +67,12 @@ def edit_teeshirt(id):
             teeshirt_to_update.type = data['type']
             teeshirt_to_update.description = data['description']
             teeshirt_to_update.image_url = data['image_url']
-            teeshirt_to_update.brand = data['brand'],
-            teeshirt_to_update.brand = data['price']
+            teeshirt_to_update.brand = data['brand']
+            teeshirt_to_update.price = data['price']
+            teeshirt_to_update.color = data['color']
             db.session.commit()
-            print("PRINTS", teeshirt_to_update.to_dict())
             return teeshirt_to_update.to_dict()
         
-        
-
 #DELETE ROUTES
 
 #Delete a teeshirt 
@@ -82,7 +83,6 @@ def delete_teeshirt(id):
         if teeshirt_to_delete.user_id == current_user.id:
             db.session.delete(teeshirt_to_delete)
             db.session.commit()
-            print("TEEGONE")
             return {'teeshirt': 'your teeshirt has been deleted'}
         else:
             return {'error': 'Unauthorized access'}

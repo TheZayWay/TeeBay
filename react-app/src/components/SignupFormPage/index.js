@@ -7,8 +7,8 @@ import './SignupForm.css';
 function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const [first_name, setFirstName] = useState("");
-  const [last_name, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   // const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,20 @@ function SignupFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-        const data = await dispatch(signUp(first_name, last_name, email, password)); //username      
+    if (!firstName || !lastName) {
+      setErrors(["First name and last name are required"]);
+      return;
+    } 
+
+      const data = {
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        password: password
+      }
+
+        return await dispatch(signUp(data)); //username   
+         
   };
 
   return (
@@ -45,7 +58,7 @@ function SignupFormPage() {
                 <input 
                   type="text"
                   placeholder="First name"
-                  value={first_name}
+                  value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   className="signup-form-inputs1"
                   style={{marginRight: "25px", paddingLeft: "15px"}}
@@ -55,7 +68,7 @@ function SignupFormPage() {
                 <input 
                   type="text"
                   placeholder="Last name"
-                  value={last_name}
+                  value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   className="signup-form-inputs1"
                   style={{paddingLeft: "15px"}}

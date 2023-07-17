@@ -4,15 +4,17 @@ import { loadTeeByIdThunk } from '../../../store/teeshirt';
 import { useDispatch, useSelector } from 'react-redux';
 import UpdateListingForm from '../../Forms/UpdateListing';
 import { logout } from "../../../store/session";
+import './SingleTeeshirt.css'
 
 export default function TeeshirtDetails() {
     const dispatch = useDispatch();
     const params = useParams();
     const teeshirtId = Number(params.teeshirtId);
-    const teeshirtObj = useSelector((state) => state.tees.allTees);
-    const user = useSelector((state) => state.session.user)
-    const teeshirt = teeshirtObj[teeshirtId]
-    
+    const teeshirtObj = useSelector((state) => state.tees.userTees);
+    const user = useSelector((state) => state.session.user);
+    const teeshirt = teeshirtObj[teeshirtId];
+    const seller = teeshirt?.User?.first_name;
+        
     useEffect(() => {
         dispatch(loadTeeByIdThunk(teeshirtId));
     }, [dispatch]);
@@ -25,6 +27,18 @@ export default function TeeshirtDetails() {
     const handleButtonClick = () => {
       alert('Feature coming soon...');
     };
+    
+    if (!teeshirt) {
+      // Add your loading state or return null to render nothing
+      return null;
+    }
+    let handleBuying;
+
+    if (user?.id == teeshirt?.user_id) {
+       handleBuying = (e) => {
+        alert("You may not purchase your own shirt")
+      }
+    } 
 
   return (
     <>  
@@ -42,7 +56,7 @@ export default function TeeshirtDetails() {
             <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
             <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
             <span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>
-            <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout}>Log Out</button>
+            <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
           </div>
         </div>
         <hr style={{marginBottom: "20px"}} className='hr-home'></hr>
@@ -75,7 +89,7 @@ export default function TeeshirtDetails() {
           </div>
           <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
-        <hr style={{marginTop: "20px", marginBottom: "50px"}} className='hr-home'></hr>
+        <hr style={{marginTop: "20px", marginBottom: "50px", border: "1px solid white"}} className='hr-home'></hr>
         </>
         ) :
         <> 
@@ -111,7 +125,7 @@ export default function TeeshirtDetails() {
             <div style={{fontSize: "12px"}}>
               All Types
               <select style={{width: "25px", border: "none", outline: "none"}}>
-                <option></option>
+                <option>- Select -</option>
                 <option>Short Sleeve</option>
                 <option>Long Sleeve</option>
                 <option>Button Short Sleeve</option>
@@ -123,49 +137,127 @@ export default function TeeshirtDetails() {
           </div>
           <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
-        <hr style={{marginTop: "20px", marginBottom: "50px"}} className='hr-home'></hr>
+        <hr style={{marginTop: "20px", marginBottom: "30px", border: "1px solid white"}} className='hr-home'></hr>
         </>
         }
+        <div className='single-tee-post-header'>
+          <span><Link style={{textDecoration: "none", color: "#002398", fontSize: "12px"}} to="/">Back to home page </Link></span>
+          <span style={{fontSize: "12px"}}> | </span> 
+          <span style={{color: "0654BA", fontSize: "12px"}}>Listed in brand: {teeshirt.brand}</span>
+        </div>
+      
+        
         {/* BODY */}
 
-        <h1>Individual Teeshirt</h1>
-        <div className='single-tee-image-container'><img src={teeshirt?.image_url} /></div>
-        <div className='single-tee-information-container'>
-          <p>{teeshirt?.name}</p>
-          <p>FREE SHIPPING and FREE RETURNS, 100% AUTHENTIC</p>
-          <p>{Math.floor(Math.random() * 15) + 1} sold in the last hour</p>
+        <div className='single-tee'>
+          <div className='single-tee-image-container'>
+            <img className='single-tee-image' src={teeshirt?.image_url} />
+            <hr style={{marginTop: "30px", border: "1px dotted lightgrey", width: "100%"}}></hr>
+          </div>
+          <div className='single-tee-middle-container'>
+            <div className='single-tee-information-container'>
+              <p style={{fontSize: "20px", fontWeight: "bold"}}>{teeshirt?.name}</p>
+              <p style={{color: "grey", fontSize: "13px"}}>FREE SHIPPING and FREE RETURNS, 100% AUTHENTIC</p>
+              <p style={{color: "#dd1e31", fontFamily: "Open Sans", fontWeight: "bold"}}><i style={{color: "#dd1e31"}} class="fas fa-fire"></i> {Math.floor(Math.random() * 8) + 1} sold in the last hour</p>
+              <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>              
+            </div>
+            <div className='single-tee-selection-container'>
+              <p>Condition: <span style={{fontSize: "13px", fontWeight: "bold"}}>New with tags</span></p>
+              <p>Color: <select style={{border: "1px solid #d3d3d3", borderRadius: "3px", color: "#333", width: "140px", fontWeight: "400", lineHeight: "1.15"}}><option>- Select -</option><option>{teeshirt?.color}</option></select></p>
+              <p>Quantity: <span>{Math.floor(Math.random() * 8) + 1} available /</span><span style={{color: "#dd1e31", fontWeight: "bold", fontFamily: "Open Sans",}}> {Math.floor(Math.random() * 6) + 10} sold</span></p>
+              <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>
+            </div>
+            <div className='single-tee-buying-container'>
+              <p style={{fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}><span style={{fontSize: "16px", marginTop: "-10px"}}>Price:</span> <span style={{marginTop: "30px", fontSize: "20px", fontWeight: "bold"}}>US ${teeshirt?.price.toFixed(2)}/ea</span></p>
+                          
+              {user ? (
+                    <div>
+                      <Link style={{textDecoration: "none"}} to="/cart">
+                        <button style=  //  
+                          {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#0053A0", border: "none"}} 
+                          className='purchase-btns'>
+                          Buy It Now             
+                        </button>
+                      </Link>
+                      <button style=
+                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#3498CA", border: "none"}} 
+                        className='purchase-btns'>
+                        Add to cart
+                      </button>
+                      <button style=
+                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "#3665F3", backgroundColor: "white", border: "1px solid #3665F3"}} 
+                        className='purchase-btns2'>
+                        Add to watchlist
+                      </button>   
+                    </div>
+                  ) : (
+                    <>
+                      <Link style={{textDecoration: "none"}} to='/login'>
+                      <button style=
+                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#0053A0", border: "none"}} 
+                        className='purchase-btns1'>
+                        Buy It Now
+                      </button>
+                      </Link>
+                      <Link style={{textDecoration: "none"}} to='/login'>
+                        <button style=
+                          {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#3498CA", border: "none"}} 
+                          className='purchase-btns1'>
+                          Add to cart
+                        </button>
+                      </Link>
+                      <Link style={{textDecoration: "none"}} to='/login'>
+                        <button style=
+                          {{display:"flex", justifyContent: "center", alignItems: "center", color: "#3665F3", backgroundColor: "white", border: "1px solid #3665F3"}} 
+                          className='purchase-btns1'>
+                          Add to watchlist
+                        </button>
+                      </Link>
+                    </>                    
+              )}
+            </div>
+          </div>
+          <div className='single-tee-end-container'>
+            <div className='single-tee-shop-w-con-container'>
+              <p style={{paddingLeft: "10px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#333"}}>Shop with confidence</p>
+              <p style={{paddingLeft: "10px", marginTop: "-5px",fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#333"}}>
+                <i style={{color: "blue"}}class="fas fa-shield-alt"></i>
+                <span style={{paddingLeft: "10px", fontSize: "15px"}}>TeeBay Money Back Guarantee</span>
+              </p>
+              <p style={{marginTop: "-10px", paddingLeft: "38px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#707070", fontSize: "14px"}}>
+                <p>Get the item you ordered</p>
+                <p style={{marginTop: "-15px"}}>or your money back.</p>
+              </p>
+              {/* <p style={{marginTop: "-10px", paddingLeft: "38px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#0654ba"}}>Learn more</p> */}
+            </div>
+            <div className='single-tee-seller-info-container'>
+              <p style={{paddingLeft: "5px", fontWeight: "bold",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}>Seller information</p>
+              <p style={{paddingLeft: "5px", marginTop: "-15px",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", fontSize: "15px", color: "#0654ba", textDecoration: "underline"}}>{seller}</p>
+              <p style={{paddingLeft: "5px", marginTop: "-10px", fontSize: "13px"}}>100% positive feedback</p>
+              <hr style={{border: "1px dotted lightgrey", width: "95%"}}></hr>
+              <p className='single-tee-seller-info2'>
+                <span class="fa-stack" style={{color: "#3665f3"}}>
+                  <i class="far fa-heart fa-stack-1x"></i>
+                  <i class="fas fa-heart fa-stack-1x" style={{color: "transparent"}}></i>
+                </span> 
+                <span style={{color: "#3665f3", textDecoration: "underline"}}>Save seller</span>
+              </p>
+              <p style={{marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info2'>Contact seller</p>
+              <p style={{marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info2'>Visit store</p>
+              <p style={{marginBottom: "20px", marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info2'>See other items</p>
+            </div>
+          </div>
         </div>
-        <div className='single-tee-buying-container'>
-          <p>Price: ${teeshirt?.price.toFixed(2)}</p>
-          
-          {user ? (
-                <div>
-                  <button>Buy It Now</button>
-                  <button>Add to cart</button>
-                  <button>Add to watchlist</button>
-                </div>
-              ) : (
-                null
-          )}
-
-
-        </div>
-        <div className='single-tee-shop-w-con-container'>
-          <p>Shop with confidence</p>
-          <p>TeeBay Money Back Guarantee</p>
-          <p>Get the item you ordered or your money back.</p>
-          <p>Learn more</p>
-        </div>
-        <div className='single-tee-seller-info-container'>
-          <p>Seller information</p>
-          <p>Seller name placeholder</p>
-          <p>99.9% positive feedback</p>
-          <hr></hr>
-          <p className='single-tee-seller-info2'>Save seller</p>
-          <p className='single-tee-seller-info2'>Contact seller</p>
-          <p className='single-tee-seller-info2'>Visit store</p>
-          <p className='single-tee-seller-info2'>See other items</p>
-        </div>
+        <hr style={{backgroundColor: "lightgray", border: "none", borderTop: "1px solid lightgray", marginTop: "30px", marginBottom: "30px"}}></hr>
+        <footer className="single-tee-footer-container">Copyright © 2023 TeeBay All Rights Reserved. 
+          <span className="single-tee-footer-span">Accessibility,</span>
+          <span className="single-tee-footer-span">User Agreement,</span>
+          <span className="single-tee-footer-span">Privacy,</span>
+          <span className="single-tee-footer-span">Payments</span>
+          <span className="single-tee-footer-span">Terms of Use,</span>
+          <span className="single-tee-footer-span">Cookies,</span>
+          <span className="single-tee-footer-span">Your Privacy Choices</span>
+        </footer>        
     </>
   )
 }

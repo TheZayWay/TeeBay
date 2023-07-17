@@ -2,22 +2,29 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { loadEditTeeThunk, loadTeeByIdThunk } from "../../store/teeshirt";
+import { logout } from "../../store/session";
 import './UpdateListing.css'
 import { useParams } from "react-router-dom";
+
 
 export default function UpdateListingForm() {
   const dispatch = useDispatch();
   const {teeshirtId} = useParams();
   const history = useHistory();
   const state = useSelector((state) => state.tees);
-  const [name, setName] = useState();
-  const [type, setType] = useState();
-  const [description, setDescription] = useState();
-  const [image_url, setImage_Url] = useState();
-  const [brand, setBrand] = useState();
-  const [price, setPrice] = useState();
+  const user = state.user
+  const teeshirt = state.allTees[teeshirtId];
+  const [name, setName] = useState(teeshirt?.name);
+  const [type, setType] = useState(teeshirt?.type);
+  const [description, setDescription] = useState(teeshirt?.description);
+  const [image_url, setImage_Url] = useState(teeshirt?.image_url);
+  const [brand, setBrand] = useState(teeshirt?.brand);
+  const [price, setPrice] = useState(teeshirt?.price);
+  const [color, setColor] = useState(teeshirt?.color);
   const [errors, setErrors] = useState([]);
+  console.log(teeshirt)
 //   const [submitted, setSubmitted] = useState(false);
+
 
 const handleSubmit = async (e) => {
       e.preventDefault();
@@ -27,10 +34,12 @@ const handleSubmit = async (e) => {
         description: description,
         image_url: image_url,
         brand: brand,
-        price: price
+        price: price,
+        color: color
       }
       
       const newTeeshirt = await dispatch(loadEditTeeThunk(teeshirtId,teeshirt));
+      console.log(newTeeshirt, "newnew")
       history.push(`/teeshirts/${newTeeshirt.id}`);
   }
       
@@ -114,6 +123,16 @@ const handleSubmit = async (e) => {
           className="update-form-inputs"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="color"></label>
+        <input 
+          placeholder="Color"
+          type="text"
+          className="update-form-inputs"
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
         />
       </div>
       <button type="submit">Update Listing</button>

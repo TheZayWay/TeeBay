@@ -66,23 +66,19 @@ export const logout = () => async (dispatch) => {
 		dispatch(removeUser());
 	}
 };
-//username,
-export const signUp = (first_name, last_name, email, password) => async (dispatch) => {
+
+export const signUp = (data) => async (dispatch) => {
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify({
-			first_name,
-			last_name,
-			email,
-			password,
-		}),
+		body: JSON.stringify(data)
 	});
 
 	if (response.ok) {
 		const data = await response.json();
+		console.log("DATA", data)
 		dispatch(setUser(data));
 		return null;
 	} else if (response.status < 500) {

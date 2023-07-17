@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadAllUserTeesThunk } from '../../../store/teeshirt';
 import DeleteTeeshirt from '../DeleteTeeshirt'
+import NavBar from "./NavBar";
+import './UserPage.css'
 
 export default function SellerTeeshirts () {
     const dispatch = useDispatch();
@@ -13,7 +15,8 @@ export default function SellerTeeshirts () {
     const teeshirts = state.tees.userTees;
     const teeshirtsArr = Object.values(teeshirts)
     
-    
+    console.log("teeshirts", teeshirts)
+    console.log("teeshirtsarr,", teeshirtsArr)
 
     useEffect(() => {
         dispatch(loadAllUserTeesThunk())
@@ -21,17 +24,49 @@ export default function SellerTeeshirts () {
 
 
     return (
-        <div>
-            {teeshirtsArr.map((teeshirt) => {
-                return (
-                    <>
-                    <img src={teeshirt.image_url} alt='Teeshirt Preview' />
-                    <Link to={`/teeshirts/${teeshirt.id}/update`}>Update Listing</Link>
-                    <DeleteTeeshirt props={teeshirt.id}/>
-                    </>
-                )
-            })}
-        </div>
+        <>
+            <NavBar />
+            {
+            teeshirtsArr.length === 0 ? 
+            (   <>
+                <h1 className='user-page-no-listings'>No listings...</h1>
+                </>
+            ) : 
+            <>
+            <h1>{user.first_name}'s Listings</h1>
+            <div className='user-page-teeshirt-container'>
+                {teeshirtsArr.map((teeshirt) => {
+                    return (
+                        <>
+                        <div className='user-page-teeshirt-card'>
+                            <h3>{teeshirt.name}</h3>
+                            <Link to={`teeshirts/${teeshirt.id}`}><img className='user-page-images' src={teeshirt.image_url} alt='Teeshirt Preview' /></Link>
+                            <div className='user-page-crud-btns'>
+                                <Link style={{textDecoration: "none"}} to={`/teeshirts/${teeshirt.id}/update`}><button>Update Listing</button></Link>
+                                <DeleteTeeshirt props={teeshirt.id}/>
+                            </div>
+                        </div>
+                        
+                        
+                        </>
+                    )
+                })}
+            </div>
+            </>
+            }
+            
+            <hr style={{backgroundColor: "lightgray", border: "none", borderTop: "1px solid lightgray", marginTop: "30px", marginBottom: "30px"}}></hr>
+            <footer className="single-tee-footer-container">Copyright © 2023 TeeBay All Rights Reserved. 
+                <span className="single-tee-footer-span">Accessibility,</span>
+                <span className="single-tee-footer-span">User Agreement,</span>
+                <span className="single-tee-footer-span">Privacy,</span>
+                <span className="single-tee-footer-span">Payments</span>
+                <span className="single-tee-footer-span">Terms of Use,</span>
+                <span className="single-tee-footer-span">Cookies,</span>
+                <span className="single-tee-footer-span">Your Privacy Choices</span>
+            </footer>
+        </>
+        
 
     ) 
 }
