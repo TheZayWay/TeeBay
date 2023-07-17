@@ -35,14 +35,21 @@ export default function TeeshirtDetails() {
       alert('Feature coming soon...');
     };
     
-    // implement after the bug is fixed 
-    // let handleBuying;
+    if (!teeshirt) {
+      // Add your loading state or return null to render nothing
+      return null;
+    }
 
-    // if (user.id === teeshirt.user_id) {
-    //    handleBuying = (e) => {
-    //     alert("You may not purchase your own shirt")
-    //   }
-    // }
+    // implement after the bug is fixed 
+    let handleBuying;
+
+    if (user?.id == teeshirt?.user_id) {
+       handleBuying = (e) => {
+        alert("You may not purchase your own shirt")
+      }
+    } 
+    console.log(teeshirt.user_id)
+    // console.log("ids", user.id , teeshirt.user_id)
 
   return (
     <>  
@@ -171,7 +178,7 @@ export default function TeeshirtDetails() {
               {user ? (
                     <div>
                       <Link style={{textDecoration: "none"}} to="/cart">
-                        <button style= //onClick={handleBuying}
+                        <button style=  //  
                           {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#0053A0", border: "none"}} 
                           className='purchase-btns'>
                           Buy It Now             
@@ -186,8 +193,7 @@ export default function TeeshirtDetails() {
                         {{display:"flex", justifyContent: "center", alignItems: "center", color: "#3665F3", backgroundColor: "white", border: "1px solid #3665F3"}} 
                         className='purchase-btns2'>
                         Add to watchlist
-                      </button>
-                      
+                      </button>   
                     </div>
                   ) : (
                     <>
