@@ -7,10 +7,7 @@ import { logout } from "../../../store/session";
 import './SingleTeeshirt.css'
 
 // Goal is to implement this after fixing the bug on re render that makes teeshirt properties undefined
-{/* <span><Link style={{textDecoration: "none", color: "#002398"}}>Back to home page </Link></span>
-        <span> | </span> */}
-        {/* {console.log("BRAND", teeshirt.brand)} */}
-        {/* <span style={{color: "0654BA"}}>Listed in brand: {teeshirt.brand}</span> */}
+
 
 
 export default function TeeshirtDetails() {
@@ -152,7 +149,10 @@ export default function TeeshirtDetails() {
         <hr style={{marginTop: "20px", marginBottom: "30px", border: "1px solid white"}} className='hr-home'></hr>
         </>
         }
-
+        <span><Link style={{textDecoration: "none", color: "#002398"}}>Back to home page </Link></span>
+        <span> | </span> 
+        {console.log("BRAND", teeshirt.brand)}
+        <span style={{color: "0654BA"}}>Listed in brand: {teeshirt.brand}</span>
         {/* BODY */}
 
         <div className='single-tee'>
