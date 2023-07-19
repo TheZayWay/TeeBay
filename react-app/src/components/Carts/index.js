@@ -4,6 +4,7 @@ import { loadTeeByIdThunk } from '../../store/teeshirt';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../../store/session";
 import './Carts.css'
+import { decreaseCart, removeFromCart, addToCart } from '../../store/cart';
 
 export default function CartPage() {
     const dispatch = useDispatch();
@@ -12,9 +13,11 @@ export default function CartPage() {
     const cartTotalQuantity = useSelector((state) => state.cart.cartTotalQuantity)
     const cart = useSelector((state) => state.cart.cartItems)
     let price = 0
-    const totalPrice = cart.map((item) => Number(item.price))  
+    const totalPrice = cart.map((item) => Number(item.cartQuantity * item.price)) 
+    console.log(totalPrice, "tptp") 
     const currentDate = new Date()  
     const date = currentDate.toLocaleDateString()
+    let cartItemPrice;
 
     for (let i = 0; i < totalPrice.length; i++) {
         price += totalPrice[i]
@@ -32,7 +35,20 @@ export default function CartPage() {
     const handleButtonCheckout = () => {
       alert('Your items are on the way!');
     };
+
+    const handleRemoveFromCart = (cartItem) => {
+      dispatch(removeFromCart(cartItem))
+    }
+
+    const handleDecreaseCart = (cartItem) => {
+      dispatch(decreaseCart(cartItem))
+      cartItemPrice = (cartItem.cartQuantity * cartItem.price) - cartItem.price
+    }
    
+    const handleIncreaseCart = (cartItem) => {
+      dispatch(addToCart(cartItem))
+    }
+
     return (
       <>
       <div className='logged-out-header'>
@@ -46,7 +62,7 @@ export default function CartPage() {
         <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
         <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
         <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
-        <Link to="/cart"><span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>{cartTotalQuantity}</Link>
+        <Link to="/cart"><span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span></Link>
         <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
       </div>
     </div>
@@ -99,9 +115,13 @@ export default function CartPage() {
                     <div>{info.color}</div>
                     <div>New with tags</div>
                   </div>
-                  <div>${info.price.toFixed(2)}</div>
+                  <div>${info.price.toFixed(2) * info.cartQuantity}</div>
+                  <button onClick={() => handleRemoveFromCart(info)}>Remove</button>
+                  <button onClick={() => handleDecreaseCart(info)}>-</button>
+                  <div>{info.cartQuantity}</div>
+                  <button onClick={() => handleIncreaseCart(info)}>+</button>
                 </div> 
-                <div>Free shipping on all orders placed on {date}</div>
+                <div>Free shipping on all orders placed on {date}</div>                
               </div>           
               </>
             )         
@@ -118,7 +138,7 @@ export default function CartPage() {
           fontWeight: "bold", fontSize: "16px"
           }}>Go to checkout</button>
         <div className='cart-item-price'>
-          <div style={{fontFamily: '"Market Sans", Arial, sans-serif', fontWeight: 500}}>Items ({cartTotalQuantity})</div>
+          <div style={{fontFamily: '"Market Sans", Arial, sans-serif', fontWeight: 500}}>Price</div>
           <div style={{fontFamily: '"Market Sans", Arial, sans-serif'}}>${price.toFixed(2)}</div>
         </div>
         <div style={{fontFamily: '"Market Sans", Arial, sans-serif', fontSize: "15px", paddingLeft: "20px", marginTop: "10px"}}>Shipping 

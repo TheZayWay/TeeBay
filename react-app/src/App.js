@@ -10,10 +10,7 @@ import TeeshirtDetails from "./components/Teeshirt/SingleTeeshirt";
 import SellerTeeshirts from "./components/Teeshirt/UserPage";
 import CreateTeeshirtForm from "./components/Forms/SellingForm";
 import UpdateListingForm from "./components/Forms/UpdateListing";
-import NavBar from "./components/Teeshirt/UserPage/NavBar";
 import CartPage from "./components/Carts";
-
-
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +22,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      {isLoaded && (       
         <Switch>
           <Route path="/login">
             <LoginFormPage />

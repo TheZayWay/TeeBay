@@ -61,7 +61,7 @@ export default function TeeshirtDetails() {
             <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
             <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
             <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
-            <Link to="/cart"><span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>{cartState}</Link>
+            <Link to="/cart"><span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span></Link>
             <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
           </div>
         </div>
@@ -179,17 +179,20 @@ export default function TeeshirtDetails() {
               {user ? (
                     <div>
                       <Link style={{textDecoration: "none"}} to="/cart">
-                        <button style=  //  
+                        <button onClick={() => handleAddToCart(teeshirt)} style=  //  
                           {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#0053A0", border: "none"}} 
                           className='purchase-btns'>
                           Buy It Now             
                         </button>
                       </Link>
+                     <Link style={{textDecoration:"none"}} to="/cart">
                       <button onClick={() => handleAddToCart(teeshirt)} style= //
-                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#3498CA", border: "none"}} 
-                        className='purchase-btns'>
-                        Add to cart
-                      </button>
+                          {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#3498CA", border: "none"}} 
+                          className='purchase-btns'>
+                          Add to cart
+                        </button>
+                     </Link>
+                     
                       <button style=
                         {{display:"flex", justifyContent: "center", alignItems: "center", color: "#3665F3", backgroundColor: "white", border: "1px solid #3665F3"}} 
                         className='purchase-btns2'>
