@@ -10,6 +10,9 @@ import TeeshirtDetails from "./components/Teeshirt/SingleTeeshirt";
 import SellerTeeshirts from "./components/Teeshirt/UserPage";
 import CreateTeeshirtForm from "./components/Forms/SellingForm";
 import UpdateListingForm from "./components/Forms/UpdateListing";
+import NavBar from "./components/Teeshirt/UserPage/NavBar";
+import CartPage from "./components/Carts";
+
 
 
 function App() {
@@ -38,6 +41,9 @@ function App() {
           </Route>
           <Route exact path="/listings">
             <SellerTeeshirts />
+          </Route>
+          <Route exact path="/cart">
+            <CartPage />
           </Route>
           <Route exact path={`/teeshirts/:teeshirtId/update`}>
             <UpdateListingForm />
