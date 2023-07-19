@@ -14,9 +14,6 @@ export default function SellerTeeshirts () {
     const userId = user.id;
     const teeshirts = state.tees.userTees;
     const teeshirtsArr = Object.values(teeshirts)
-    
-    console.log("teeshirts", teeshirts)
-    console.log("teeshirtsarr,", teeshirtsArr)
 
     useEffect(() => {
         dispatch(loadAllUserTeesThunk())
@@ -40,7 +37,7 @@ export default function SellerTeeshirts () {
                         <>
                         <div className='user-page-teeshirt-card'>
                             <h3>{teeshirt.name}</h3>
-                            <Link to={`teeshirts/${teeshirt.id}`}><img className='user-page-images' src={teeshirt.image_url} alt='Teeshirt Preview' /></Link>
+                            <Link to={`teeshirts/${teeshirt.id}`}><img className='user-page-images' src={teeshirt.image_url} alt='Teeshirt Preview' onError={e => e.currentTarget.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-EVNan6uv0pIUNhN3H1m4O-OmHyaQ93pgw&usqp=CAU"}/></Link>
                             <div className='user-page-crud-btns'>
                                 <Link style={{textDecoration: "none"}} to={`/teeshirts/${teeshirt.id}/update`}><button>Update Listing</button></Link>
                                 <DeleteTeeshirt props={teeshirt.id}/>
