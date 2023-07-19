@@ -4,6 +4,7 @@ import { loadTeeByIdThunk } from '../../../store/teeshirt';
 import { useDispatch, useSelector } from 'react-redux';
 import UpdateListingForm from '../../Forms/UpdateListing';
 import { logout } from "../../../store/session";
+import { addToCart } from '../../../store/cart';
 import './SingleTeeshirt.css'
 
 export default function TeeshirtDetails() {
@@ -14,7 +15,12 @@ export default function TeeshirtDetails() {
     const user = useSelector((state) => state.session.user);
     const teeshirt = teeshirtObj[teeshirtId];
     const seller = teeshirt?.User?.first_name;
-        
+    const cartState = useSelector((state) => state.cart.cartTotalQuantity)
+
+  const handleAddToCart = (teeshirt) => {
+    dispatch(addToCart(teeshirt))
+  }
+
     useEffect(() => {
         dispatch(loadTeeByIdThunk(teeshirtId));
     }, [dispatch]);
@@ -55,7 +61,7 @@ export default function TeeshirtDetails() {
             <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
             <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
             <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
-            <span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>
+            <Link to="/cart"><span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span></Link>
             <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
           </div>
         </div>
@@ -173,17 +179,20 @@ export default function TeeshirtDetails() {
               {user ? (
                     <div>
                       <Link style={{textDecoration: "none"}} to="/cart">
-                        <button style=  //  
+                        <button onClick={() => handleAddToCart(teeshirt)} style=  //  
                           {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#0053A0", border: "none"}} 
                           className='purchase-btns'>
                           Buy It Now             
                         </button>
                       </Link>
-                      <button style=
-                        {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#3498CA", border: "none"}} 
-                        className='purchase-btns'>
-                        Add to cart
-                      </button>
+                     <Link style={{textDecoration:"none"}} to="/cart">
+                      <button onClick={() => handleAddToCart(teeshirt)} style= //
+                          {{display:"flex", justifyContent: "center", alignItems: "center", color: "white", backgroundColor: "#3498CA", border: "none"}} 
+                          className='purchase-btns'>
+                          Add to cart
+                        </button>
+                     </Link>
+                     
                       <button style=
                         {{display:"flex", justifyContent: "center", alignItems: "center", color: "#3665F3", backgroundColor: "white", border: "1px solid #3665F3"}} 
                         className='purchase-btns2'>

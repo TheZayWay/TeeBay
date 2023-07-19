@@ -10,7 +10,7 @@ import TeeshirtDetails from "./components/Teeshirt/SingleTeeshirt";
 import SellerTeeshirts from "./components/Teeshirt/UserPage";
 import CreateTeeshirtForm from "./components/Forms/SellingForm";
 import UpdateListingForm from "./components/Forms/UpdateListing";
-
+import CartPage from "./components/Carts";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      {isLoaded && (       
         <Switch>
           <Route path="/login">
             <LoginFormPage />
@@ -38,6 +38,9 @@ function App() {
           </Route>
           <Route exact path="/listings">
             <SellerTeeshirts />
+          </Route>
+          <Route exact path="/cart">
+            <CartPage />
           </Route>
           <Route exact path={`/teeshirts/:teeshirtId/update`}>
             <UpdateListingForm />
