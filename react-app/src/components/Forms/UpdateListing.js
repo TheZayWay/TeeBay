@@ -14,17 +14,24 @@ export default function UpdateListingForm() {
   const state = useSelector((state) => state.tees);
   const user = state.user
   const teeshirt = state.allTees[teeshirtId];
-  const [name, setName] = useState(teeshirt?.name);
-  const [type, setType] = useState(teeshirt?.type);
-  const [description, setDescription] = useState(teeshirt?.description);
-  const [image_url, setImage_Url] = useState(teeshirt?.image_url);
-  const [brand, setBrand] = useState(teeshirt?.brand);
-  const [price, setPrice] = useState(teeshirt?.price);
-  const [color, setColor] = useState(teeshirt?.color);
+  const [name, setName] = useState(teeshirt?.name || JSON.parse(localStorage.getItem('name')))
+  const [type, setType] = useState(teeshirt?.type || JSON.parse(localStorage.getItem('type')))
+  const [description, setDescription] = useState(teeshirt?.description || JSON.parse(localStorage.getItem('description')));
+  const [image_url, setImage_Url] = useState(teeshirt?.image_url || JSON.parse(localStorage.getItem('image_url')));
+  const [brand, setBrand] = useState(teeshirt?.brand || JSON.parse(localStorage.getItem('brand')));
+  const [price, setPrice] = useState(teeshirt?.price || JSON.parse(localStorage.getItem('price')));
+  const [color, setColor] = useState(teeshirt?.color || JSON.parse(localStorage.getItem('color')));
   const [errors, setErrors] = useState([]);
-  console.log(teeshirt)
-//   const [submitted, setSubmitted] = useState(false);
-
+ 
+  useEffect(() => {
+    localStorage.setItem("name", JSON.stringify(name))
+    localStorage.setItem("type", JSON.stringify(type))
+    localStorage.setItem("description", JSON.stringify(description))
+    localStorage.setItem("image_url", JSON.stringify(image_url))
+    localStorage.setItem("brand", JSON.stringify(brand))
+    localStorage.setItem("price", JSON.stringify(price))
+    localStorage.setItem("color", JSON.stringify(color))
+  }, [name, type, description, image_url, brand, price, color])
 
 const handleSubmit = async (e) => {
       e.preventDefault();
