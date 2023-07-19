@@ -109,7 +109,7 @@ export default function CartPage() {
               <div className='cart-card-subcontainer'> 
                 <div>Seller <span style={{textDecoration: "underline"}}>{info.User.first_name}</span></div>
                 <div className='cart-row-2'>
-                  <img src={info.image_url} className='cart-image'/>
+                  <img src={info.image_url} className='cart-image' onError={e => e.currentTarget.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-EVNan6uv0pIUNhN3H1m4O-OmHyaQ93pgw&usqp=CAU"}/>
                   <div className='cart-row-2-sub'>
                     <div>{info.name}</div>
                     <div>{info.color}</div>
