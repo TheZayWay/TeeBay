@@ -157,7 +157,7 @@ export default function TeeshirtDetails() {
 
         <div className='single-tee'>
           <div className='single-tee-image-container'>
-            <img className='single-tee-image' src={teeshirt?.image_url} />
+            <img className='single-tee-image' src={teeshirt?.image_url} onError={e => e.currentTarget.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-EVNan6uv0pIUNhN3H1m4O-OmHyaQ93pgw&usqp=CAU"} />
             <hr style={{marginTop: "30px", border: "1px dotted lightgrey", width: "100%"}}></hr>
           </div>
           <div className='single-tee-middle-container'>

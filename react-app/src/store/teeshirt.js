@@ -150,7 +150,6 @@ const teeshirtReducer = (state = initialState, action) => {
         case EDIT_TEE: {
             const newState = {...state}
             newState.allTees[action.tee.id] = action.tee;
-            console.log("NEW", newState)
             return newState;
         }
         case DELETE_TEE: {
