@@ -29,11 +29,6 @@ export default function LoggedIn() {
 
     return (
         <>
-        {/* <div className='brand-list'>
-            {teesArr.map((teeshirt) => {
-                return(<h3>{teeshirt?.brand}</h3>)
-            })}
-        </div> */}
         <div className='logged-out-header'>
             <div className='logged-out-header-presplit'>
                 <span style={{paddingLeft: "0px", fontSize: "12px"}} className='logged-out-signin-sentence'>Hi <Link style={{fontWeight: "bold", color: "black", textDecoration: "none"}} to='/listings' className='logged-out-signin'>{user.user.first_name}</Link>!</span>
@@ -45,7 +40,7 @@ export default function LoggedIn() {
                 <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
                 <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
                 <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
-                <span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>
+                <Link to="/cart"><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></Link>
                 <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
             </div>
         </div>
@@ -90,7 +85,7 @@ export default function LoggedIn() {
                                 </Link>
                             </div>
                             <Link className='homepage-price' to={`/teeshirts/${teeshirt.id}`}>
-                                <p>${teeshirt.price.toFixed(2)}</p>
+                                <p>${teeshirt.price}</p>
                             </Link>
                         </div>
                     )

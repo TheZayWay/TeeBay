@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { loadTeeByIdThunk } from '../../store/teeshirt';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import './Carts.css'
 import { decreaseCart, removeFromCart, addToCart } from '../../store/cart';
 
 export default function CartPage() {
+    const history = useHistory();
     const dispatch = useDispatch();
     const params = useParams();
     const user = useSelector((state) => state.session.user);
@@ -26,6 +27,7 @@ export default function CartPage() {
     const handleLogout = (e) => {
       e.preventDefault();
       dispatch(logout());
+      history.push("/")
     };
 
     const handleButtonClick = () => {

@@ -11,11 +11,12 @@ export default function TeeshirtDetails() {
     const dispatch = useDispatch();
     const params = useParams();
     const teeshirtId = Number(params.teeshirtId);
-    const teeshirtObj = useSelector((state) => state.tees.userTees);
+    const teeshirtObj = useSelector((state) => state?.tees?.userTees);
     const user = useSelector((state) => state.session.user);
     const teeshirt = teeshirtObj[teeshirtId];
     const seller = teeshirt?.User?.first_name;
     const cartState = useSelector((state) => state.cart.cartTotalQuantity)
+    console.log(teeshirtObj.price)
 
   const handleAddToCart = (teeshirt) => {
     dispatch(addToCart(teeshirt))
@@ -34,10 +35,6 @@ export default function TeeshirtDetails() {
       alert('Feature coming soon...');
     };
     
-    if (!teeshirt) {
-      // Add your loading state or return null to render nothing
-      return null;
-    }
     let handleBuying;
 
     if (user?.id == teeshirt?.user_id) {
@@ -45,6 +42,11 @@ export default function TeeshirtDetails() {
         alert("You may not purchase your own shirt")
       }
     } 
+
+    if (!teeshirt) {
+      // Display a loading message or placeholder while data is being fetched
+      return <p>Loading...</p>;
+    }
 
   return (
     <>  
@@ -149,7 +151,7 @@ export default function TeeshirtDetails() {
         <div className='single-tee-post-header'>
           <span><Link style={{textDecoration: "none", color: "#002398", fontSize: "12px"}} to="/">Back to home page </Link></span>
           <span style={{fontSize: "12px"}}> | </span> 
-          <span style={{color: "0654BA", fontSize: "12px"}}>Listed in brand: {teeshirt.brand}</span>
+          <span style={{color: "0654BA", fontSize: "12px"}}>Listed in brand: {teeshirt?.brand}</span>
         </div>
       
         
@@ -174,7 +176,7 @@ export default function TeeshirtDetails() {
               <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>
             </div>
             <div className='single-tee-buying-container'>
-              <p style={{fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}><span style={{fontSize: "16px", marginTop: "-10px"}}>Price:</span> <span style={{marginTop: "30px", fontSize: "20px", fontWeight: "bold"}}>US ${teeshirt?.price.toFixed(2)}/ea</span></p>
+              <p style={{fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}><span style={{fontSize: "16px", marginTop: "-10px"}}>Price:</span> <span style={{marginTop: "30px", fontSize: "20px", fontWeight: "bold"}}>US ${teeshirt?.price}/ea</span></p>
                           
               {user ? (
                     <div>

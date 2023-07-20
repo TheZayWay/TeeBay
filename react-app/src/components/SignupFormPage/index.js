@@ -19,10 +19,24 @@ function SignupFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!firstName || !lastName) {
-      setErrors(["First name and last name are required"]);
+    if (!firstName) {
+      setErrors(["First name is required."]);
       return;
     } 
+
+    if (!lastName) {
+      setErrors(["Last name is required."]);
+      return;
+    } 
+
+    if (password.length < 6) {
+      setErrors(["Password must be at least 6 characters."])
+      return;
+    }
+
+    // if (!email.includes("@") || !email.includes(".com")) {
+    //   setErrors(["Valid email is required."])
+    // } 
 
       const data = {
         first_name: firstName,
@@ -51,7 +65,7 @@ function SignupFormPage() {
         <div className="signup-form-container">
           <form style={{display: "flex", flexDirection: "column"}} onSubmit={handleSubmit}>
             <ul>
-              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+              {errors.map((error, idx) => <div key={idx}>{error}</div>)}
             </ul>
             <div className="signup-form-fullname">
               <label>
@@ -62,6 +76,7 @@ function SignupFormPage() {
                   onChange={(e) => setFirstName(e.target.value)}
                   className="signup-form-inputs1"
                   style={{marginRight: "25px", paddingLeft: "15px"}}
+                  maxLength={30}
                 />
               </label>
               <label>
@@ -78,7 +93,7 @@ function SignupFormPage() {
             <label>
               <input
                 placeholder="Email"
-                type="text"
+                type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

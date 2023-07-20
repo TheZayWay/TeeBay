@@ -81,7 +81,7 @@ export default function LoggedOut() {
                                 </Link>
                             </div>
                             <Link className='homepage-price' to={`/teeshirts/${teeshirt.id}`}>
-                                <p>${teeshirt.price.toFixed(2)}</p>
+                                <p>${teeshirt.price}</p>
                             </Link>
                             
                         </div>
