@@ -21,15 +21,39 @@ export default function CreateTeeshirtForm() {
 
 const handleSubmit = async (e) => {
       e.preventDefault();
+
+      const validationErrors = [];
+
+      const parsedPrice = parseFloat(price);
+      if (isNaN(parsedPrice) || parsedPrice <= 0 || !Number.isInteger(parsedPrice)) {
+        setErrors(["Please enter a valid whole number greater than 0 for the price."]);
+        return;
+      }
+
+      if (name.length > 25) {
+        validationErrors.push("Name must be less than 25 characters.");
+      }     
+
+      if (!color.length) {
+        validationErrors.push("Please enter a color.")
+      }
+
+      if (validationErrors.length > 0) {
+        setErrors(validationErrors);
+        return;
+      }
+
+      setErrors([]);
       const teeshirt = {
         name: name,
-        type:type,
+        type: type,
         description: description,
         image_url: image_url,
         brand: brand,
-        price: price,
-        color: color
-      }
+        price: parsedPrice,
+        color: color,
+      };
+      // consol
       
       const newTeeshirt = await dispatch(loadCreateTeeThunk(userId,teeshirt));
       history.push(`/teeshirts/${newTeeshirt.id}`);
@@ -47,6 +71,15 @@ const handleSubmit = async (e) => {
       </Link>
       <hr style={{border: "none", borderTop: "1px solid lightgray"}}></hr>
       <h2 style={{fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif'}}>Start your listing</h2>
+
+      {errors.length > 0 && (
+        <div style={{ color: "red", marginBottom: "10px", display: "flex", flexDirection: "column", alignItems: "center"}}>
+          {errors.map((error, index) => (
+            <div key={index}>{error}</div>
+          ))}
+        </div>
+      )}
+
       <form className="selling-form" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name"></label>
@@ -56,6 +89,7 @@ const handleSubmit = async (e) => {
           className="selling-form-inputs"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          maxLength={25}
           required
         />
       </div>
@@ -113,6 +147,8 @@ const handleSubmit = async (e) => {
           placeholder="Price"
           type="number"
           className="selling-form-inputs"
+          min="1"
+          step="1"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
@@ -125,6 +161,7 @@ const handleSubmit = async (e) => {
           className="selling-form-inputs"
           value={color}
           onChange={(e) => setColor(e.target.value)}
+          maxLength={15}
         />
       </div>
       <button type="submit">Post Listing</button>

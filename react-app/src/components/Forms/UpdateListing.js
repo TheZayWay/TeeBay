@@ -35,15 +35,33 @@ export default function UpdateListingForm() {
 
 const handleSubmit = async (e) => {
       e.preventDefault();
+      const validationErrors = [];
+
+      const parsedPrice = parseFloat(price);
+      if (isNaN(parsedPrice) || parsedPrice <= 0 || !Number.isInteger(parsedPrice)) {
+        setErrors(["Please enter a valid whole number greater than 0 for the price."]);
+      return;
+      }
+
+      if (!color.length) {
+        validationErrors.push("Please enter a color.")
+      }
+     
+      if (validationErrors.length > 0) {
+        setErrors(validationErrors);
+        return;
+  }
+  setErrors([]);
+      
       const teeshirt = {
         name: name,
-        type:type,
+        type: type,
         description: description,
         image_url: image_url,
         brand: brand,
-        price: price,
-        color: color
-      }
+        price: parsedPrice,
+        color: color,
+      };
       
       const newTeeshirt = await dispatch(loadEditTeeThunk(teeshirtId,teeshirt));
       console.log(newTeeshirt, "newnew")
@@ -62,6 +80,15 @@ const handleSubmit = async (e) => {
     </Link>
     <hr style={{border: "none", borderTop: "1px solid lightgray"}}></hr>
     <h2 style={{fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif'}}>Update your listing</h2>
+
+    {errors.length > 0 && (
+        <div style={{ color: "red", marginBottom: "10px", display: "flex", flexDirection: "column", alignItems: "center"}}>
+          {errors.map((error, index) => (
+            <div key={index}>{error}</div>
+          ))}
+        </div>
+      )}
+
     <form className="update-form" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name"></label>
@@ -71,6 +98,7 @@ const handleSubmit = async (e) => {
           className="update-form-inputs"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          maxLength={20}
           required
         />
       </div>
@@ -140,6 +168,7 @@ const handleSubmit = async (e) => {
           className="update-form-inputs"
           value={color}
           onChange={(e) => setColor(e.target.value)}
+          maxLength={15}
         />
       </div>
       <button type="submit">Update Listing</button>
