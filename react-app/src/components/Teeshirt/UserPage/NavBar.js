@@ -10,12 +10,12 @@ export default function NavBar () {
     const history = useHistory();
     const teesObj = useSelector((state) => state.tees);
     const user = useSelector((state) => state.session)
-    console.log("USER", user)
     const teeshirt = teesObj.allTees[teeshirtId];
     
     const handleLogout = (e) => {
         e.preventDefault();
         dispatch(logout());
+        history.push("/")
       };
       
       const handleButtonClick = () => {
@@ -36,7 +36,7 @@ export default function NavBar () {
                     <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
                     <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
                     <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
-                    <span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>
+                    <Link to="/cart"><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></Link>
                     <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
                 </div>
                 </div>
