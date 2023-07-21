@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import { loadEditTeeThunk, loadTeeByIdThunk } from "../../store/teeshirt";
-import { logout } from "../../store/session";
+import { loadEditTeeThunk } from "../../store/teeshirt";
 import './UpdateListing.css'
 import { useParams } from "react-router-dom";
 
@@ -12,7 +11,6 @@ export default function UpdateListingForm() {
   const {teeshirtId} = useParams();
   const history = useHistory();
   const state = useSelector((state) => state.tees);
-  const user = state.user
   const teeshirt = state.allTees[teeshirtId];
   const [name, setName] = useState(teeshirt?.name || JSON.parse(localStorage.getItem('name')))
   const [type, setType] = useState(teeshirt?.type || JSON.parse(localStorage.getItem('type')))

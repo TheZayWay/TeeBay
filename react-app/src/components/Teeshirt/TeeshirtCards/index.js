@@ -1,7 +1,4 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadAllTeesThunk } from '../../../store/teeshirt';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './TeeshirtCards.css'
 import LoggedOut from './LoggedOut';
 import LoggedIn from './LoggedIn';

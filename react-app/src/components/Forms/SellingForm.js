@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import { loadCreateTeeThunk, loadTeeByIdThunk } from "../../store/teeshirt";
+import { loadCreateTeeThunk } from "../../store/teeshirt";
 import './SellingForm.css'
 
 export default function CreateTeeshirtForm() {
@@ -17,9 +17,8 @@ export default function CreateTeeshirtForm() {
   const [price, setPrice] = useState("");
   const [color, setColor] = useState("");
   const [errors, setErrors] = useState([]);
-//   const [submitted, setSubmitted] = useState(false);
 
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
       e.preventDefault();
 
       const validationErrors = [];
@@ -53,7 +52,6 @@ const handleSubmit = async (e) => {
         price: parsedPrice,
         color: color,
       };
-      // consol
       
       const newTeeshirt = await dispatch(loadCreateTeeThunk(userId,teeshirt));
       history.push(`/teeshirts/${newTeeshirt.id}`);

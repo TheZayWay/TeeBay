@@ -8,7 +8,6 @@ export default function LoggedOut() {
     const dispatch = useDispatch();
     const teeshirts = useSelector((state => state));
     const tees = teeshirts.tees.allTees;
-    const user = teeshirts.session;
     const teesArr = Object.values(tees)
 
     useEffect(() => {

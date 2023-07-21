@@ -1,4 +1,4 @@
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadAllUserTeesThunk } from '../../../store/teeshirt';
@@ -8,10 +8,9 @@ import './UserPage.css'
 
 export default function SellerTeeshirts () {
     const dispatch = useDispatch();
-    const history = useHistory();
     const state = useSelector((state) => state)
     const user = state.session.user;
-    const userId = user.id;
+    // const userId = user.id;
     const teeshirts = state.tees.userTees;
     const teeshirtsArr = Object.values(teeshirts)
 

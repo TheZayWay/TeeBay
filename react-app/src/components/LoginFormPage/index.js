@@ -63,6 +63,15 @@ function LoginFormPage() {
               />
             </label>
             <button style={{backgroundColor: "#3665F3", color: "white", border: "none"}} className="login-form-btns" type="submit">Sign In</button>
+            <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginTop: "70px"}}
+              className='login-form-btns'
+              type='submit'
+              onClick={() => {
+                setEmail('Demo-lition');
+                setPassword('password')
+              }}>
+              Sign in with Demo User 
+            </button>
           </form>
         </div>  
       </div>
@@ -74,7 +83,7 @@ function LoginFormPage() {
       </div>
       </div>
       <div className="other-login-form-btns-container">
-        <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="login-form-btns1">
+        <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginTop: "70px",marginBottom: "20px"}} className="login-form-btns1">
           <i className="fab fa-facebook-f"></i>
           <span style={{marginLeft: "20px"}}>Sign in with Facebook</span>
         </button>
