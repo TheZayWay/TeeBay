@@ -37,13 +37,14 @@ function LoginFormPage() {
         <span style={{fontSize: "14px", fontWeight: 550}}>Sign in to TeeBay or <span><Link style={{color: "#3665f3"}}to='/signup'>create an account</Link></span></span>
         <div>
           <form className="login-form-info" onSubmit={handleSubmit}>
-            <ul>
+            <div className="errors">
               {errors.map((error, idx) => (
-                <li key={idx}>{error}</li>
+                <div key={idx}>{error}</div>
               ))}
-            </ul>
+            </div>
             <label>
               <input
+                style={{marginTop: "1rem"}}
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -63,6 +64,15 @@ function LoginFormPage() {
               />
             </label>
             <button style={{backgroundColor: "#3665F3", color: "white", border: "none"}} className="login-form-btns" type="submit">Sign In</button>
+            <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginTop: "70px"}}
+              className='login-form-btns'
+              type='submit'
+              onClick={() => {
+                setEmail('demo@aa.io');
+                setPassword('password')
+              }}>
+              Sign in with Demo User 
+            </button>
           </form>
         </div>  
       </div>
@@ -74,11 +84,11 @@ function LoginFormPage() {
       </div>
       </div>
       <div className="other-login-form-btns-container">
-        <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginBottom: "20px"}} className="login-form-btns1">
+        {/* <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginTop: "70px",marginBottom: "20px"}} className="login-form-btns1">
           <i className="fab fa-facebook-f"></i>
           <span style={{marginLeft: "20px"}}>Sign in with Facebook</span>
-        </button>
-        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="login-form-btns1">
+        </button> */}
+        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px", marginTop: "60px"}} className="login-form-btns1">
           <i className="fab fa-google"></i>
           <span style={{marginLeft: "20px", marginRight: "20px"}}>Sign in with Google</span>
         </button> 

@@ -36,3 +36,14 @@
 .user-page-crud-btns {
     display: flex;
 }
+
+.user-page-update-btn {
+    border: none;
+    background-color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+.user-page-update-btn:hover {
+    cursor: pointer;
+}

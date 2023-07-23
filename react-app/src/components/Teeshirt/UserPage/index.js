@@ -1,4 +1,4 @@
-import { useParams, Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadAllUserTeesThunk } from '../../../store/teeshirt';
@@ -8,10 +8,9 @@ import './UserPage.css'
 
 export default function SellerTeeshirts () {
     const dispatch = useDispatch();
-    const history = useHistory();
     const state = useSelector((state) => state)
     const user = state.session.user;
-    const userId = user.id;
+    // const userId = user.id;
     const teeshirts = state.tees.userTees;
     const teeshirtsArr = Object.values(teeshirts)
 
@@ -39,7 +38,7 @@ export default function SellerTeeshirts () {
                             <h3>{teeshirt.name}</h3>
                             <Link to={`teeshirts/${teeshirt.id}`}><img className='user-page-images' src={teeshirt.image_url} alt='Teeshirt Preview' onError={e => e.currentTarget.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-EVNan6uv0pIUNhN3H1m4O-OmHyaQ93pgw&usqp=CAU"}/></Link>
                             <div className='user-page-crud-btns'>
-                                <Link style={{textDecoration: "none"}} to={`/teeshirts/${teeshirt.id}/update`}><button>Update Listing</button></Link>
+                                <Link style={{textDecoration: "none"}} to={`/teeshirts/${teeshirt.id}/update`}><button className='user-page-update-btn'>Update Listing</button></Link>
                                 <DeleteTeeshirt props={teeshirt.id}/>
                             </div>
                         </div>

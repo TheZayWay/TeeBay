@@ -10,9 +10,7 @@ function SignupFormPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  // const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
@@ -34,19 +32,14 @@ function SignupFormPage() {
       return;
     }
 
-    // if (!email.includes("@") || !email.includes(".com")) {
-    //   setErrors(["Valid email is required."])
-    // } 
+    const data = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      password: password
+    }
 
-      const data = {
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-        password: password
-      }
-
-        return await dispatch(signUp(data)); //username   
-         
+    return await dispatch(signUp(data));         
   };
 
   return (
@@ -64,7 +57,7 @@ function SignupFormPage() {
       <div className="whole-signup-page">
         <div className="signup-form-container">
           <form style={{display: "flex", flexDirection: "column"}} onSubmit={handleSubmit}>
-            <ul>
+            <ul style={{color: "red"}}>
               {errors.map((error, idx) => <div key={idx}>{error}</div>)}
             </ul>
             <div className="signup-form-fullname">

@@ -1,6 +1,4 @@
-import { useParams, Link, useHistory } from 'react-router-dom';
-import { useEffect } from 'react';
-import { loadTeeByIdThunk } from '../../store/teeshirt';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../../store/session";
 import './Carts.css'
@@ -9,13 +7,10 @@ import { decreaseCart, removeFromCart, addToCart } from '../../store/cart';
 export default function CartPage() {
     const history = useHistory();
     const dispatch = useDispatch();
-    const params = useParams();
     const user = useSelector((state) => state.session.user);
-    const cartTotalQuantity = useSelector((state) => state.cart.cartTotalQuantity)
     const cart = useSelector((state) => state.cart.cartItems)
     let price = 0
     const totalPrice = cart.map((item) => Number(item.cartQuantity * item.price)) 
-    console.log(totalPrice, "tptp") 
     const currentDate = new Date()  
     const date = currentDate.toLocaleDateString()
     let cartItemPrice;
@@ -34,8 +29,9 @@ export default function CartPage() {
       alert('Feature coming soon...');
     };
 
-    const handleButtonCheckout = () => {
-      alert('Your items are on the way!');
+    const handleButtonCheckout = (item) => {
+      history.push("/")
+      dispatch(removeFromCart(item))
     };
 
     const handleRemoveFromCart = (cartItem) => {
@@ -111,19 +107,19 @@ export default function CartPage() {
               <div className='cart-card-subcontainer'> 
                 <div>Seller <span style={{textDecoration: "underline"}}>{info.User.first_name}</span></div>
                 <div className='cart-row-2'>
-                  <img src={info.image_url} className='cart-image' onError={e => e.currentTarget.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-EVNan6uv0pIUNhN3H1m4O-OmHyaQ93pgw&usqp=CAU"}/>
+                  <img src={info.image_url} className='cart-image' alt="preview" onError={e => e.currentTarget.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-EVNan6uv0pIUNhN3H1m4O-OmHyaQ93pgw&usqp=CAU"}/>
                   <div className='cart-row-2-sub'>
                     <div>{info.name}</div>
                     <div>{info.color}</div>
                     <div>New with tags</div>
                   </div>
                   <div>${info.price.toFixed(2) * info.cartQuantity}</div>
-                  <button onClick={() => handleRemoveFromCart(info)}>Remove</button>
-                  <button onClick={() => handleDecreaseCart(info)}>-</button>
+                  <button className="cart-remove-btn" onClick={() => handleRemoveFromCart(info)}>Remove</button>
+                  <button className="cart-operation-btn" onClick={() => handleDecreaseCart(info)}>-</button>
                   <div>{info.cartQuantity}</div>
-                  <button onClick={() => handleIncreaseCart(info)}>+</button>
+                  <button className="cart-operation-btn" onClick={() => handleIncreaseCart(info)}>+</button>
                 </div> 
-                <div>Free shipping on all orders placed on {date}</div>                
+                <div style={{marginTop: "20px"}}>Free shipping on all orders placed on {date}</div>                
               </div>           
               </>
             )         
@@ -135,7 +131,7 @@ export default function CartPage() {
       {/* checkout */}
 
       <div className='cart-checkout-container'>
-        <button onClick={handleButtonCheckout} style={{marginLeft: "20px", marginTop: "15px", width: "90%", height: "45px", borderRadius: "20px", 
+        <button onClick={() => {cart.map((item) => handleButtonCheckout(item))}} style={{marginLeft: "20px", marginTop: "15px", width: "90%", height: "45px", borderRadius: "20px", 
           backgroundColor: "#3665f3", color: "white", border: "none", fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif', 
           fontWeight: "bold", fontSize: "16px"
           }}>Go to checkout</button>
