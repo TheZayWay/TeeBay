@@ -33,6 +33,10 @@ export default function CreateTeeshirtForm() {
         validationErrors.push("Name must be less than 25 characters.");
       }     
 
+      if (!name.length) {
+        validationErrors.push("Please enter a name.")
+      }
+
       if (!color.length) {
         validationErrors.push("Please enter a color.")
       }

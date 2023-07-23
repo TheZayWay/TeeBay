@@ -29,8 +29,9 @@ export default function CartPage() {
       alert('Feature coming soon...');
     };
 
-    const handleButtonCheckout = () => {
-      alert('Your items are on the way!');
+    const handleButtonCheckout = (item) => {
+      history.push("/")
+      dispatch(removeFromCart(item))
     };
 
     const handleRemoveFromCart = (cartItem) => {
@@ -113,12 +114,12 @@ export default function CartPage() {
                     <div>New with tags</div>
                   </div>
                   <div>${info.price.toFixed(2) * info.cartQuantity}</div>
-                  <button onClick={() => handleRemoveFromCart(info)}>Remove</button>
-                  <button onClick={() => handleDecreaseCart(info)}>-</button>
+                  <button className="cart-remove-btn" onClick={() => handleRemoveFromCart(info)}>Remove</button>
+                  <button className="cart-operation-btn" onClick={() => handleDecreaseCart(info)}>-</button>
                   <div>{info.cartQuantity}</div>
-                  <button onClick={() => handleIncreaseCart(info)}>+</button>
+                  <button className="cart-operation-btn" onClick={() => handleIncreaseCart(info)}>+</button>
                 </div> 
-                <div>Free shipping on all orders placed on {date}</div>                
+                <div style={{marginTop: "20px"}}>Free shipping on all orders placed on {date}</div>                
               </div>           
               </>
             )         
@@ -130,7 +131,7 @@ export default function CartPage() {
       {/* checkout */}
 
       <div className='cart-checkout-container'>
-        <button onClick={handleButtonCheckout} style={{marginLeft: "20px", marginTop: "15px", width: "90%", height: "45px", borderRadius: "20px", 
+        <button onClick={() => {cart.map((item) => handleButtonCheckout(item))}} style={{marginLeft: "20px", marginTop: "15px", width: "90%", height: "45px", borderRadius: "20px", 
           backgroundColor: "#3665f3", color: "white", border: "none", fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif', 
           fontWeight: "bold", fontSize: "16px"
           }}>Go to checkout</button>

@@ -57,7 +57,7 @@ function SignupFormPage() {
       <div className="whole-signup-page">
         <div className="signup-form-container">
           <form style={{display: "flex", flexDirection: "column"}} onSubmit={handleSubmit}>
-            <ul>
+            <ul style={{color: "red"}}>
               {errors.map((error, idx) => <div key={idx}>{error}</div>)}
             </ul>
             <div className="signup-form-fullname">

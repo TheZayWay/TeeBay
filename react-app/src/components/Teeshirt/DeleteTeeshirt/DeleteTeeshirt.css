@@ -1,0 +1,10 @@
+.spot-delete-button {
+    border: none;
+    background-color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+.spot-delete-button:hover {
+    cursor: pointer;
+}
