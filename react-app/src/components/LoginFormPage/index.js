@@ -64,7 +64,7 @@ function LoginFormPage() {
               />
             </label>
             <button style={{backgroundColor: "#3665F3", color: "white", border: "none"}} className="login-form-btns" type="submit">Sign In</button>
-            <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginTop: "70px"}}
+            {/* <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginTop: "70px"}}
               className='login-form-btns'
               type='submit'
               onClick={() => {
@@ -72,11 +72,11 @@ function LoginFormPage() {
                 setPassword('password')
               }}>
               Sign in with Demo User 
-            </button>
+            </button> */}
           </form>
         </div>  
       </div>
-      <div style={{marginLeft: "460px"}}>
+      <div style={{marginLeft: "29rem", marginTop: "3.2rem"}}>
       <div className="login-or-line">
         <hr style={{width: "150px", border: "none", borderTop: "1px solid lightgray"}}></hr>
           <span style={{fontSize: "14px"}}>or</span>
@@ -84,11 +84,11 @@ function LoginFormPage() {
       </div>
       </div>
       <div className="other-login-form-btns-container">
-        {/* <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginTop: "70px",marginBottom: "20px"}} className="login-form-btns1">
+        <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginTop: "20px",marginBottom: "20px"}} className="login-form-btns1">
           <i className="fab fa-facebook-f"></i>
           <span style={{marginLeft: "20px"}}>Sign in with Facebook</span>
-        </button> */}
-        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px", marginTop: "60px"}} className="login-form-btns1">
+        </button>
+        <button style={{backgroundColor: "white", color: "#444", border: "1px solid grey", marginBottom: "20px"}} className="login-form-btns1">
           <i className="fab fa-google"></i>
           <span style={{marginLeft: "20px", marginRight: "20px"}}>Sign in with Google</span>
         </button> 
