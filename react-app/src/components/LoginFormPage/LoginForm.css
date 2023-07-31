@@ -53,8 +53,8 @@
 .login-or-line {
     display: flex;
     align-items: center;
-    margin-top: -300px;
-    margin-right: -100px;
+    margin-top: -19rem;
+    /* margin-right: -1rem; */
     width: 340px;
     margin-bottom: 20px;
 }
