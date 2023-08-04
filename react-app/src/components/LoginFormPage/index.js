@@ -76,7 +76,7 @@ function LoginFormPage() {
           </form>
         </div>  
       </div>
-      <div style={{marginLeft: "29rem", marginTop: "3.2rem"}}>
+      <div style={{marginLeft: "29rem", marginTop: "0.5rem"}}>
       <div className="login-or-line">
         <hr style={{width: "150px", border: "none", borderTop: "1px solid lightgray"}}></hr>
           <span style={{fontSize: "14px"}}>or</span>
