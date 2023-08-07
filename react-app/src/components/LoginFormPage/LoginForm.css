@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
-    height: 100vh;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
 }
 
@@ -53,10 +52,9 @@
 .login-or-line {
     display: flex;
     align-items: center;
-    margin-top: -19rem;
-    /* margin-right: -1rem; */
     width: 340px;
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 .other-login-form-btns-container {
