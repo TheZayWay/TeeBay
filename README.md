@@ -3,7 +3,7 @@
 ## Account Creation/Log In
 Users are able to create an account using Bcrypt to hash their passwords. Passwords aren't saved directly onto the website. Instead, we keep the password digests and use built in Bcrypt methods to check if the credentials are correct. 
 
-<img style="border: 1px solid black" width="500" alt="Screen Shot 2023-08-07 at 12 01 53 PM" src="https://github.com/TheZayWay/TeeBay2/assets/121142977/6b2da5be-2000-45c4-9ae5-6326e440072d">
+<img style="border: 1px solid black, width="500"" alt="Screen Shot 2023-08-07 at 12 01 53 PM" src="https://github.com/TheZayWay/TeeBay2/assets/121142977/6b2da5be-2000-45c4-9ae5-6326e440072d">
 
 
 
