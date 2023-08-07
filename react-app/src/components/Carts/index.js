@@ -138,10 +138,10 @@ export default function CartPage() {
         <div className='cart-item-price'>
           <div style={{fontFamily: '"Market Sans", Arial, sans-serif', fontWeight: 500}}>Price</div>
           <div style={{fontFamily: '"Market Sans", Arial, sans-serif'}}>${price.toFixed(2)}</div>
-        </div>
+        </div> 
         <div style={{fontFamily: '"Market Sans", Arial, sans-serif', fontSize: "15px", paddingLeft: "20px", marginTop: "10px"}}>Shipping 
           <i style={{paddingLeft: "10px"}} class="fas fa-info-circle"></i>
-          <span style={{fontFamily: '"Market Sans", Arial, sans-serif', fontSize: "15px", paddingLeft: "220px"}}>Free</span>
+          <span style={{fontFamily: '"Market Sans", Arial, sans-serif', fontSize: "15px", paddingLeft: "14rem"}}>Free</span>
         </div>
         <hr style={{width: "90%", marginTop: "15px"}} className='hr-home'></hr>
         <div style={{display: "flex", justifyContent: "space-between",
