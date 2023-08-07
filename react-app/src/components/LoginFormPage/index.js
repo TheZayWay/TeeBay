@@ -64,23 +64,14 @@ function LoginFormPage() {
               />
             </label>
             <button style={{backgroundColor: "#3665F3", color: "white", border: "none"}} className="login-form-btns" type="submit">Sign In</button>
-            {/* <button style={{backgroundColor: "#4267b2", color: "white", border: "none", marginTop: "70px"}}
-              className='login-form-btns'
-              type='submit'
-              onClick={() => {
-                setEmail('demo@aa.io');
-                setPassword('password')
-              }}>
-              Sign in with Demo User 
-            </button> */}
           </form>
         </div>  
       </div>
-      <div style={{marginLeft: "29rem", marginTop: "0.5rem"}}>
+      <div style={{display: "flex", justifyContent: "center"}}>
       <div className="login-or-line">
         <hr style={{width: "150px", border: "none", borderTop: "1px solid lightgray"}}></hr>
-          <span style={{fontSize: "14px"}}>or</span>
-          <hr style={{width: "150px", border: "none", borderTop: "1px solid lightgray"}}></hr>
+        <span style={{fontSize: "14px"}}>or</span>
+        <hr style={{width: "150px", border: "none", borderTop: "1px solid lightgray"}}></hr>
       </div>
       </div>
       <div className="other-login-form-btns-container">

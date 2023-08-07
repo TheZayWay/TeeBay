@@ -2,6 +2,7 @@
     display: flex;
     margin-top: -12px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 100%;
 }
 
 
@@ -10,11 +11,11 @@
 }
 
 .logged-out-header-split {
-    margin-left: 700px;
+    margin-left: auto;
 }
 
 .logged-in-header-split {
-    margin-left: 650px;
+    margin-left: auto;
 }
 
 .logged-out-signin {
