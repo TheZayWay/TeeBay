@@ -12,6 +12,8 @@ export default function LoggedIn() {
     const tees = teeshirts.tees.allTees;
     const user = teeshirts.session;
     const teesArr = Object.values(tees);
+    let brandObj = {};
+    
 
     useEffect(() => {
         dispatch(loadAllTeesThunk());
@@ -74,6 +76,23 @@ export default function LoggedIn() {
             <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
         </div>
         <hr style={{marginTop: "20px", marginBottom: "50px"}} className='hr-home'></hr>
+
+
+        {/* Working on getting brands to link to teeshirts of that brand */}
+
+
+        <div className='card-brand-container'>
+            {teesArr.map((teeshirt) =>  {
+                brandObj[teeshirt.brand] = teeshirt.brand
+            })}
+             {Object.values(brandObj).map((brand) => {
+            return (<h2><Link to={`/${"brand"}`}>{brand}</Link></h2>)
+             })}     
+        </div>
+      
+        
+       {/* Work in progress above */}
+
         <div className='card-container'>           
             {teesArr.map((teeshirt) => {
                     return (
