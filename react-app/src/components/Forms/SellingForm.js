@@ -1,3 +1,57 @@
+// import AWS from 'aws-sdk';
+// import React, { useState } from 'react';
+
+// AWS.config.update({
+//   region: 'us-west-1', // e.g., us-east-1
+//   credentials: new AWS.Credentials({
+//     accessKeyId: 'AKIAUZTEUV7WAEJ6VJOV',
+//     secretAccessKey: 'YrpT6chUfApuzOANbcVtHmMDR7IDPDIFfTU2nGhV',
+//   }),
+// });
+
+// const s3 = new AWS.S3();
+
+// // src/PhotoUpload.js
+
+// // import s3 from './awsConfig';
+
+// const PhotoUpload = () => {
+//   const [selectedFile, setSelectedFile] = useState(null);
+
+//   const handleFileChange = (event) => {
+//     setSelectedFile(event.target.files[0]);
+//   };
+
+//   const handleUpload = async () => {
+//     if (selectedFile) {
+//       const params = {
+//         Bucket: 'thezaywaybucket',
+//         Key: selectedFile.name,
+//         Body: selectedFile,
+//       };
+
+//       try {
+//         await s3.upload(params).promise();
+//         alert('Upload successful!');
+//       } catch (error) {
+//         console.error('Error uploading photo:', error);
+//       }
+//     } else {
+//       alert('Please select a file.');
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <input type="file" onChange={handleFileChange} />
+//       <button onClick={handleUpload}>Upload</button>
+//     </div>
+//   );
+// };
+
+// export default PhotoUpload;
+
+
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
@@ -171,5 +225,3 @@ export default function CreateTeeshirtForm() {
     </>
     )
 }
-
-

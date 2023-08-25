@@ -71,6 +71,21 @@
     height: 40px;
 }
 
+.searchbar-results-container {
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar-results {
+    background-color: whitesmoke;
+    width: 50%;
+    /* border: 1px solid black; */
+    border-radius: 5%;
+    padding-top: -5px;
+    
+
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;

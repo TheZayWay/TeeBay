@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadAllTeesThunk } from '../../../store/teeshirt';
 import { Link } from 'react-router-dom';
@@ -12,21 +12,22 @@ export default function LoggedIn() {
     const tees = teeshirts.tees.allTees;
     const user = teeshirts.session;
     const teesArr = Object.values(tees);
-    let brandObj = {};
-    
-
+    const [search, setSearch] = useState("");
+    // let brandObj = {};
+    const matchId = teesArr.filter((tee) => tee.name === search)[0]?.id;
+  
     useEffect(() => {
         dispatch(loadAllTeesThunk());
-    }, [dispatch])
+    }, [dispatch]);
 
     const handleLogout = (e) => {
         e.preventDefault();
         dispatch(logout());
       };
-
-      const handleButtonClick = () => {
-        alert('Feature coming soon...');
-      };
+   
+    const handleSearchClick = (value) => {
+        setSearch(value);
+    };  
 
     return (
         <>
@@ -58,7 +59,8 @@ export default function LoggedIn() {
             <p style={{fontSize: "15px"}}>Find your tee</p>
             <div className='searchbar-home'>
                 <div><i class="fas fa-search" style={{color: "grey", paddingLeft: "20px", paddingRight: "10px", fontSize: "15px"}}></i></div>
-                <input className='searchbar-mag-text' style={{paddingRight: "55%", border: "none", outline: "none", fontSize: "16px"}} placeholder="Search for any tee" />
+                <input onChange={(e) => setSearch(e.target.value)} className='searchbar-mag-text' style={{paddingRight: "55%", border: "none", outline: "none", fontSize: "16px"}} placeholder="Search for any tee" />
+                
                 <hr className='search-hr'></hr>
                 <div style={{fontSize: "12px"}}>
                     All Types
@@ -73,22 +75,40 @@ export default function LoggedIn() {
                     </select>
                 </div>
             </div>
-            <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
+            <button className='searchbar-button'>
+                {matchId ? <Link to={`/teeshirts/${matchId}`}>Search</Link> : <span>Search</span>}                
+            </button>
         </div>
         <hr style={{marginTop: "20px", marginBottom: "50px"}} className='hr-home'></hr>
+        <div className='searchbar-results-container'>
+            {search !== "" ? <div className='searchbar-results'>
+                {teesArr.filter((tee) => {
+                    if(search == null) return tee;
+                    else if (tee.name.toLowerCase().includes(search.toLowerCase())) return tee
+                }).map((tee) => {
+                    return (
+                        <>
+                            <h5 onClick={(e) => {handleSearchClick(tee.name)}}>{tee.name}</h5>
+                        </>
+                )})}
+            </div> : "" }
+        </div>
+        
 
+        
+        
 
         {/* Working on getting brands to link to teeshirts of that brand */}
 
 
-        <div className='card-brand-container'>
+        {/* <div className='card-brand-container'>
             {teesArr.map((teeshirt) =>  {
                 brandObj[teeshirt.brand] = teeshirt.brand
             })}
              {Object.values(brandObj).map((brand) => {
             return (<h2><Link to={`/${"brand"}`}>{brand}</Link></h2>)
              })}     
-        </div>
+        </div> */}
       
         
        {/* Work in progress above */}
