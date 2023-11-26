@@ -11,7 +11,7 @@ import SellerTeeshirts from "./components/Teeshirt/UserPage";
 import CreateTeeshirtForm from "./components/Forms/SellingForm";
 import UpdateListingForm from "./components/Forms/UpdateListing";
 import CartPage from "./components/Carts";
-import PhotoUpload from './components/Forms/SellingForm';
+import SearchPage from "./components/SearchPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,7 +36,6 @@ function App() {
           </Route>
           <Route exact path="/selling">
             <CreateTeeshirtForm />
-            {/* <PhotoUpload /> */}
           </Route>
           <Route exact path="/listings">
             <SellerTeeshirts />
@@ -50,8 +49,9 @@ function App() {
           <Route exact path="/teeshirts/:teeshirtId">
             <TeeshirtDetails />
           </Route>
-          
-          
+          <Route exact path="/search/:q">
+            <SearchPage />
+          </Route>
         </Switch>
       )}
     </>

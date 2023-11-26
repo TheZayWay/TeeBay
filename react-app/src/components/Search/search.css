@@ -1,0 +1,21 @@
+.search-bar-list-items {
+    background-color: white;
+    /* border: 1px solid #ccc;
+    border-top: none; */
+    max-height: 10rem; /* Set a maximum height for the dropdown */
+    overflow-y: auto; /* Enable scrolling if the list exceeds the maximum height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: underline;
+
+}
+
+.search-list-item {
+    padding: 2px;
+}
+
+.search-list-item:hover {
+    cursor: pointer;
+}
+

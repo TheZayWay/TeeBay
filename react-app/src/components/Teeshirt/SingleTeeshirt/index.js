@@ -4,6 +4,12 @@ import { loadTeeByIdThunk } from '../../../store/teeshirt';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../../../store/session";
 import { addToCart } from '../../../store/cart';
+import SearchBar from '../../Search';
+import SeeReviews from '../../Reviews';
+import Footer from '../../Footer';
+import PostReview from '../../PostReviews';
+import OpenModalButton from '../../OpenModalButton'
+import SeeReviewsLoggedOut from '../../Reviews/loggedOut';
 import './SingleTeeshirt.css'
 
 export default function TeeshirtDetails() {
@@ -14,34 +20,21 @@ export default function TeeshirtDetails() {
     const user = useSelector((state) => state.session.user);
     const teeshirt = teeshirtObj[teeshirtId];
     const seller = teeshirt?.User?.first_name;
-
+   
     const handleAddToCart = (teeshirt) => {
       dispatch(addToCart(teeshirt))
     }
 
     useEffect(() => {
         dispatch(loadTeeByIdThunk(teeshirtId));
-    }, [dispatch]);
+    }, [dispatch, teeshirtId]);
 
     const handleLogout = (e) => {
       e.preventDefault();
       dispatch(logout());
     };
 
-    const handleButtonClick = () => {
-      alert('Feature coming soon...');
-    };
-    
-    let handleBuying;
-
-    if (user?.id === teeshirt?.user_id) {
-       handleBuying = (e) => {
-        alert("You may not purchase your own shirt")
-      }
-    } 
-
     if (!teeshirt) {
-      // Display a loading message or placeholder while data is being fetched
       return <p>Loading...</p>;
     }
 
@@ -59,41 +52,13 @@ export default function TeeshirtDetails() {
           <div className='logged-in-header-split'>
             <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
             <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
-            <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
-            <Link to="/cart"><span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span></Link>
+            <span><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
+            <Link to="/cart"><span><i style={{paddingLeft: "20px"}} className="fas fa-shopping-cart"></i></span></Link>
             <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
           </div>
         </div>
         <hr style={{marginBottom: "20px"}} className='hr-home'></hr>
-        <div className='searchbar-home-container'>
-          <Link style={{fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} to="/">
-            <span style={{color: "#0064D2"}}>T</span>
-            <span style={{color: "#FDB900"}}>e</span>
-            <span style={{color: "#00B140"}}>e</span>
-            <span style={{color: "#E53238"}}>B</span>
-            <span style={{color: "#0064D2"}}>a</span>
-            <span style={{color: "#FDB900"}}>y</span>
-          </Link>
-          <p style={{fontSize: "15px"}}>Find your tee</p>
-          <div className='searchbar-home'>
-            <div><i class="fas fa-search" style={{color: "grey", paddingLeft: "20px", paddingRight: "10px", fontSize: "15px"}}></i></div>
-            <input className='searchbar-mag-text' style={{paddingRight: "55%", border: "none", outline: "none", fontSize: "16px"}} placeholder="Search for any tee" />
-            <hr className='search-hr'></hr>
-            <div style={{fontSize: "12px"}}>
-              All Types
-              <select style={{width: "25px", border: "none", outline: "none"}}>
-                <option></option>
-                <option>Short Sleeve</option>
-                <option>Long Sleeve</option>
-                <option>Button Short Sleeve</option>
-                <option>Button Long Sleeve</option>
-                <option>Thermal</option>
-                <option>Undershirt</option>
-              </select>
-            </div>
-          </div>
-          <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
-        </div>
+        <SearchBar />
         <hr style={{marginTop: "20px", marginBottom: "50px", border: "1px solid white"}} className='hr-home'></hr>
         </>
         ) :
@@ -108,49 +73,15 @@ export default function TeeshirtDetails() {
             <div className='logged-out-header-split'>
               <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/login">Sell</Link></span>
               <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/login">My TeeBay</Link></span>
-              <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
-              <span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span>
+              <span><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
+              <span><i style={{paddingLeft: "20px"}} className="fas fa-shopping-cart"></i></span>
             </div>
           </div>
         <hr style={{marginBottom: "20px"}} className='hr-home'></hr>
-        <div className='searchbar-home-container'>
-          <Link style={{fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} to="/">
-            <span style={{color: "#0064D2"}}>T</span>
-            <span style={{color: "#FDB900"}}>e</span>
-            <span style={{color: "#00B140"}}>e</span>
-            <span style={{color: "#E53238"}}>B</span>
-            <span style={{color: "#0064D2"}}>a</span>
-            <span style={{color: "#FDB900"}}>y</span>
-          </Link>
-          <p style={{fontSize: "15px"}}>Find your tee</p>
-          <div className='searchbar-home'>
-            <div><i class="fas fa-search" style={{color: "grey", paddingLeft: "20px", paddingRight: "10px", fontSize: "15px"}}></i></div>
-            <input className='searchbar-mag-text' style={{paddingRight: "55%", border: "none", outline: "none", fontSize: "16px"}} placeholder="Search for any tee" />
-            <hr className='search-hr'></hr>
-            <div style={{fontSize: "12px"}}>
-              All Types
-              <select style={{width: "25px", border: "none", outline: "none"}}>
-                <option>- Select -</option>
-                <option>Short Sleeve</option>
-                <option>Long Sleeve</option>
-                <option>Button Short Sleeve</option>
-                <option>Button Long Sleeve</option>
-                <option>Thermal</option>
-                <option>Undershirt</option>
-              </select>
-            </div>
-          </div>
-          <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
-        </div>
+          <SearchBar />
         <hr style={{marginTop: "20px", marginBottom: "30px", border: "1px solid white"}} className='hr-home'></hr>
         </>
         }
-        <div className='single-tee-post-header'>
-          <span><Link style={{textDecoration: "none", color: "#002398", fontSize: "12px"}} to="/">Back to home page </Link></span>
-          <span style={{fontSize: "12px"}}> | </span> 
-          <span style={{color: "0654BA", fontSize: "12px"}}>Listed in brand: {teeshirt?.brand}</span>
-        </div>
-      
         
         {/* BODY */}
 
@@ -163,7 +94,7 @@ export default function TeeshirtDetails() {
             <div className='single-tee-information-container'>
               <p style={{fontSize: "20px", fontWeight: "bold"}}>{teeshirt?.name}</p>
               <p style={{color: "grey", fontSize: "13px"}}>FREE SHIPPING and FREE RETURNS, 100% AUTHENTIC</p>
-              <p style={{color: "#dd1e31", fontFamily: "Open Sans", fontWeight: "bold"}}><i style={{color: "#dd1e31"}} class="fas fa-fire"></i> {Math.floor(Math.random() * 8) + 1} sold in the last hour</p>
+              <p style={{color: "#dd1e31", fontFamily: "Open Sans", fontWeight: "bold"}}><i style={{color: "#dd1e31"}} className="fas fa-fire"></i> {Math.floor(Math.random() * 8) + 1} sold in the last hour</p>
               <hr style={{border: "1px dotted lightgrey", width: "100%"}}></hr>              
             </div>
             <div className='single-tee-selection-container'>
@@ -229,14 +160,13 @@ export default function TeeshirtDetails() {
             <div className='single-tee-shop-w-con-container'>
               <p style={{paddingLeft: "10px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#333"}}>Shop with confidence</p>
               <p style={{paddingLeft: "10px", marginTop: "-5px",fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#333"}}>
-                <i style={{color: "blue"}}class="fas fa-shield-alt"></i>
+                <i style={{color: "blue"}}className="fas fa-shield-alt"></i>
                 <span style={{paddingLeft: "10px", fontSize: "15px"}}>TeeBay Money Back Guarantee</span>
               </p>
               <p style={{marginTop: "-10px", paddingLeft: "38px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#707070", fontSize: "14px"}}>
                 <p>Get the item you ordered</p>
                 <p style={{marginTop: "-15px"}}>or your money back.</p>
               </p>
-              {/* <p style={{marginTop: "-10px", paddingLeft: "38px", fontWeight: "400",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif", color: "#0654ba"}}>Learn more</p> */}
             </div>
             <div className='single-tee-seller-info-container'>
               <p style={{paddingLeft: "5px", fontWeight: "bold",fontFamily: "'Helvetica neue',Helvetica,Verdana,Sans-serif"}}>Seller information</p>
@@ -244,9 +174,9 @@ export default function TeeshirtDetails() {
               <p style={{paddingLeft: "5px", marginTop: "-10px", fontSize: "13px"}}>100% positive feedback</p>
               <hr style={{border: "1px dotted lightgrey", width: "95%"}}></hr>
               <p className='single-tee-seller-info2'>
-                <span class="fa-stack" style={{color: "#3665f3"}}>
-                  <i class="far fa-heart fa-stack-1x"></i>
-                  <i class="fas fa-heart fa-stack-1x" style={{color: "transparent"}}></i>
+                <span className="fa-stack" style={{color: "#3665f3"}}>
+                  <i className="far fa-heart fa-stack-1x"></i>
+                  <i className="fas fa-heart fa-stack-1x" style={{color: "transparent"}}></i>
                 </span> 
                 <span style={{color: "#3665f3", textDecoration: "underline"}}>Save seller</span>
               </p>
@@ -257,15 +187,16 @@ export default function TeeshirtDetails() {
           </div>
         </div>
         <hr style={{backgroundColor: "lightgray", border: "none", borderTop: "1px solid lightgray", marginTop: "30px", marginBottom: "30px"}}></hr>
-        <footer className="single-tee-footer-container">Copyright © 2023 TeeBay All Rights Reserved. 
-          <span className="single-tee-footer-span">Accessibility,</span>
-          <span className="single-tee-footer-span">User Agreement,</span>
-          <span className="single-tee-footer-span">Privacy,</span>
-          <span className="single-tee-footer-span">Payments</span>
-          <span className="single-tee-footer-span">Terms of Use,</span>
-          <span className="single-tee-footer-span">Cookies,</span>
-          <span className="single-tee-footer-span">Your Privacy Choices</span>
-        </footer>        
+        <div>
+      </div>
+        {
+          user ? <OpenModalButton
+          buttonText="Leave Feedback?"
+          modalComponent={<PostReview />}
+        /> : ""
+        }      
+        {user ? <SeeReviews /> : <SeeReviewsLoggedOut />}
+        <Footer />        
     </>
   )
 }

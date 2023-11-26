@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request, render_template, redirect
 from flask_login import current_user
-from app.models import db, Teeshirt, User
+from app.models import Teeshirt, User, db
 from app.forms.selling_form import SellingForm
 
 teeshirt_routes = Blueprint('teeshirt', __name__)

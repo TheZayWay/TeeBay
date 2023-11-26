@@ -3,11 +3,15 @@ import thunk from 'redux-thunk';
 import session from './session'
 import teeshirtReducer from './teeshirt'
 import cartReducer from './cart'
+import reviewReducer from './review';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
   session,
   tees: teeshirtReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  review: reviewReducer,
+  search: searchReducer
 });
 
 

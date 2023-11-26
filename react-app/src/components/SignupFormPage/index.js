@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import { signUp } from "../../store/session";
+import Footer from "../Footer";
 import './SignupForm.css';
 
 function SignupFormPage() {
@@ -133,16 +134,7 @@ function SignupFormPage() {
           </button>       
         </div>
       </div>
-      <hr style={{backgroundColor: "lightgray", border: "none", borderTop: "1px solid lightgray", marginTop: "-40px"}}></hr>
-      <footer className="signup-form-footer-container">Copyright © 2023 TeeBay All Rights Reserved. 
-        <span className="signup-form-footer-span">Accessibility,</span>
-        <span className="signup-form-footer-span">User Agreement,</span>
-        <span className="signup-form-footer-span">Privacy,</span>
-        <span className="signup-form-footer-span">Payments</span>
-        <span className="signup-form-footer-span">Terms of Use,</span>
-        <span className="signup-form-footer-span">Cookies,</span>
-        <span className="signup-form-footer-span">Your Privacy Choices</span>
-      </footer>
+      <Footer />
     </>
   );
 }

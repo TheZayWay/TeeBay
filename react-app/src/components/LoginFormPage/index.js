@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
+import Footer from '../Footer'
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import './LoginForm.css';
+
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -88,17 +90,7 @@ function LoginFormPage() {
           <span style={{marginLeft: "24px", marginRight: "26px"}}>Sign in with Apple</span>
         </button>         
       </div>
-      <hr style={{marginTop: "50px"}}></hr>
-      <footer className="login-form-footer-container">
-        Copyright © 2023 TeeBay All Rights Reserved. 
-        <span className="login-form-footer-span">Accessibility,</span>
-        <span className="login-form-footer-span">User Agreement,</span>
-        <span className="login-form-footer-span">Privacy,</span>
-        <span className="login-form-footer-span">Payments</span>
-        <span className="login-form-footer-span">Terms of Use,</span>
-        <span className="login-form-footer-span">Cookies,</span>
-        <span className="login-form-footer-span">Your Privacy Choices</span>
-      </footer>
+      <Footer />
     </>
   );
 }
