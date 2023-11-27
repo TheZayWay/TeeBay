@@ -13,18 +13,19 @@ def seed():
         # undo_seed_listings()
         # undo_seed_listing_users()
         # undo_seed_teeshirts()
+        undo_reviews()
         undo_seed_carts_teeshirts()
         # undo_seed_carts()      
         # undo_brands()
-        undo_reviews()
+        
         undo_users()
     # seed_users()
     
     # seed_carts()  
     seed_users()
-    seed_reviews()
     # seed_brands()
     seed_carts_teeshirts()
+    seed_reviews()
     # seed_listing_users()
     
 
@@ -33,10 +34,11 @@ def undo():
     # undo_seed_listings()
     # undo_seed_listing_users()
     # undo_seed_teeshirts()
+    undo_reviews()
     undo_seed_carts_teeshirts()
     # undo_seed_carts()
     # undo_brands()
-    undo_reviews()
+    
     undo_users()
     
   
