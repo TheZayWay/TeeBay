@@ -1,9 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-# from .brand import Brand
 from collections import OrderedDict
 
-
-    
 carts_teeshirts = db.Table(
     "carts_teeshirts",
     db.Column("carts_id", db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")), primary_key=True),
@@ -28,21 +25,17 @@ class Teeshirt(db.Model):
     price = db.Column(db.Integer)
     color = db.Column(db.String(20))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    # carts_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")))
-    # listings_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("carts.id")))
-    
-
+    # review_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("reviews.id")))
     carts = db.relationship(
         "Cart",
         secondary="carts_teeshirts",
         back_populates="teeshirts"
     )
-    # listings = db.relationship("Listing", back_populates="teeshirts")
-    # brands = db.relationship("Brand", back_populates="teeshirts")
+    
     users = db.relationship("User", back_populates="teeshirts")
+    reviews = db.relationship("Review", back_populates="teeshirts")
 
     def to_dict(self):
-        # brand_names = [brand.name for brand in self.brands]
         return {
             'id': self.id,
             'name': self.name,
@@ -57,7 +50,6 @@ class Teeshirt(db.Model):
                 'id': self.users.id,
                 'first_name': self.users.first_name
             }
-            # 'users':       
         }
     
     

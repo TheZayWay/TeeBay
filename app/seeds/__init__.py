@@ -1,9 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
-# from .brands import seed_brands, undo_brands
 from .carts import seed_carts_teeshirts, undo_seed_carts_teeshirts, undo_seed_carts
-# from .teeshirt import undo_seed_teeshirts
-# from .listings import undo_seed_listings
+from .reviews import seed_reviews, undo_reviews
 from app.models.db import db, environment, SCHEMA
 
 seed_commands = AppGroup('seed')
@@ -18,11 +16,13 @@ def seed():
         undo_seed_carts_teeshirts()
         # undo_seed_carts()      
         # undo_brands()
+        undo_reviews()
         undo_users()
     # seed_users()
     
     # seed_carts()  
     seed_users()
+    seed_reviews()
     # seed_brands()
     seed_carts_teeshirts()
     # seed_listing_users()
@@ -36,6 +36,7 @@ def undo():
     undo_seed_carts_teeshirts()
     # undo_seed_carts()
     # undo_brands()
+    undo_reviews()
     undo_users()
     
   

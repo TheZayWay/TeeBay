@@ -1,5 +1,7 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import SearchBar from '../Search';
+import Footer from '../Footer';
 import { logout } from "../../store/session";
 import './Carts.css'
 import { decreaseCart, removeFromCart, addToCart } from '../../store/cart';
@@ -25,12 +27,9 @@ export default function CartPage() {
       history.push("/")
     };
 
-    const handleButtonClick = () => {
-      alert('Feature coming soon...');
-    };
-
     const handleButtonCheckout = (item) => {
-      history.push("/")
+      history.push("/");
+      alert('Your order is on the way!');
       dispatch(removeFromCart(item))
     };
 
@@ -59,41 +58,13 @@ export default function CartPage() {
       <div className='logged-in-header-split'>
         <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
         <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
-        <span><i style={{paddingLeft: "20px"}} class="fas fa-bell"></i></span>
-        <Link to="/cart"><span><i style={{paddingLeft: "20px"}} class="fas fa-shopping-cart"></i></span></Link>
+        <span><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
+        <Link to="/cart"><span><i style={{paddingLeft: "20px"}} className="fas fa-shopping-cart"></i></span></Link>
         <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
       </div>
     </div>
     <hr style={{marginBottom: "20px"}} className='hr-home'></hr>
-    <div className='searchbar-home-container'>
-      <Link style={{fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} to="/">
-        <span style={{color: "#0064D2"}}>T</span>
-        <span style={{color: "#FDB900"}}>e</span>
-        <span style={{color: "#00B140"}}>e</span>
-        <span style={{color: "#E53238"}}>B</span>
-        <span style={{color: "#0064D2"}}>a</span>
-        <span style={{color: "#FDB900"}}>y</span>
-      </Link>
-      <p style={{fontSize: "15px"}}>Find your tee</p>
-      <div className='searchbar-home'>
-        <div><i class="fas fa-search" style={{color: "grey", paddingLeft: "20px", paddingRight: "10px", fontSize: "15px"}}></i></div>
-        <input className='searchbar-mag-text' style={{paddingRight: "55%", border: "none", outline: "none", fontSize: "16px"}} placeholder="Search for any tee" />
-        <hr className='search-hr'></hr>
-        <div style={{fontSize: "12px"}}>
-          All Types
-          <select style={{width: "25px", border: "none", outline: "none"}}>
-            <option></option>
-            <option>Short Sleeve</option>
-            <option>Long Sleeve</option>
-            <option>Button Short Sleeve</option>
-            <option>Button Long Sleeve</option>
-            <option>Thermal</option>
-            <option>Undershirt</option>
-          </select>
-        </div>
-      </div>
-      <button className='searchbar-button' onClick={handleButtonClick}>Search</button>
-    </div>
+    <SearchBar />
     <hr style={{marginTop: "20px", marginBottom: "50px", border: "1px solid white"}} className='hr-home'></hr>
     <h1 style={{marginTop: "-60px", marginBottom: "100px", fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif', fontWeight: 550}}>Shopping cart</h1>
    
@@ -134,13 +105,13 @@ export default function CartPage() {
         <button onClick={() => {cart.map((item) => handleButtonCheckout(item))}} style={{marginLeft: "20px", marginTop: "15px", width: "90%", height: "45px", borderRadius: "20px", 
           backgroundColor: "#3665f3", color: "white", border: "none", fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif', 
           fontWeight: "bold", fontSize: "16px"
-          }}>Go to checkout</button>
+          }} className='cart-checkout-btn'>Go to checkout</button>
         <div className='cart-item-price'>
           <div style={{fontFamily: '"Market Sans", Arial, sans-serif', fontWeight: 500}}>Price</div>
           <div style={{fontFamily: '"Market Sans", Arial, sans-serif'}}>${price.toFixed(2)}</div>
         </div> 
         <div style={{fontFamily: '"Market Sans", Arial, sans-serif', fontSize: "15px", paddingLeft: "20px", marginTop: "10px"}}>Shipping 
-          <i style={{paddingLeft: "10px"}} class="fas fa-info-circle"></i>
+          <i style={{paddingLeft: "10px"}} className="fas fa-info-circle"></i>
           <span style={{fontFamily: '"Market Sans", Arial, sans-serif', fontSize: "15px", paddingLeft: "14rem"}}>Free</span>
         </div>
         <hr style={{width: "90%", marginTop: "15px"}} className='hr-home'></hr>
@@ -150,16 +121,7 @@ export default function CartPage() {
         </div>
       </div>
     </div>    
-    <hr style={{backgroundColor: "lightgray", border: "none", borderTop: "1px solid lightgray", marginTop: "30px", marginBottom: "30px"}}></hr>
-        <footer className="single-tee-footer-container">Copyright © 2023 TeeBay All Rights Reserved. 
-          <span className="single-tee-footer-span">Accessibility,</span>
-          <span className="single-tee-footer-span">User Agreement,</span>
-          <span className="single-tee-footer-span">Privacy,</span>
-          <span className="single-tee-footer-span">Payments</span>
-          <span className="single-tee-footer-span">Terms of Use,</span>
-          <span className="single-tee-footer-span">Cookies,</span>
-          <span className="single-tee-footer-span">Your Privacy Choices</span>
-        </footer>    
+    <Footer /> 
     </>
   )
 }

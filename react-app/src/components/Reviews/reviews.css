@@ -1,0 +1,13 @@
+.see-reviews-review-container {
+    display: flex;
+    align-items: center; 
+    margin-top: -1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+}
+
+.reviews-user-profile {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

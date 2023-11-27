@@ -9,6 +9,7 @@ from .forms import SellingForm
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.teeshirt_routes import teeshirt_routes
+from .api.review_routes import review_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -31,11 +32,19 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(teeshirt_routes, url_prefix='/api/teeshirts')
+app.register_blueprint(review_routes, url_prefix='/api/reviews')
 db.init_app(app)
 Migrate(app, db)
 
 # Application Security
 CORS(app)
+
+#Search route
+@app.route("/api/search/<string:q>")
+def search_route(q):
+    results = Teeshirt.query.filter(Teeshirt.title.ilike(f'%{q}%')).all()
+    results_dicts = [result.to_dict() for result in results]
+    return results_dicts, 200
 
 #REMOVES FAVICON ERROR
 @app.route('/favicon.ico')

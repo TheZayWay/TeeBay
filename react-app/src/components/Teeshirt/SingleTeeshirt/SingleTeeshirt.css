@@ -95,7 +95,6 @@
     margin-bottom: 10px;
 }
 
-
 .single-tee-seller-info-container {
     border: 1px solid lightgrey;
     border-radius: 20px;
@@ -114,4 +113,9 @@
 
 .logout-btn123:hover {
     cursor: pointer
+}
+
+.leave-feedback-btn {
+    width: 1000px;
+    
 }

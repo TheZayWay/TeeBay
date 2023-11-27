@@ -1,0 +1,14 @@
+.delete-review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-review-btns {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-review-cancel-btn-container {
+    margin-top: -2rem;
+}
