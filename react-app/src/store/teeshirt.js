@@ -97,7 +97,7 @@ export const loadEditTeeThunk = (teeshirtId, teeshirt) => async (dispatch) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(teeshirt)
     });
-    console.log("res", response)
+    
     if (response.ok) {
         const updatedTeeshirt = await response.json();
         const newlyUpdatedTeeshirt = {...updatedTeeshirt}
