@@ -20,14 +20,17 @@ export default function SeeReviews() {
 
     return (
       <>
-        <h2>Reviews:</h2>    
+        {/* <h2 style={{textDecoration: "underline"}}>Reviews</h2>     */}
         <div>
           {allReviewsArr ? (
             allReviewsArr.map((review) => {
               if (review.teeshirt_id === teeshirtId) {
                 return (
-                  <>              
-                    <h3>{review.User.first_name}</h3>
+                  <>
+                    <div className='reviews-user-profile'>
+                      <i className="fas fa-user fa-2x"></i>             
+                      <h3 style={{fontSize: "16px", paddingLeft: "1rem", paddingTop: "0.5rem"}}>{review.User.first_name}</h3>
+                    </div>  
                     <div className='see-reviews-review-container'>
                       <h4 key={review.id}>{review.review}</h4>
                       { usersName === review.User.first_name ? 
