@@ -20,7 +20,6 @@ export default function SeeReviews() {
 
     return (
       <>
-        {/* <h2 style={{textDecoration: "underline"}}>Reviews</h2>     */}
         <div>
           {allReviewsArr ? (
             allReviewsArr.map((review) => {
