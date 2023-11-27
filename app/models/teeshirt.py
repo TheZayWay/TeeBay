@@ -33,7 +33,7 @@ class Teeshirt(db.Model):
     )
     
     users = db.relationship("User", back_populates="teeshirts")
-    reviews = db.relationship("Review", back_populates="teeshirts")
+    reviews = db.relationship("Review", back_populates="teeshirts", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
