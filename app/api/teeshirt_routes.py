@@ -12,7 +12,6 @@ teeshirt_routes = Blueprint('teeshirt', __name__)
 def get_all_teeshirts():
     teeshirts = Teeshirt.query.all()
     users = User.query.all()
-    print("USER", users)
     for teeshirt in teeshirts:
         return {'teeshirts' : [teeshirt.to_dict() for teeshirt in teeshirts]}
         # return new_teeshirt.to_dict()

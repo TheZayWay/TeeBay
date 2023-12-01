@@ -25,7 +25,7 @@ function LoginFormPage() {
 
   return (
     <>
-      <p style={{position: "absolute", top:0, right: 0, color: "#0654ba", fontSize:"14px", fontWeight: 300, fontFamily: '"Market Sans", Arial, sans-serif'}}>Tell us what you think</p>
+      <p className='deadlinks' style={{position: "absolute", top:0, right: 0, color: "#0654ba", fontSize:"14px", fontWeight: 300, fontFamily: '"Market Sans", Arial, sans-serif'}}>Tell us what you think</p>
       <Link style={{paddingLeft: "20px", fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} to="/">
           <span style={{color: "#0064D2"}}>T</span>
           <span style={{color: "#FDB900"}}>e</span>
@@ -66,6 +66,14 @@ function LoginFormPage() {
               />
             </label>
             <button style={{backgroundColor: "#3665F3", color: "white", border: "none"}} className="login-form-btns" type="submit">Sign In</button>
+            <button 
+              style={{marginTop: "1.2rem",backgroundColor: "#3665F3", color: "white", border: "none"}} 
+              className="login-form-btns" type="submit"
+              onClick={() => {
+                setEmail('demo@aa.io');
+                setPassword('password')
+              }}>
+                Demo User</button>
           </form>
         </div>  
       </div>

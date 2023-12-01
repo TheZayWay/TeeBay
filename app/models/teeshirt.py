@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from collections import OrderedDict
+from pprint import pprint 
 
 carts_teeshirts = db.Table(
     "carts_teeshirts",
@@ -51,5 +52,5 @@ class Teeshirt(db.Model):
                 'first_name': self.users.first_name
             }
         }
-    
-    
+
+

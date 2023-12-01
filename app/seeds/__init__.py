@@ -13,7 +13,7 @@ def seed():
         # undo_seed_listings()
         # undo_seed_listing_users()
         # undo_seed_teeshirts()
-        undo_reviews()
+        undo_reviews() 
         undo_seed_carts_teeshirts()
         # undo_seed_carts()      
         # undo_brands()

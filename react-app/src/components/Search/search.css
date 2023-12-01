@@ -11,6 +11,14 @@
 
 }
 
+#form-container {
+    width: 60%;
+}
+
+.search-bar-container {
+    width: 100%;
+}
+
 .search-list-item {
     padding: 2px;
 }
@@ -18,4 +26,5 @@
 .search-list-item:hover {
     cursor: pointer;
 }
+
 

@@ -12,6 +12,7 @@ import CreateTeeshirtForm from "./components/Forms/SellingForm";
 import UpdateListingForm from "./components/Forms/UpdateListing";
 import CartPage from "./components/Carts";
 import SearchPage from "./components/SearchPage";
+import NoResults from "./components/SearchPage/NoResults";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route exact path="/cart">
             <CartPage />
+          </Route>
+          <Route exact path="/search">
+            <NoResults />
           </Route>
           <Route exact path={`/teeshirts/:teeshirtId/update`}>
             <UpdateListingForm />

@@ -20,15 +20,15 @@ export default function LoggedOut() {
             <div className='logged-out-header'>
                 <div className='logged-out-header-presplit'>
                     <span style={{paddingLeft: "0px", fontSize: "12px"}} className='logged-out-signin-sentence'>Hi (<Link to='/login' className='logged-out-signin'>Sign in</Link>)</span>
-                    <span style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
-                    <span style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
-                    <span style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
+                    <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
+                    <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
+                    <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
                 </div>            
                 <div className='logged-out-header-split'>
                     <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/login">Sell</Link></span>
                     <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/login">My TeeBay</Link></span>
-                    <span><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
-                    <span><i style={{paddingLeft: "20px"}} className="fas fa-shopping-cart"></i></span>
+                    <span className='deadlinks'><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
+                    <Link to='/login'><span><i style={{paddingLeft: "20px"}} className="fas fa-shopping-cart"></i></span></Link>
                 </div>
             </div>
             <hr style={{marginBottom: "20px"}} className='hr-home'></hr>

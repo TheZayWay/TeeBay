@@ -33,6 +33,7 @@ const SearchBar = () => {
       .then(() => setSearchInput(''))
   }
 
+
   return (
   <>
   {/* search row */}
@@ -49,11 +50,11 @@ const SearchBar = () => {
       <div id="form-container">
         <form onSubmit={handleSearch}>
           <div className='search-bar-container'>
-            <input style={{border: "2px solid black", width: "43rem", height: "36px"}} className='search-bar' type='text' placeholder="Search for any tee" value={searchInput} onChange={e => setSearchInput(e.target.value)}/>
+            <input style={{border: "2px solid black", width: "100%", height: "36px"}} className='search-bar' type='text' placeholder="Search for any tee" value={searchInput} onChange={e => setSearchInput(e.target.value)}/>
           </div>
         </form>
       </div>
-      <button className='searchbar-button'>Search</button>
+      <button onClick={handleSearch} className='searchbar-button'>Search</button>
     </div>
 {/* search results */}
     <div id="search-results">

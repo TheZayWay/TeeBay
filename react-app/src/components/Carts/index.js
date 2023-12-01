@@ -51,14 +51,14 @@ export default function CartPage() {
       <div className='logged-out-header'>
       <div className='logged-out-header-presplit'>
         <span style={{paddingLeft: "0px", fontSize: "12px"}} className='logged-out-signin-sentence'>Hi <Link style={{fontWeight: "bold", color: "black", textDecoration: "none"}} to='/listings' className='logged-out-signin'>{user.first_name}</Link>!</span>
-        <span style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
-        <span style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
-        <span style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
+        <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
+        <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
+        <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
       </div>            
       <div className='logged-in-header-split'>
         <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
         <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
-        <span><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
+        <span className='deadlinks'><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
         <Link to="/cart"><span><i style={{paddingLeft: "20px"}} className="fas fa-shopping-cart"></i></span></Link>
         <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
       </div>
@@ -120,7 +120,8 @@ export default function CartPage() {
           <span style={{marginLeft: "5%", fontSize: "1.25rem"}}>Subtotal</span><span style={{marginRight: "5%"}}>${price.toFixed(2)}</span> 
         </div>
       </div>
-    </div>    
+    </div> 
+    <div style={{marginTop: "4rem"}}></div>   
     <Footer /> 
     </>
   )
