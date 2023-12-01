@@ -49,7 +49,7 @@ const SearchBar = () => {
       <div id="form-container">
         <form onSubmit={handleSearch}>
           <div className='search-bar-container'>
-            <input style={{border: "2px solid black", width: "43rem", height: "36px"}} className='search-bar' type='text' placeholder="Search for any tee" value={searchInput} onChange={e => setSearchInput(e.target.value)}/>
+            <input style={{border: "2px solid black", width: "100%", height: "36px"}} className='search-bar' type='text' placeholder="Search for any tee" value={searchInput} onChange={e => setSearchInput(e.target.value)}/>
           </div>
         </form>
       </div>

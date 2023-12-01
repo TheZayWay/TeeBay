@@ -13,6 +13,7 @@ from .api.review_routes import review_routes
 from .seeds import seed_commands
 from .config import Config
 
+
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
 # Setup login manager
@@ -35,6 +36,7 @@ app.register_blueprint(teeshirt_routes, url_prefix='/api/teeshirts')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 db.init_app(app)
 Migrate(app, db)
+
 
 # Application Security
 CORS(app)
