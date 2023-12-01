@@ -45,14 +45,14 @@ export default function TeeshirtDetails() {
         <div className='logged-out-header'>
           <div className='logged-out-header-presplit'>
             <span style={{paddingLeft: "0px", fontSize: "12px"}} className='logged-out-signin-sentence'>Hi <Link style={{fontWeight: "bold", color: "black", textDecoration: "none"}} to='/listings' className='logged-out-signin'>{user.first_name}</Link>!</span>
-            <span style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
-            <span style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
-            <span style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
+            <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
+            <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
+            <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
           </div>            
           <div className='logged-in-header-split'>
             <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/selling">Sell</Link></span>
             <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/listings">My TeeBay</Link></span>
-            <span><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
+            <span className='deadlinks'><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
             <Link to="/cart"><span><i style={{paddingLeft: "20px"}} className="fas fa-shopping-cart"></i></span></Link>
             <button style={{border: "none", backgroundColor: "transparent", paddingLeft: "20px", fontSize: "12px"}} onClick={handleLogout} className='logout-btn123'>Log Out</button>
           </div>
@@ -66,15 +66,15 @@ export default function TeeshirtDetails() {
           <div className='logged-out-header'>
             <div className='logged-out-header-presplit'>
               <span style={{paddingLeft: "0px", fontSize: "12px"}} className='logged-out-signin-sentence'>Hi (<Link to='/login' className='logged-out-signin'>Sign in</Link>)</span>
-              <span style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
-              <span style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
-              <span style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
+              <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Daily deals</span>
+              <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Brand Outlet</span>
+              <span className='deadlinks' style={{paddingLeft: "20px", fontSize: "12px"}}>Help & Contact</span>
             </div>            
             <div className='logged-out-header-split'>
               <span style={{fontSize: "12px"}}><Link style={{color: "black", textDecoration: "none"}} to="/login">Sell</Link></span>
               <span style={{fontSize: "12px", paddingLeft: "20px"}}><Link style={{color: "black", textDecoration: "none"}} to="/login">My TeeBay</Link></span>
-              <span><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
-              <span><i style={{paddingLeft: "20px"}} className="fas fa-shopping-cart"></i></span>
+              <span className='deadlinks'><i style={{paddingLeft: "20px"}} className="fas fa-bell"></i></span>
+              <Link to='/login'><span><i style={{paddingLeft: "20px"}} className="fas fa-shopping-cart"></i></span></Link>
             </div>
           </div>
         <hr style={{marginBottom: "20px"}} className='hr-home'></hr>
@@ -178,11 +178,11 @@ export default function TeeshirtDetails() {
                   <i className="far fa-heart fa-stack-1x"></i>
                   <i className="fas fa-heart fa-stack-1x" style={{color: "transparent"}}></i>
                 </span> 
-                <span style={{color: "#3665f3", textDecoration: "underline"}}>Save seller</span>
+                <span className='deadlinks' style={{color: "#3665f3", textDecoration: "underline"}}>Save seller</span>
               </p>
-              <p style={{marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info2'>Contact seller</p>
-              <p style={{marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info2'>Visit store</p>
-              <p style={{marginBottom: "20px", marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info2'>See other items</p>
+              <p style={{marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info3'>Contact seller</p>
+              <p style={{marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info3'>Visit store</p>
+              <p style={{marginBottom: "20px", marginTop: "-15px", paddingLeft: "5px", color: "#3665f3", textDecoration: "underline"}} className='single-tee-seller-info3'>See other items</p>
             </div>
           </div>
         </div>

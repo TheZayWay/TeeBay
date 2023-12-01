@@ -93,27 +93,9 @@
     cursor: pointer;
 }
 
-/* .searchbar-results-container {
-    display: flex;
-    justify-content: center;
+.deadlinks:hover {
+    cursor: not-allowed;
 }
-
-.searchbar-results {
-    background-color: whitesmoke;
-    width: 50%;
-    border-radius: 5%;
-    padding-top: -5px;
-    
-
-} */
-/* .search-hr {
-    height: 100%;
-    margin-right: 10px;
-    border: none;
-    border-left: 1px solid grey;
-} */
-
-
 
 
 

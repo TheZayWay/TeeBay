@@ -25,7 +25,7 @@ function LoginFormPage() {
 
   return (
     <>
-      <p style={{position: "absolute", top:0, right: 0, color: "#0654ba", fontSize:"14px", fontWeight: 300, fontFamily: '"Market Sans", Arial, sans-serif'}}>Tell us what you think</p>
+      <p className='deadlinks' style={{position: "absolute", top:0, right: 0, color: "#0654ba", fontSize:"14px", fontWeight: 300, fontFamily: '"Market Sans", Arial, sans-serif'}}>Tell us what you think</p>
       <Link style={{paddingLeft: "20px", fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} to="/">
           <span style={{color: "#0064D2"}}>T</span>
           <span style={{color: "#FDB900"}}>e</span>

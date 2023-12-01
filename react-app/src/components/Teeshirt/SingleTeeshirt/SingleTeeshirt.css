@@ -102,6 +102,9 @@
     padding-right: 5px;
 }
 
+.single-tee-seller-info3:hover {
+    cursor: not-allowed;
+}
 
 .single-tee-footer-container {
     display: flex;
