@@ -33,6 +33,7 @@ const SearchBar = () => {
       .then(() => setSearchInput(''))
   }
 
+
   return (
   <>
   {/* search row */}
@@ -53,7 +54,7 @@ const SearchBar = () => {
           </div>
         </form>
       </div>
-      <button className='searchbar-button'>Search</button>
+      <button onClick={handleSearch} className='searchbar-button'>Search</button>
     </div>
 {/* search results */}
     <div id="search-results">

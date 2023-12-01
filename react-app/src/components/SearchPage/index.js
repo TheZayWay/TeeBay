@@ -44,7 +44,15 @@ const SearchPage = () => {
          </div>
      </div>
      <hr style={{marginBottom: "20px"}} className='hr-home'></hr>
-     <SearchBar />
+     <Link style={{fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} className="selling-form-logo" to="/">
+        <span style={{color: "#0064D2"}}>T</span>
+        <span style={{color: "#FDB900"}}>e</span>
+        <span style={{color: "#00B140"}}>e</span>
+        <span style={{color: "#E53238"}}>B</span>
+        <span style={{color: "#0064D2"}}>a</span>
+        <span style={{color: "#FDB900"}}>y</span>
+      </Link>
+      <hr style={{border: "none", borderTop: "1px solid lightgray"}}></hr>
      
  
      <div className='card-container'>           
@@ -82,7 +90,15 @@ const SearchPage = () => {
         </div>
     </div>
     <hr style={{marginBottom: "20px"}} className='hr-home'></hr>
-    <SearchBar />
+    <Link style={{fontFamily: "Roboto, 'Courier New', monospace", textDecoration: "none", fontWeight: "bold", fontSize: "36px"}} className="selling-form-logo" to="/">
+        <span style={{color: "#0064D2"}}>T</span>
+        <span style={{color: "#FDB900"}}>e</span>
+        <span style={{color: "#00B140"}}>e</span>
+        <span style={{color: "#E53238"}}>B</span>
+        <span style={{color: "#0064D2"}}>a</span>
+        <span style={{color: "#FDB900"}}>y</span>
+      </Link>
+      <hr style={{border: "none", borderTop: "1px solid lightgray"}}></hr>
     
 
     <div className='card-container'>           

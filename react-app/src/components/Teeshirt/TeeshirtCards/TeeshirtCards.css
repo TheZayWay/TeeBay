@@ -59,6 +59,10 @@
     height: 40px;
 }
 
+.searchbar-button:hover {
+    cursor: pointer;
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
