@@ -66,6 +66,14 @@ function LoginFormPage() {
               />
             </label>
             <button style={{backgroundColor: "#3665F3", color: "white", border: "none"}} className="login-form-btns" type="submit">Sign In</button>
+            <button 
+              style={{marginTop: "1.2rem",backgroundColor: "#3665F3", color: "white", border: "none"}} 
+              className="login-form-btns" type="submit"
+              onClick={() => {
+                setEmail('demo@aa.io');
+                setPassword('password')
+              }}>
+                Demo User</button>
           </form>
         </div>  
       </div>
