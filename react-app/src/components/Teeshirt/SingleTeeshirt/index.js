@@ -87,7 +87,7 @@ export default function TeeshirtDetails() {
 
         <div className='single-tee'>
           <div className='single-tee-image-container'>
-            <img className='single-tee-image' src={teeshirt?.image_url} alt="preview" onError={e => e.currentTarget.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-EVNan6uv0pIUNhN3H1m4O-OmHyaQ93pgw&usqp=CAU"} />
+            <img className='single-tee-image' src={teeshirt?.image_url} alt="preview" onError={e => e.currentTarget.src="https://images.stockx.com/images/Balenciaga-Womens-Maison-Balenciaga-Medium-Fit-T-Shirt-Black-Orange-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1642709552"} />
             <hr style={{marginTop: "30px", border: "1px dotted lightgrey", width: "100%"}}></hr>
           </div>
           <div className='single-tee-middle-container'>
