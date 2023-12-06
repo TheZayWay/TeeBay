@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, session, request, render_template, redirec
 from flask_login import current_user
 from app.models import Teeshirt, User, db
 from app.forms.selling_form import SellingForm
-
+from pprint import pprint
 teeshirt_routes = Blueprint('teeshirt', __name__)
 
 # GET ROUTES 
@@ -15,6 +15,7 @@ def get_all_teeshirts():
     for teeshirt in teeshirts:
         return {'teeshirts' : [teeshirt.to_dict() for teeshirt in teeshirts]}
         # return new_teeshirt.to_dict()
+
 
 #Get a specific teeshirt 
 @teeshirt_routes.route('/<int:id>', methods=['GET'])
