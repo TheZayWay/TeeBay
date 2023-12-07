@@ -80,7 +80,7 @@ export default function CartPage() {
               <div className='cart-card-subcontainer'> 
                 <div>Seller <span style={{textDecoration: "underline"}}>{info.User.first_name}</span></div>
                 <div className='cart-row-2'>
-                  <img src={info.image_url} className='cart-image' alt="preview" onError={e => e.currentTarget.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-EVNan6uv0pIUNhN3H1m4O-OmHyaQ93pgw&usqp=CAU"}/>
+                  <img src={info.image_url} className='cart-image' alt="preview" onError={e => e.currentTarget.src="https://images.stockx.com/images/Balenciaga-Womens-Maison-Balenciaga-Medium-Fit-T-Shirt-Black-Orange-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1642709552"}/>
                   <div className='cart-row-2-sub'>
                     <div>{info.name}</div>
                     <div>{info.color}</div>
