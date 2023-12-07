@@ -41,7 +41,7 @@ export default function LoggedOut() {
                             <div className='card' key={teeshirt.id}>
                                 <div className='front-page-images-container'>
                                     <Link to={`/teeshirts/${teeshirt.id}`}>
-                                        <img src={teeshirt.image_url} alt='Teeshirt Preview' className='front-page-images' onError={e => e.currentTarget.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-EVNan6uv0pIUNhN3H1m4O-OmHyaQ93pgw&usqp=CAU"}/>
+                                        <img src={teeshirt.image_url} alt='Teeshirt Preview' className='front-page-images' onError={e => e.currentTarget.src="https://images.stockx.com/images/Balenciaga-Womens-Maison-Balenciaga-Medium-Fit-T-Shirt-Black-Orange-White.jpg?fit=fill&bg=FFFFFF&w=700&h=500&fm=webp&auto=compress&q=90&dpr=2&trim=color&updated_at=1642709552"}/>
                                     </Link>
                                 </div>
                                 <Link className='homepage-price' to={`/teeshirts/${teeshirt.id}`}>
