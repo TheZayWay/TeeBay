@@ -1,5 +1,7 @@
 # TeeBay
 
+## Introduction
+
 
 ## Account Creation/Log In
 Users are able to create an account using Bcrypt to hash their passwords. Passwords aren't saved directly onto the website. Instead, we keep the password digests and use built in Bcrypt methods to check if the credentials are correct. 
@@ -7,11 +9,8 @@ Users are able to create an account using Bcrypt to hash their passwords. Passwo
 <img width="500" alt="Screen Shot 2023-08-07 at 12 01 53 PM" src="https://github.com/TheZayWay/TeeBay2/assets/121142977/6b2da5be-2000-45c4-9ae5-6326e440072d">
 
 
-
-This is the starter for the TeeBay project.
-
-## Running TeeBay Locally
-1. Clone this repository (only this branch)
+<details>
+  <summary>1. Clone this repository (only this branch)
 
 2. Install dependencies
 
@@ -45,6 +44,12 @@ This is the starter for the TeeBay project.
 
    ```bash
    flask run
-   ```
+   ```</summary>
+  
+  This is the content that will be hidden initially but visible when the user clicks the summary.
+  
+</details>
+## Running TeeBay
+
 
 
