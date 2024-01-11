@@ -10,45 +10,47 @@ Users are able to create an account using Bcrypt to hash their passwords. Passwo
 
 
 <details>
-  <summary>
-    <div>
-      1. Clone this repository (only this branch)
+  <summary>Click to expand instructions</summary>
 
-2. Install dependencies
+  ## Getting Started
+
+  1. **Clone this repository (only this branch):**
+
+      ```bash
+      git clone -b branch_name [https://github.com/TheZayWay/TeeBay2.git]
+      cd TeeBay
+      ```
+
+  2. **Install dependencies:**
 
       ```bash
       pipenv install -r requirements.txt
       ```
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
+  3. **Create a `.env` file:**
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file
+      Create a **.env** file based on the example with proper settings for your development environment. Make sure the SQLite3 database connection URL is in the **.env** file.
 
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
+  4. **Configure the Database Schema:**
 
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
+      This starter organizes all tables inside the `flask_schema` schema, defined by the `SCHEMA` environment variable. Replace the value for `SCHEMA` with a unique name, **making sure you use the snake_case convention**.
 
-   ```bash
-   pipenv shell
-   ```
+  5. **Migrate and Seed the Database, Run the Flask App:**
 
-   ```bash
-   flask db upgrade
-   ```
+      ```bash
+      # Activate virtual environment
+      pipenv shell
 
-   ```bash
-   flask seed all
-   ```
+      # Migrate your database
+      flask db upgrade
 
-   ```bash
-   flask run
-   ```
-    </div>
-   </summary>
+      # Seed your database
+      flask seed all
+
+      # Run your Flask app
+      flask run
+      ```
+
 </details>
 ## Running TeeBay
 
