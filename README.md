@@ -1,10 +1,11 @@
 # TeeBay
 
-### Introduction
+
+## Introduction
 
 TeeBay is a full-stack e-commerce platform designed exclusively for teeshirt enthusiast. Explore our extensive collection of high-quality merchandise, showcasing a diverse range of teeshirts from around the globe. TeeBay is not just a marketplace; it's a vibrant community where you can find inspiration, explore various teeshirts, and elevate your teeshirt swag.
 
-#### Getting Started
+### Getting Started
 
 1. **Explore TeeBay:**
    - Visit [TeeBay](https://teebay2.onrender.com/) to explore our comprehensive collection of teeshirts.
@@ -19,13 +20,15 @@ TeeBay is a full-stack e-commerce platform designed exclusively for teeshirt ent
 <details open>
   <summary>Features</summary>
   
+   
    [MVP Feature List](https://github.com/TheZayWay/TeeBay2/wiki/MVP-Feature-List)
 </details>
 
 ## Development
 <details open>
   <summary>Running TeeBay</summary>
-  1. **Clone this repository (only this branch):**
+  
+   1. **Clone this repository (only this branch):**
 
       ```bash
       git clone -b branch_name https://github.com/TheZayWay/TeeBay2.git
