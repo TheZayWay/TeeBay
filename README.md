@@ -1,4 +1,4 @@
-# Welcome to TeeBay - Your Premier E-Commerce Destination for Teeshirt Lovers
+# TeeBay
 
 ## Introduction
 
