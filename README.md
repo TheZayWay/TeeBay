@@ -3,11 +3,6 @@
 ## Introduction
 
 
-## Account Creation/Log In
-Users are able to create an account using Bcrypt to hash their passwords. Passwords aren't saved directly onto the website. Instead, we keep the password digests and use built in Bcrypt methods to check if the credentials are correct. 
-
-<img width="500" alt="Screen Shot 2023-08-07 at 12 01 53 PM" src="https://github.com/TheZayWay/TeeBay2/assets/121142977/6b2da5be-2000-45c4-9ae5-6326e440072d">
-
 
 <details>
   <summary>Running TeeBay</summary>
@@ -17,7 +12,7 @@ Users are able to create an account using Bcrypt to hash their passwords. Passwo
   1. **Clone this repository (only this branch):**
 
       ```bash
-      git clone -b branch_name `https://github.com/TheZayWay/TeeBay2.git`
+      git clone -b branch_name **https://github.com/TheZayWay/TeeBay2.git**
       cd TeeBay
       ```
 
@@ -52,7 +47,3 @@ Users are able to create an account using Bcrypt to hash their passwords. Passwo
       ```
 
 </details>
-## Running TeeBay
-
-
-
