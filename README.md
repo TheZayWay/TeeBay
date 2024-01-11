@@ -12,7 +12,7 @@
   1. **Clone this repository (only this branch):**
 
       ```bash
-      git clone -b branch_name 'https://github.com/TheZayWay/TeeBay2.git'
+      git clone -b branch_name https://github.com/TheZayWay/TeeBay2.git
       cd TeeBay
       ```
 
