@@ -3,6 +3,11 @@
 ## Introduction
 
 
+<details open>
+  <summary>Features</summary>
+  
+</details>
+
 
 <details open>
   <summary>Running TeeBay</summary>
