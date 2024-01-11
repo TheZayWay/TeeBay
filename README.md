@@ -11,7 +11,8 @@ Users are able to create an account using Bcrypt to hash their passwords. Passwo
 
 <details>
   <summary>
-    1. Clone this repository (only this branch)
+    <div>
+      1. Clone this repository (only this branch)
 
 2. Install dependencies
 
@@ -46,6 +47,7 @@ Users are able to create an account using Bcrypt to hash their passwords. Passwo
    ```bash
    flask run
    ```
+    </div>
    </summary>
 </details>
 ## Running TeeBay
