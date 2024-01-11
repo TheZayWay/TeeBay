@@ -10,7 +10,7 @@ Users are able to create an account using Bcrypt to hash their passwords. Passwo
 
 
 <details>
-  <summary>Click to expand instructions</summary>
+  <summary>Running TeeBay</summary>
 
   ## Getting Started
 
