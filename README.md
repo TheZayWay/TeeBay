@@ -18,7 +18,7 @@ TeeBay is a full-stack e-commerce platform designed exclusively for teeshirt ent
 
 <details open>
   <summary>Features</summary>
-  
+  [MVP Feature List](https://github.com/TheZayWay/TeeBay2/wiki/MVP-Feature-List)
 </details>
 
 ## Development
