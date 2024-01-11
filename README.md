@@ -1,6 +1,6 @@
 # TeeBay
 
-<img width="1280" alt="Screen Shot 2024-01-11 at 11 52 29 AM" src="https://github.com/TheZayWay/TeeBay2/assets/121142977/5028eabc-60c7-4e9c-bb0d-49797e1c9d3a">
+<img height="500" width="1000" alt="Screen Shot 2024-01-11 at 11 52 29 AM" src="https://github.com/TheZayWay/TeeBay2/assets/121142977/5028eabc-60c7-4e9c-bb0d-49797e1c9d3a">
 
 
 ## Introduction
