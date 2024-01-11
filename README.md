@@ -1,4 +1,4 @@
-# TeeBay Project
+# <div>TeeBay Project</div>
 
 ## Account Creation/Log In
 Users are able to create an account using Bcrypt to hash their passwords. Passwords aren't saved directly onto the website. Instead, we keep the password digests and use built in Bcrypt methods to check if the credentials are correct. 
