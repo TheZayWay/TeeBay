@@ -12,8 +12,6 @@
 <details open>
   <summary>Running TeeBay</summary>
 
-  ## Getting Started
-
   1. **Clone this repository (only this branch):**
 
       ```bash
